@@ -1,0 +1,16 @@
+.header {
+  line-height: 4rem;
+  background-color: $darkest;
+  font-family: "Josefin Sans";
+  color: $text-light;
+
+  &__title {
+    font-size: ms(2);
+  }
+
+  &__link {
+    text-decoration: none;
+    color: inherit;
+    padding: 0 1rem;
+  }
+}

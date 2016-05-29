@@ -1,0 +1,38 @@
+{
+  "name": "raging-goblin",
+  "version": "0.0.1",
+  "description": "Small and irate",
+  "main": "app/entry.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "rimraf ./public/* && webpack-dev-server --inline"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/adamfitzpatrick/raging-goblin.git"
+  },
+  "author": "Adam Fitzpatrick",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamfitzpatrick/raging-goblin/issues"
+  },
+  "homepage": "https://github.com/adamfitzpatrick/raging-goblin#readme",
+  "devDependencies": {
+    "angular-route": "^1.5.5",
+    "css-loader": "^0.23.1",
+    "handlebars": "^4.0.5",
+    "handlebars-loader": "^1.3.0",
+    "html-loader": "^0.4.3",
+    "html-webpack-plugin": "^2.17.0",
+    "ngtemplate-loader": "^1.3.1",
+    "node-sass": "^3.7.0",
+    "normalize-css": "^2.3.1",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.1",
+    "ts-loader": "^0.8.2",
+    "typescript": "^1.8.10",
+    "typings": "^1.0.4",
+    "webpack": "^1.13.1",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
