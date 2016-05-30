@@ -17,7 +17,8 @@ module.exports = {
             { test: /\.hbs$/, loader: "handlebars" },
             { test: /\.html$/, loader: "ngTemplate?relativeTo=app/!html" },
             { test: /\.scss$/, loader: "style!css!sass!" },
-            { test: /\.css$/, loader: "style!css!" }
+            { test: /\.css$/, loader: "style!css!" },
+            { test: /\.(ttf|eot|svg)\?[0-9]*$/, loader: "file-loader" }
         ]
     },
     resolve: {
