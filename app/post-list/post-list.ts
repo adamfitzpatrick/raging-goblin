@@ -1,8 +1,8 @@
 import {PostListController} from "./post-list.controller";
 const templateUrl = require("./post-list.html");
 
-export const postList: angular.IDirective = {
-    templateUrl: templateUrl,
+export const postList: angular.IComponentOptions = {
     controller: PostListController,
-    controllerAs: "vm"
+    controllerAs: "vm",
+    templateUrl: templateUrl
 };

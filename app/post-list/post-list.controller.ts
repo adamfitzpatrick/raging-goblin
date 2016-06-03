@@ -1,8 +1,11 @@
+import {Article} from "../models/article.model";
+import {IArticlesService} from "../common/articles/articles.service";
+
 export class PostListController {
-    gridItems = [1,2,3,4,5,6,7,8,9,10,11,12];
+    public articles: Article[];
 
     /* ngInject */
-    constructor() {
-        // Nothing it
+    constructor(articlesService: IArticlesService) {
+        articlesService().then((articles: Article[]) => this.articles = articles);
     }
 }
