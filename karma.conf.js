@@ -32,7 +32,7 @@ module.exports = function(config) {
                 ]
             },
             resolve: webpackConfig.resolve,
-            plugins: webpackConfig.plugins
+            plugins: webpackConfig.plugins.slice(1)
         }
     })
 };

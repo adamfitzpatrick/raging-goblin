@@ -1,5 +1,5 @@
-const templateUrl = require("./header.html");
+const template = require("./header.html");
 
 export const header: angular.IComponentOptions = {
-    templateUrl: templateUrl
+    template: template
 };

@@ -1,5 +1,5 @@
-const templateUrl = require("./footer.html");
+const template = require("./footer.html");
 
 export const footer: angular.IComponentOptions = {
-    templateUrl: templateUrl
+    template: template
 };

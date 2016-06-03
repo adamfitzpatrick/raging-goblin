@@ -4,9 +4,7 @@ export function initConfig(app: angular.IModule) {
         $httpProvider.interceptors.push(($q: angular.IQService, ORIGIN: string) => {
             return {
                 "request": function (config) {
-                    if (/^\//.test(config.url)) {
-                        config.url = `${ORIGIN}${config.url}`;
-                    }
+                    config.url = `${ORIGIN}${config.url}`;
                     return config;
                 }
             };

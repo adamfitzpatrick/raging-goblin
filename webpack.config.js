@@ -29,7 +29,7 @@ module.exports = {
         loaders: [
             { test: /\.ts$/, loader: "ts" },
             { test: /\.hbs$/, loader: "handlebars" },
-            { test: /\.html$/, loader: "ngTemplate?relativeTo=app/!html" },
+            { test: /\.html$/, loader: `html` },
             { test: /\.scss$/, loader: "style!css!sass!" },
             { test: /\.css$/, loader: "style!css!" },
             { test: /\.(ttf|eot|svg)\?[0-9]*$/, loader: "file-loader" }
