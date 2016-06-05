@@ -3,10 +3,13 @@
   "version": "0.0.1",
   "description": "Small and irate",
   "scripts": {
-    "test": "karma start --single-run",
+    "e2e": "webpack --config ./e2e/webpack.config.js --watch",
+    "postinstall": "npm run typings install",
+    "protractor": "protractor ./e2e/protractor.config.js",
     "start": "rimraf ./public/* && webpack-dev-server --inline",
     "tdd": "karma start --auto-watch",
-    "protractor": "protractor --version"
+    "test": "karma start --single-run",
+    "typings": "typings"
   },
   "repository": {
     "type": "git",
@@ -60,6 +63,7 @@
     "typings": "^1.0.4",
     "webpack": "^1.13.1",
     "webpack-dev-server": "^1.14.1",
+    "webpack-shell-plugin": "^0.4.2",
     "yargs": "^4.7.1"
   }
 }
