@@ -6,7 +6,7 @@ const path = require("path");
 const testConfig = require("../app-config.json").dev;
 
 module.exports = {
-    entry: "./steps-entry.ts",
+    entry: path.join(__dirname, "steps-entry.ts"),
     output: {
         path: __dirname,
         filename: "steps-entry.js",
@@ -22,10 +22,10 @@ module.exports = {
         extensions: ["", ".webpack.js", ".web.js", ".js", ".ts"]
     },
     plugins: [
-        /*new WebpackShellPlugin({
+        new WebpackShellPlugin({
             onBuildEnd: ["npm run protractor"],
             dev: false
-        }),*/
+        }),
         new webpack.DefinePlugin({
             CONFIG: JSON.stringify(testConfig)
         })

@@ -1,10 +1,10 @@
 import {stepService} from "./step-service.ts";
 import {StepType} from "./step-service";
-import {StepMethod} from "./step-service";
+import StepDefinitionCode = cucumber.StepDefinitionCode;
 
 function stepDecoratorFactory(type: StepType, pattern: RegExp) {
     return function (target: any, propertyName: string) {
-        let method = <StepMethod> target[propertyName];
+        let method = <StepDefinitionCode> target[propertyName];
         stepService.addStep({ type: type, pattern: pattern, method: method });
     }
 }
