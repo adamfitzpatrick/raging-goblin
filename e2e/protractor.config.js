@@ -3,5 +3,11 @@
 const path = require("path");
 
 exports.config = {
-    specs: [path.join(__dirname, "spec-entry.js")]
+    specs: ["./landing/landing.feature"],
+    framework: "custom",
+    frameworkPath: require.resolve("protractor-cucumber-framework"),
+    cucumberOpts: {
+        format: "pretty",
+        require: "./steps-entry.js"
+    }
 };

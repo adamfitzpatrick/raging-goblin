@@ -4,4 +4,4 @@ typings
 .idea
 build
 **/npm-debug.log
-e2e/spec-entry.js
+e2e/steps-entry.js
