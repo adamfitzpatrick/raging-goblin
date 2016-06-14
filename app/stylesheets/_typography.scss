@@ -1,6 +1,7 @@
 @import "../../node_modules/modularscale-sass/stylesheets/modular-scale";
 
-$sans-font-family: "josefin sans", Arial;
+$sans-font-family: "Josefin Sans", sans-serif;
+$heavy-font-family: "Racing Sans One", cursive;
 
 $twelve-pixel-root: 75%;
 $sixteen-pixel-root: 100%;
@@ -71,7 +72,7 @@ h3 {
 h4 {
   font-weight: $boldish;
   font-size: $h4-font-size;
-  line-height: $baseline-unit / $h2-font-size;
+  line-height: $baseline-unit / $h4-font-size;
   margin-top: 0;
   margin-bottom: $baseline-unit;
   letter-spacing: $heading-letter-spacing;
@@ -80,7 +81,7 @@ h4 {
 h5 {
   font-weight: $boldish;
   font-size: $h5-font-size;
-  line-height: $baseline-unit / $h2-font-size;
+  line-height: $baseline-unit / $h5-font-size;
   margin-top: 0;
   margin-bottom: $baseline-unit;
   letter-spacing: $heading-letter-spacing;
@@ -89,9 +90,9 @@ h5 {
 h6 {
   font-weight: $boldish;
   font-size: $h6-font-size;
-  line-height: $baseline-unit / $h2-font-size;
+  line-height: $baseline-unit / $h6-font-size;
   margin-top: 0;
-  margin-bottom: $baseline-unit;
+  margin-bottom: 0;
   letter-spacing: $heading-letter-spacing;
 }
 

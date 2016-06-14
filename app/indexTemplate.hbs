@@ -2,13 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1">
         <title>{{ htmlWebpackPlugin.options.title }}</title>
         {{#each htmlWebpackPlugin.options.cdnResources.fonts }}<link href="{{ this }}" rel="stylesheet" type="text/css"/>{{/each}}
     </head>
     <body ng-app="{{ htmlWebpackPlugin.options.ngAppName }}">
         <header></header>
         <ng-view></ng-view>
-        <footer></footer>
         {{#each htmlWebpackPlugin.options.cdnResources.js }}<script type="application/javascript" src="{{ this }}"></script>{{/each}}
     </body>
 </html>

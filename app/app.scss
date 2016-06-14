@@ -1,5 +1,11 @@
+@import "./stylesheets/layout";
 @import "./stylesheets/colors";
 @import "./stylesheets/typography";
 @import "./stylesheets/grid";
 
 @import "./header/header";
+@import "./posts/posts";
+
+body {
+    background-color: $color-dark;
+}

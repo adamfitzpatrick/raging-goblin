@@ -1,8 +1,8 @@
 import {angular} from "../app";
 import "angular-mocks";
-import {PostListController} from "./post-list.controller";
+import {PostsController} from "./posts.controller";
 
-describe("postList", () => {
+describe("posts", () => {
     beforeEach(angular.mock.module("App"));
 
     let $injector;
@@ -29,7 +29,7 @@ describe("postList", () => {
         });
 
         it("should compile without error", () => {
-            let element = $compile("<post-list></post-list>")($rootScope);
+            let element = $compile("<posts></posts>")($rootScope);
             $rootScope.$apply();
             expect(element.html()).toContain("article in vm.articles");
         });
@@ -39,8 +39,9 @@ describe("postList", () => {
         let controller;
 
         beforeEach(() => {
+            let $window = $injector.get("$window");
             let articlesService = $injector.get("articlesService");
-            controller = new PostListController(articlesService);
+            controller = new PostsController(articlesService);
             $httpBackend.flush();
         });
 

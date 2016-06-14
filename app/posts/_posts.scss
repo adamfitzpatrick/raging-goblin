@@ -1,0 +1,87 @@
+.posts {
+    color: $text-dark;
+
+    &__list {
+        display: inline-block;
+        list-style: none;
+        margin: 0;
+        width: 80vw;
+        margin-left: 10vw;
+    }
+
+    &__item {
+        display: inline-block;
+        width: calc((80vw / 3) - 2rem);
+        height: calc((80vw / 3) - 2rem);
+        margin: 1rem;
+        box-sizing: border-box;
+        vertical-align: top;
+        cursor: pointer;
+
+        &__wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: box-shadow, transform 0.1s ease-in-out;
+            box-shadow: 1rem 1rem 2rem black;
+        }
+
+        &:hover {
+            .posts__item__wrapper {
+                border: 1px solid $color-accent;
+                transform: translateX(0.5rem) translateY(0.5rem);
+                box-shadow: none;
+            }
+
+            .posts__item__upper--slider {
+                height: 65%;
+            }
+        }
+
+        &__upper {
+            display: block;
+            height: 65%;
+            width: 100%;
+
+            &--slider {
+                position: absolute;
+                top: 0;
+                height: 0;
+                background-color: transparentize($color-accent, 0.5);
+                overflow: hidden;
+                box-sizing: border-box;
+                transition: height 0.1s ease-in-out;
+            }
+        }
+
+        &__description {
+            background-color: $color-light;
+            height: 35%;
+            padding: 1rem;
+            box-sizing: border-box;
+        }
+
+        &__summary {
+            line-height: $baseline-unit / 2;
+        }
+    }
+
+    &__tags {
+        margin: 1rem;
+        list-style: none;
+        padding: 0;
+    }
+
+    &__tag {
+        color: $text-light;
+        display: inline-block;
+        margin-right: 1rem;
+        padding: 0 1rem;
+        border: 1px solid $color-lightest;
+        border-radius: 1rem;
+    }
+
+    &__dummy-item {
+        height: calc((80vw / 3) * .5);
+    }
+}

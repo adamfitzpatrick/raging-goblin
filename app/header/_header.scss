@@ -1,16 +1,18 @@
 .header {
-  line-height: 4rem;
-  background-color: $darkest;
-  font-family: "Josefin Sans", sans-serif;
-  color: $text-light;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+    font-family: $sans-font-family;
+    color: $color-accent;
+    padding: 1rem;
 
-  &__title {
-    font-size: ms(2);
-  }
+    &__title {
+        line-height: 1;
+        font-family: $heavy-font-family;
+        font-size: ms(8);
+    }
 
-  &__link {
-    text-decoration: none;
-    color: inherit;
-    padding: 0 1rem;
-  }
+    &__tag {
+        font-size: ms(1);
+    }
 }

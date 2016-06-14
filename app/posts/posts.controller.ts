@@ -1,7 +1,7 @@
 import {Article} from "../models/article.model";
 import {IArticlesService} from "../common/articles/articles.service";
 
-export class PostListController {
+export class PostsController {
     public articles: Article[];
 
     /* ngInject */

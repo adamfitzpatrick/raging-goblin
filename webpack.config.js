@@ -65,7 +65,7 @@ module.exports = {
                     "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"
                 ],
                 fonts: [
-                    "http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext"
+                    "https://fonts.googleapis.com/css?family=Racing+Sans+One|Josefin+Sans"
                 ]
             }
         }),
