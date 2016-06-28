@@ -5,6 +5,8 @@
     font-family: $sans-font-family;
     color: $color-accent;
     padding: 1rem;
+    transform-origin: 0 0;
+    transform: translateY(32rem) rotateZ(270deg);
 
     &__title {
         line-height: 1;
