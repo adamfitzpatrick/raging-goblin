@@ -3,9 +3,11 @@
         <li class="posts__dummy-item"></li>
 
         <li class="posts__item" ng-repeat="article in vm.articles">
-            <div class="posts__item__wrapper">
+            <a class="posts__item__wrapper"
+                ng-href="/post/some-article"
+            >
                 <div class="posts__item__description">
-                    <h6>{{ article.title }}</h6>
+                    <h4>{{ article.title }}</h4>
                     <div class="posts__item__summary">{{ article.description }}</div>
                 </div>
 
@@ -16,7 +18,7 @@
                         <li class="posts__tag">React</li>
                     </ul>
                 </div>
-            </div>
+            </a>
         </li>
 
     </ul>

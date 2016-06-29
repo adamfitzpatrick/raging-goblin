@@ -37,7 +37,8 @@ module.exports = {
     },
     externals: [
         "angular",
-        { "angular-route": "ngRoute" }
+        { "angular-route": "ngRoute" },
+        { "angular-animate": "ngAnimate" }
     ],
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".js", ".ts"]
@@ -61,8 +62,9 @@ module.exports = {
             template: "./app/indexTemplate.hbs",
             cdnResources: {
                 js: [
-                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js",
-                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular-route.js"
+                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js",
+                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js",
+                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"
                 ],
                 fonts: [
                     "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"

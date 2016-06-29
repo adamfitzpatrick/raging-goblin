@@ -25,6 +25,7 @@
   "devDependencies": {
     "adamfitzpatrick-fonts": "github:adamfitzpatrick/adamfitzpatrick-fonts",
     "angular": "^1.5.6",
+    "angular-animate": "^1.5.6",
     "angular-mocks": "^1.5.6",
     "angular-route": "^1.5.6",
     "chai": "^3.5.0",
