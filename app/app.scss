@@ -3,12 +3,11 @@
 @import "./stylesheets/typography";
 @import "./stylesheets/grid";
 
+@import "./common/logo/logo";
 @import "./header/header";
-@import "./posts/posts";
-@import "./post/post";
 
 body {
-    background-color: $color-light;
+    background-color: transparent;
 }
 
 a {
@@ -16,31 +15,7 @@ a {
     color: inherit;
 }
 
-@keyframes appViewEnter {
-    0%  { opacity: 0; }
-    50% { opacity: 0; }
-    100%    {
-        animation-timing-function: ease-in-out;
-        opacity: 1;
-    }
-}
-
-@keyframes appViewExit {
-    0% {
-        animation-timing-function: ease-in-out;
-        left: 0;
-    }
-    80% { left: -100vw; }
-    100% { left: -100vw; }
-}
-
 .app-view {
     position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-
-    &.ng-enter { animation: appViewEnter 0.7s; }
-    &.ng-leave { animation: appViewExit 0.7s; }
+    top: 4rem;
 }

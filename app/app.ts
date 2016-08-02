@@ -1,12 +1,12 @@
 import * as angular from "angular";
 
-import {initComponents} from "./app.components";
 let ngRouteStr = "ngRoute";
 window[ngRouteStr] = ngRouteStr;
 let ngAnimateStr = "ngAnimate";
 window[ngAnimateStr] = ngAnimateStr;
 import * as ngRoute from "angular-route";
 import * as ngAnimate from "angular-animate";
+import {initComponents} from "./app.components";
 import {initRoutes} from "./app.routes";
 import {initServices} from "./app.services";
 import {initConfig} from "./app.config";

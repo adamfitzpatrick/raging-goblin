@@ -32,7 +32,8 @@ module.exports = {
             { test: /\.html$/, loader: `html` },
             { test: /\.scss$/, loader: "style!css!sass!" },
             { test: /\.css$/, loader: "style!css!" },
-            { test: /\.(ttf|eot|svg)\?[0-9]*$/, loader: "file-loader" }
+            { test: /\.(ttf|eot|svg)\?[0-9]*$/, loader: "file-loader" },
+            { test: /\.png$/, loader: "url-loader?mimetype=image/png" }
         ]
     },
     externals: [

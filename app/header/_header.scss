@@ -3,18 +3,31 @@
     position: fixed;
     top: 0;
     font-family: $sans-font-family;
-    color: $color-accent;
-    padding: 1rem;
-    transform-origin: 0 0;
-    transform: translateY(32rem) rotateZ(270deg);
+    color: $color-lightest;
+    background-color: $color-dark;
+    height: 5rem;
+    line-height: 5rem;
 
     &__title {
-        line-height: 1;
         font-family: $heavy-font-family;
-        font-size: ms(8);
+        font-size: ms(2);
     }
 
-    &__tag {
-        font-size: ms(1);
+    &__pages {
+        list-style: none;
+        margin-bottom: 0;
+    }
+
+    &__page {
+        display: inline;
+        margin: 0 2rem;
+    }
+
+    &__icon {
+        height: 30px;
+        margin: 0 1.3rem;
+        vertical-align: middle;
+
+        &--twitter { height: 45px; }
     }
 }

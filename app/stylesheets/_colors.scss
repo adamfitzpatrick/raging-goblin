@@ -17,13 +17,3 @@ $text-muted: $color-gray;
 $text-accent: $color-accent;
 
 $link-color: #0098dc;
-
-$color-wheel-0: $color-red;
-$color-wheel-1: $color-blue;
-$color-wheel-2: $color-green;
-$color-wheel-3: $color-purple;
-$color-wheel: (0: $color-wheel-0, 1: $color-wheel-1, 2: $color-wheel-2, 3: $color-wheel-3);
-
-@each $index, $color in $color-wheel {
-    .wheeled-border-color-#{$index} { border-color: $color; }
-}
