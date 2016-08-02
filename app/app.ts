@@ -1,10 +1,11 @@
 import * as angular from "angular";
 
 import {initComponents} from "./app.components";
-let ngRouteStr = "ngRoute";
-window[ngRouteStr] = ngRouteStr;
-let ngAnimateStr = "ngAnimate";
-window[ngAnimateStr] = ngAnimateStr;
+
+/* tslint:disable:no-string-literal */
+window["ngRoute"] = "ngRoute";
+window["ngAnimate"] = "ngAnimate";
+
 import * as ngRoute from "angular-route";
 import * as ngAnimate from "angular-animate";
 import {initRoutes} from "./app.routes";

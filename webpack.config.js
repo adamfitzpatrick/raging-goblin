@@ -10,6 +10,27 @@ let appConfig = require("./app-config.json");
 
 let flags = yargs.argv;
 let env = flags.env || "dev";
+let offline = !!flags.offline;
+
+let cdnResources = [];
+let externals = [];
+if (!offline) {
+    cdnResources = {
+        js: [
+            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js",
+            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"
+        ],
+        fonts: [
+            "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"
+        ]
+    };
+    externals = [
+        "angular",
+        { "angular-route": "ngRoute" },
+        { "angular-animate": "ngAnimate" }
+    ]
+}
 
 if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
     startMockServer();
@@ -32,14 +53,10 @@ module.exports = {
             { test: /\.html$/, loader: `html` },
             { test: /\.scss$/, loader: "style!css!sass!" },
             { test: /\.css$/, loader: "style!css!" },
-            { test: /\.(ttf|eot|svg)\?[0-9]*$/, loader: "file-loader" }
+            { test: /\.(ttf|eot|svg|woff|woff2)/, loader: "file-loader" }
         ]
     },
-    externals: [
-        "angular",
-        { "angular-route": "ngRoute" },
-        { "angular-animate": "ngAnimate" }
-    ],
+    externals: externals,
     resolve: {
         extensions: ["", ".webpack.js", ".web.js", ".js", ".ts"]
     },
@@ -60,19 +77,11 @@ module.exports = {
             title: "Raging Goblin",
             ngAppName: "App",
             template: "./app/indexTemplate.hbs",
-            cdnResources: {
-                js: [
-                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js",
-                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js",
-                    "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"
-                ],
-                fonts: [
-                    "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"
-                ]
-            }
+            cdnResources: cdnResources
         }),
         new webpack.DefinePlugin({
-            CONFIG: JSON.stringify(appConfig[env])
+            CONFIG: JSON.stringify(appConfig[env]),
+            OFFLINE: JSON.stringify(offline)
         })
     ]
 };
