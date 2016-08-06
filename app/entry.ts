@@ -1,7 +1,7 @@
 import "normalize-css/normalize.css";
 import "./app";
 
-import "adamfitzpatrick-fonts";
+import "./assets/fontello/css/fontello-embedded.css";
 import "./app.scss";
 
 declare const OFFLINE;

@@ -1,4 +1,5 @@
 import {LogoController} from "./logo.controller";
+import "angular-mocks";
 
 describe("logo directive", () => {
     beforeEach(angular.mock.module("App"));
@@ -21,23 +22,13 @@ describe("logo directive", () => {
 
         beforeEach(() => {
             controller = new LogoController();
-            controller.$onInit();
         });
 
-        it("should set dimensions to override size when size and width are on prototype", () => {
-            LogoController.prototype.size = "large";
-            LogoController.prototype.width = "100px";
-            controller = new LogoController();
-            controller.$onInit();
-            expect(controller.width).toBe("100px");
-        });
-
-        it("should use prototype size when width is not on prototype", () => {
-            LogoController.prototype.size = "large";
-            delete LogoController.prototype.width;
-            controller = new LogoController();
-            controller.$onInit();
-            expect(controller.width).toBe("200px");
+        describe("getClasses", () => {
+            it("should return class for size", () => {
+                controller.size = "large";
+                expect(controller.getClasses()).toEqual("logo--large");
+            });
         });
 
         describe("getStyles", () => {

@@ -1,1 +1,14 @@
-.logo { vertical-align: middle; }
+.logo {
+    vertical-align: middle;
+
+    &--large { width: 200px; }
+
+    &--medium { width: 100px; }
+
+    &--small {
+        width: 50px;
+        @media (max-width: $media-break-small) {
+            width: 30px;
+        }
+    }
+}

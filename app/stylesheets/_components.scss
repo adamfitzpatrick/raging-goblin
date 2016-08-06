@@ -1,0 +1,32 @@
+.icon {
+    &--large { font-size: 200%; }
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    top: calc(#{$header-height} - 3px);
+    background-color: $color-dark;
+    text-align: left;
+    padding: 1rem 0;
+    line-height: 2;
+
+    @media (max-width: $media-break-small) { top: calc(#{$header-height-small} - 3px); }
+
+    &--active { display: block; }
+
+    &--right { right: 0; }
+
+    &__item {
+        padding: 0 2rem;
+
+        @media (max-width: $media-break-small) { font-size: 1.5rem; }
+        @media (max-width: $media-break-handheld) { font-size: 2.2rem; }
+
+        &--center { text-align: center; }
+    }
+
+    &__group {
+        margin-top: 1rem;
+    }
+}

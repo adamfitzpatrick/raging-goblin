@@ -1,7 +1,17 @@
-$small-screen: 500px;
+$header-height: 5rem;
+$header-height-small: 3rem;
+$header-line-height: 5rem;
+$header-line-height-small: 3.3rem;
 
-@mixin small-screen {
-    @media screen and (max-width: $small-screen) {
-        @content;
-    }
-}
+$horizontal-gutter: 1rem;
+$vertical-gutter: 2rem;
+
+$media-break-xxlarge: 1600px;
+$media-break-xlarge: 1281px;
+$media-break-large: 1024px;
+$media-break-small: 768px;
+$media-break-handheld: 500px;
+$media-break-obsolete: 320px;
+
+$media-break-ar-large: 8/5;
+$media-break-ar-medium: 5/4;
