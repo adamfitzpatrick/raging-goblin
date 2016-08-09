@@ -1,5 +1,5 @@
-import {ArticlesService} from "./common/articles/articles.service";
+import {postsService} from "./common/articles/posts.service";
 
 export function initServices(app: angular.IModule) {
-    app.service("articlesService", ArticlesService);
+    app.service("postsService", postsService);
 }

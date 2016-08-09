@@ -3,8 +3,12 @@ $header-height-small: 3rem;
 $header-line-height: 5rem;
 $header-line-height-small: 3.3rem;
 
-$horizontal-gutter: 1rem;
-$vertical-gutter: 2rem;
+$view-height: calc(100vh - #{$header-height});
+$view-height-small: calc(100vh - #{$header-height-small});
+$view-height-half: calc(50vh - #{$header-height});
+$view-height-half-small: calc(50vh - #{$header-height-small});
+
+$spacer: 1rem;
 
 $media-break-xxlarge: 1600px;
 $media-break-xlarge: 1281px;

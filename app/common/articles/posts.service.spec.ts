@@ -1,7 +1,7 @@
 import {angular} from "../../app";
 import "angular-mocks";
 
-describe("articlesService", () => {
+describe("postsService", () => {
     beforeEach(angular.mock.module("App"));
 
     let $httpBackend;
@@ -14,14 +14,13 @@ describe("articlesService", () => {
             { id: "2", title: "Test 2" }
         ];
         $httpBackend = _$httpBackend_;
-        service = _$injector_.get("articlesService");
+        service = _$injector_.get("postsService");
     }));
 
     it("should fetch a list of articles", () => {
-        $httpBackend.expectGET(/\/articles\/$/).respond(expected);
+        $httpBackend.expectGET(/\/posts\/$/).respond(expected);
         let actual;
-        service().then((response) => actual = response);
+        service().then((response) => expect(response).toEqual(expected));
         $httpBackend.flush();
-        expect(angular.equals(actual, expected)).toBe(true);
     });
 });

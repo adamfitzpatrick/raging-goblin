@@ -1,0 +1,37 @@
+@mixin responsiveFeatureBlocks () {
+    height: $view-height;
+    @media all and (max-width: $media-break-small) { height: $view-height-small }
+    @media all and (max-aspect-ratio: 5/4) { height: $view-height-half; }
+    @media all and (max-aspect-ratio: 5/4) and (max-width: $media-break-small) {
+        height: $view-height-half-small
+    }
+}
+
+.landing {
+
+    &__featured-post {
+        display: inline-block;
+        width: 45vw;
+
+        @include responsiveFeatureBlocks();
+        @media all and (max-width: $media-break-small) { width: 50vw; }
+        @media all and (max-width: $media-break-handheld) { width: 100vw; }
+
+        // TODO remove
+        border: 1px solid green;
+        box-sizing: border-box;
+    }
+
+    &__top-posts {
+        display: inline-block;
+        width: 55vw;
+
+        @include responsiveFeatureBlocks();
+        @media all and (max-width: $media-break-small) { width: 50vw; }
+        @media all and (max-width: $media-break-handheld) { display: none; }
+
+        // TODO remove
+        border: 1px solid red;
+        box-sizing: border-box;
+    }
+}

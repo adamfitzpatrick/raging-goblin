@@ -1,0 +1,10 @@
+.post-card {
+    display: inline-block;
+    margin: $spacer;
+    width: calc(33% - 2 * #{$spacer});
+
+    // TODO Remove
+    border: 1px solid blue;
+    box-sizing: border-box;
+    min-height: 400px;
+}
