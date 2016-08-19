@@ -17,9 +17,8 @@ describe("postsService", () => {
         service = _$injector_.get("postsService");
     }));
 
-    it("should fetch a list of articles", () => {
+    it("should fetch a list of posts", () => {
         $httpBackend.expectGET(/\/posts\/$/).respond(expected);
-        let actual;
         service().then((response) => expect(response).toEqual(expected));
         $httpBackend.flush();
     });

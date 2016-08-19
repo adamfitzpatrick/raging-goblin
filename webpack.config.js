@@ -18,8 +18,7 @@ if (!offline) {
     cdnResources = {
         js: [
             "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js",
-            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js",
-            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-animate.js"
+            "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js"
         ],
         fonts: [
             "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"

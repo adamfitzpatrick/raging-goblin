@@ -34,4 +34,18 @@
         border: 1px solid red;
         box-sizing: border-box;
     }
+
+    &__other-posts {
+        margin: 0 calc(#{$spacer} / 2);
+
+        @media all and (max-width: $media-break-handheld) { margin: 0; }
+    }
+
+    &__post {
+        display: inline-block;
+        width: 33.3333%;
+
+        @media all and (max-width: $media-break-small) { width: 50% }
+        @media all and (max-width: $media-break-handheld) { width: 100% }
+    }
 }

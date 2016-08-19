@@ -18,6 +18,12 @@ module.exports = function(config) {
 
         coverageReporter: {
           dir: "build/reports/coverage",
+            watermarks: {
+                statements: [98, 100],
+                branches: [98, 100],
+                functions: [98, 100],
+                lines: [98, 100]
+            },
           reporters: [
             { type: "html", subdir: "html" },
             { type: "text-summary" }

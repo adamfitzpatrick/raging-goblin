@@ -4,28 +4,11 @@
     </div><div class="landing__top-posts">
         Top Posts
     </div>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
-    <post-card></post-card>
+    <div>
+        <stacker class="landing__other-posts" item-count="vm.otherPosts.length">
+            <stacker-item class="landing__post" ng-repeat="post in vm.otherPosts">
+                <post-card></post-card>
+            </stacker-item>
+        </stacker>
+    </div>
 </div>

@@ -1,7 +1,10 @@
+let faker = require("faker");
+
 export class PostCardController {
+    text: string;
 
     /* @ngInject */
     constructor($element: angular.IAugmentedJQuery) {
-        angular.element($element.children("div")[0]).css("height", 1500 * Math.random() + "px");
+        this.text = faker.lorem.paragraphs(faker.random.number(10));
     }
 }

@@ -1,5 +1,8 @@
+import {LandingController} from "./landing.controller";
 const template = require("./landing.html");
 
 export const landing: angular.IComponentOptions = {
-    template: template
+    template: template,
+    controller: LandingController,
+    controllerAs: "vm"
 };

@@ -1,0 +1,13 @@
+.stacker {
+    display: block;
+
+    &__wrapper {
+        display: block;
+        position: relative;
+    }
+
+    &__item {
+        display: inline-block;
+        position: absolute;
+    }
+}

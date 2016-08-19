@@ -1,6 +1,6 @@
 import {Post} from "../../models/post.model";
 
-export interface PostsService { (id?: string): angular.IPromise<Post | Post[]>; };
+export interface PostsService { (id?: string): angular.IPromise<Post | Post[]>; }
 
 export function postsService($http: angular.IHttpService) {
     return (id?: string): any => {

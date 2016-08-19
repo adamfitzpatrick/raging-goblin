@@ -1,10 +1,16 @@
 .post-card {
     display: inline-block;
-    margin: $spacer;
-    width: calc(33% - 2 * #{$spacer});
+    vertical-align: top;
+    margin: $spacer calc(#{$spacer} / 2) 0;
+    width: calc(100% - #{$spacer});
 
     // TODO Remove
     border: 1px solid blue;
     box-sizing: border-box;
-    min-height: 400px;
+    min-height: 200px;
+
+    @media all and (max-width: $media-break-handheld) {
+        width: 100%;
+        margin: $spacer 0;
+    }
 }

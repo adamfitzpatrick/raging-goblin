@@ -1,6 +1,7 @@
 import {angular} from "../app";
 import "angular-mocks";
-
+import {LandingController} from "./landing.controller";
+/*
 describe("landing component", () => {
     beforeEach(angular.mock.module("App"));
 
@@ -17,4 +18,13 @@ describe("landing component", () => {
         $rootScope.$apply();
         expect(element.html()).toContain("landing");
     });
+
+    describe("controller", () => {
+        let controller;
+
+        beforeEach(() => {
+            controller = new LandingController();
+        });
+    });
 });
+*/

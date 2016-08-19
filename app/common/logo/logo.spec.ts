@@ -1,5 +1,6 @@
-import {LogoController} from "./logo.controller";
+import {angular} from "../../app";
 import "angular-mocks";
+import {LogoController} from "./logo.controller";
 
 describe("logo directive", () => {
     beforeEach(angular.mock.module("App"));
