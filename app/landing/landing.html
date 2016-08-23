@@ -1,11 +1,15 @@
 <div class="landing">
-    <div class="landing__featured-post">
-        Featured Article
-    </div><div class="landing__top-posts">
-        Top Posts
+
+    <div class="landing__above-fold">
+        <div class="landing__featured-post">
+            <post-card post="vm.featuredPost"></post-card>
+        </div><div class="landing__top-posts">
+            {{ vm.topPosts }}
+        </div>
     </div>
-    <div>
-        <stacker class="landing__other-posts" item-count="vm.otherPosts.length">
+
+    <div class="landing__below-fold">
+        <stacker class="landing__other-posts">
             <stacker-item class="landing__post" ng-repeat="post in vm.otherPosts">
                 <post-card></post-card>
             </stacker-item>

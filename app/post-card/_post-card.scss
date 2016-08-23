@@ -1,16 +1,71 @@
 .post-card {
-    display: inline-block;
-    vertical-align: top;
-    margin: $spacer calc(#{$spacer} / 2) 0;
-    width: calc(100% - #{$spacer});
+    position: relative;
+    height: calc(100% - 2 * #{$spacer});
+    margin: $spacer;
+    overflow: hidden;
 
-    // TODO Remove
-    border: 1px solid blue;
-    box-sizing: border-box;
-    min-height: 200px;
-
-    @media all and (max-width: $media-break-handheld) {
+    &__cover {
         width: 100%;
-        margin: $spacer 0;
+        height: 100%;
+        background-size: cover;
+        transition: width 1s ease-in-out;
+
+        &:hover { width: 105%; }
+
+        @media all and (max-width: $media-break-obsolete) { background-image: none; }
+    }
+
+    &__text-box {
+        position: absolute;
+        width: 100%;
+        top: 55%;
+        display: flex;
+        background-color: rgba($color-dark, 0.7);
+        color: $text-light;
+
+        @media all and (max-width: $media-break-handheld) {
+            bottom: 0;
+            top: auto;
+        }
+        @media all and (max-width: $media-break-obsolete) { position: static; }
+    }
+
+    &__title-box {
+        width: 100%;
+        font-size: ms(2);
+        padding: $spacer;
+
+        &--featured {
+            width: 40%;
+            background-color: rgba($color-accent, 0.7);
+
+            @media all and (max-width: $media-break-small) { width: 50%; }
+            @media all and (max-width: $media-break-obsolete) {
+                background-color: inherit;
+                width: 100%;
+            }
+        }
+    }
+
+    &__title { display: block; }
+
+    &__featured-text {
+        font-size: ms(1);
+
+        @media all and (max-width: $media-break-obsolete) {
+            color: $text-accent;
+            border: 1px solid $color-accent;
+            border-radius: 3rem;
+            padding: 0.5rem 1rem;
+        }
+    }
+
+    &__description-box {
+        font-size: ms(1);
+        padding: $spacer;
+        width: 60%;
+
+        @media all and (max-width: $media-break-small) { width: 50%; }
+        @media all and (max-width: $media-break-obsolete) { display: none; }
     }
 }

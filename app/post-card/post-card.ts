@@ -4,5 +4,6 @@ const template = require("./post-card.html");
 export const postCard: angular.IComponentOptions = {
     template: template,
     controller: PostCardController,
-    controllerAs: "vm"
+    controllerAs: "vm",
+    bindings: { post: "<" }
 };

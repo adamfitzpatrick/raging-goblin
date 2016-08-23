@@ -1,1 +1,22 @@
-<div class="post-card">{{ vm.text }}</div>
+<div class="post-card">
+
+    <div class="post-card__cover"
+        ng-style="vm.getCoverStyle()"
+    ></div>
+
+    <div class="post-card__text-box">
+        <div class="post-card__title-box"
+            ng-class="{'post-card__title-box--featured': vm.post.featured }"
+        >
+            <span ng-if="vm.post.featured"
+                class="post-card__featured-text"
+            >
+                Featured
+            </span>
+            <span class="post-card__title">{{ vm.post.title }}</span>
+        </div>
+        <div class="post-card__description-box">
+            <div class="post-card__description">{{ vm.post.description }}</div>
+        </div>
+    </div>
+</div>

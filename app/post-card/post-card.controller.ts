@@ -1,10 +1,15 @@
-let faker = require("faker");
+import {Post} from "../models/post.model";
+import {MediaService} from "../common/media/media.service";
+import {WindowWidthRange} from "../common/media/media.service";
 
 export class PostCardController {
-    text: string;
+    post: Post;
 
     /* @ngInject */
-    constructor($element: angular.IAugmentedJQuery) {
-        this.text = faker.lorem.paragraphs(faker.random.number(10));
+    constructor(private mediaService: MediaService) {}
+
+    getCoverStyle(): Object {
+        if (this.mediaService.getWidthRange() === WindowWidthRange.OBSOLETE) { return {}; }
+        return this.post && { "background-image": `url(${this.post.cover})` };
     }
 }

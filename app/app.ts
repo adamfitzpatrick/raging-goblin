@@ -5,7 +5,7 @@ window["ngRoute"] = "ngRoute";
 
 import * as ngRoute from "angular-route";
 import {initComponents} from "./app.components";
-import {initRoutes} from "./app.routes";
+import {initRoutes} from "./app-routes/app.routes";
 import {initServices} from "./app.services";
 import {initConfig} from "./app.config";
 
