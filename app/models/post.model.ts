@@ -6,4 +6,5 @@ export interface Post {
     description: string;
     text: string;
     cover: string;
+    height: number;
 }

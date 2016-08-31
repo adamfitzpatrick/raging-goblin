@@ -7,6 +7,7 @@ export const postCard: angular.IComponentOptions = {
     controllerAs: "vm",
     bindings: {
         post: "<",
-        positioned: "@"
+        featured: "@",
+        top: "@"
     }
 };

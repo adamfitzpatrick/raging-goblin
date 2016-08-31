@@ -27,7 +27,8 @@ describe("landing component", () => {
             id: 1,
             featured: false,
             title: "Post 1",
-            date: dateOffsetter(0)
+            date: dateOffsetter(0),
+            height: 300
         }, {
             id: 2,
             featured: true,
@@ -129,6 +130,18 @@ describe("landing component", () => {
             it("should return the correct top post class for the post index", () => {
                 expect(controller.getTopPostClass(2))
                     .toEqual(["landing__top-post", "landing__top-post--2"]);
+            });
+        });
+
+        describe("getPostHeightStyle", () => {
+            it("should return height styling for the post for non-obsolete devices", () => {
+                mediaService.getWidthRange.and.returnValue(0);
+                expect(controller.getPostHeightStyle(posts[0])).toEqual({ height: "300px" });
+            });
+
+            it("should return undefined for obsolete devices", () => {
+                mediaService.getWidthRange.and.returnValue(3);
+                expect(controller.getPostHeightStyle(posts[0])).toBeUndefined();
             });
         });
     });

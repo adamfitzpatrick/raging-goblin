@@ -25,6 +25,7 @@ module.exports = () => {
         this.description = faker.lorem.sentence();
         this.text = faker.lorem.paragraphs(faker.random.number(20));
         this.cover = `images/${faker.random.arrayElement(imageNames)}`;
+        this.height = faker.random.number(400) + 200;
     }
 
     let posts = [];

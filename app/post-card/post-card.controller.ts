@@ -4,7 +4,8 @@ import {WindowWidthRange} from "../common/media/media.service";
 
 export class PostCardController {
     post: Post;
-    positioned: string;
+    featured: string;
+    top: string;
 
     /* @ngInject */
     constructor(private mediaService: MediaService) {}
@@ -14,5 +15,9 @@ export class PostCardController {
         return this.post && { "background-image": `url(${this.post.cover})` };
     }
 
-    isPositioned(): boolean { return typeof this.positioned === "string"; }
+    getMarginStylingClass(): string {
+        if (typeof this.featured === "string") { return "post-card--featured"; }
+        if (typeof this.top === "string") { return "post-card--top"; }
+        return "";
+    }
 }

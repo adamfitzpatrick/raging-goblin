@@ -1,10 +1,8 @@
 <div class="post-card"
-    ng-class="{ 'post-card--positioned': vm.isPositioned() }"
+    ng-class="vm.getMarginStylingClass()"
 >
 
-    <div class="post-card__cover"
-        ng-style="vm.getCoverStyle()"
-    ></div>
+    <div class="post-card__cover" ng-style="vm.getCoverStyle()"></div>
 
     <div class="post-card__text-box"
         ng-class="{ 'post-card__text-box--featured': vm.post.featured }"

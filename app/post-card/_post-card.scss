@@ -1,11 +1,18 @@
 .post-card {
     position: relative;
-    height: calc(100% - 2 * #{$spacer});
-    margin: $spacer;
+    height: calc(100% - #{$spacer});
+    margin: 0 $spacer $spacer 0;
     overflow: hidden;
 
-    &--positioned {
-        margin: 0;
+    &--featured {
+        margin: $spacer $spacer/2 $spacer $spacer;
+        height: calc(100% - 2 * #{$spacer});
+
+        @media all and (max-width: $media-break-handheld) { margin: $spacer; }
+    }
+
+    &--top {
+        margin: 0 0 0 $spacer/2;
         height: 100%;
     }
 
@@ -29,6 +36,7 @@
         bottom: 0;
         background-color: rgba($color-dark, 0.7);
         color: $text-light;
+
         @media all and (max-width: $media-break-obsolete) { position: static; }
 
         &--featured {
@@ -56,6 +64,7 @@
             @media all and (max-width: $media-break-obsolete) {
                 background-color: inherit;
                 width: 100%;
+                padding-bottom: $spacer;
             }
         }
     }

@@ -33,6 +33,13 @@ export class LandingController {
         return ["landing__top-post", `landing__top-post--${index}`];
     }
 
+
+    getPostHeightStyle(post: Post): Object {
+        if (this.mediaService.getWidthRange() !== WindowWidthRange.OBSOLETE) {
+            return {height: `${post.height}px`};
+        }
+    }
+
     private loadPosts = (posts: Post[]): void => {
         this.posts = posts;
         this.featuredPost = this.posts.filter((post: Post) => post.featured)[0];

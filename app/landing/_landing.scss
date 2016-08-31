@@ -27,6 +27,7 @@
         flex-wrap: wrap;
         width: 55vw;
         padding: $spacer 0;
+        box-sizing: border-box;
 
         @include responsiveFeatureBlocks();
         @media all and (max-width: $media-break-small) { width: 50vw; }
@@ -35,26 +36,23 @@
 
     &__top-post {
         width: calc(50% - #{$spacer});
+        box-sizing: border-box;
 
         @media all and (max-width: $media-break-small) { width: calc(100% - #{$spacer}); }
 
         &--0 {
-            height: calc(60% - 2 * #{$spacer});
-            margin-bottom: $spacer;
+            height: calc(60%);
+            padding-bottom: $spacer;
         }
-        &--1 { height: calc(40% - #{$spacer}); }
-        &--2 { height: calc(40% - #{$spacer}); }
+        &--1 { height: 40%; }
+        &--2 { height: 40%; }
         &--3 {
-            height: calc(60% - 2 * #{$spacer});
-            margin-top: $spacer;
+            height: calc(60%);
+            padding-top: $spacer;
         }
     }
 
-    &__other-posts {
-        margin: 0 calc(#{$spacer} / 2);
-
-        @media all and (max-width: $media-break-handheld) { margin: 0; }
-    }
+    &__other-posts { margin-left: $spacer; }
 
     &__post {
         display: inline-block;

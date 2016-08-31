@@ -2,18 +2,20 @@
 
     <div class="landing__above-fold">
         <div class="landing__featured-post">
-            <post-card post="vm.featuredPost"></post-card>
+            <post-card featured post="vm.featuredPost"></post-card>
         </div><div class="landing__top-posts">
             <div ng-repeat="post in vm.topPosts" ng-class="vm.getTopPostClass($index)">
-                <post-card positioned post="post"></post-card>
+                <post-card top post="post"></post-card>
             </div>
         </div>
     </div>
 
     <div class="landing__below-fold">
         <stacker class="landing__other-posts">
-            <stacker-item class="landing__post" ng-repeat="post in vm.otherPosts">
-                <post-card></post-card>
+            <stacker-item class="landing__post" ng-repeat="post in vm.otherPosts"
+                ng-style="vm.getPostHeightStyle(post)"
+            >
+                <post-card post="post"></post-card>
             </stacker-item>
         </stacker>
     </div>

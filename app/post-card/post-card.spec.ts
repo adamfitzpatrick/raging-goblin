@@ -55,15 +55,26 @@ describe("post-card component", () => {
             })
         });
 
-        describe("isPositioned", () => {
-            it("should return true if positioned is a string", () => {
-                controller.positioned = "";
-                expect(controller.isPositioned()).toBe(true);
+        describe("getMarginStylingClass", () => {
+            it("should return empty string when featured and top are both undefined", () => {
+                expect(controller.getMarginStylingClass()).toBe("");
             });
 
-            it("should return false if positioned is undefined", () => {
-                controller.positioned = void 0;
-                expect(controller.isPositioned()).toBe(false);
+            it("should return post-card--featured when featured is a string", () => {
+                controller.featured = "";
+                expect(controller.getMarginStylingClass()).toBe("post-card--featured");
+            });
+
+            it("should return post-card--featured when featured and top are strings", () => {
+                controller.featured = "";
+                controller.top = "";
+                expect(controller.getMarginStylingClass()).toBe("post-card--featured");
+            });
+
+            it("should return post-card--top when featured is undefined and top is a string",
+            () => {
+                controller.top = "";
+                expect(controller.getMarginStylingClass()).toBe("post-card--top");
             });
         });
     });
