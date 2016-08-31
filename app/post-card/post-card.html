@@ -1,12 +1,16 @@
-<div class="post-card">
+<div class="post-card"
+    ng-class="{ 'post-card--positioned': vm.isPositioned() }"
+>
 
     <div class="post-card__cover"
         ng-style="vm.getCoverStyle()"
     ></div>
 
-    <div class="post-card__text-box">
+    <div class="post-card__text-box"
+        ng-class="{ 'post-card__text-box--featured': vm.post.featured }"
+    >
         <div class="post-card__title-box"
-            ng-class="{'post-card__title-box--featured': vm.post.featured }"
+            ng-class="{ 'post-card__title-box--featured': vm.post.featured }"
         >
             <span ng-if="vm.post.featured"
                 class="post-card__featured-text"
@@ -15,7 +19,9 @@
             </span>
             <span class="post-card__title">{{ vm.post.title }}</span>
         </div>
-        <div class="post-card__description-box">
+        <div class="post-card__description-box"
+            ng-class="{ 'post-card__description-box--featured': vm.post.featured }"
+        >
             <div class="post-card__description">{{ vm.post.description }}</div>
         </div>
     </div>

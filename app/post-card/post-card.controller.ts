@@ -4,6 +4,7 @@ import {WindowWidthRange} from "../common/media/media.service";
 
 export class PostCardController {
     post: Post;
+    positioned: string;
 
     /* @ngInject */
     constructor(private mediaService: MediaService) {}
@@ -12,4 +13,6 @@ export class PostCardController {
         if (this.mediaService.getWidthRange() === WindowWidthRange.OBSOLETE) { return {}; }
         return this.post && { "background-image": `url(${this.post.cover})` };
     }
+
+    isPositioned(): boolean { return typeof this.positioned === "string"; }
 }

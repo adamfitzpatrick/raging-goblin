@@ -4,7 +4,9 @@
         <div class="landing__featured-post">
             <post-card post="vm.featuredPost"></post-card>
         </div><div class="landing__top-posts">
-            {{ vm.topPosts }}
+            <div ng-repeat="post in vm.topPosts" ng-class="vm.getTopPostClass($index)">
+                <post-card positioned post="post"></post-card>
+            </div>
         </div>
     </div>
 

@@ -54,5 +54,17 @@ describe("post-card component", () => {
                 expect(controller.getCoverStyle()).toEqual({});
             })
         });
+
+        describe("isPositioned", () => {
+            it("should return true if positioned is a string", () => {
+                controller.positioned = "";
+                expect(controller.isPositioned()).toBe(true);
+            });
+
+            it("should return false if positioned is undefined", () => {
+                controller.positioned = void 0;
+                expect(controller.isPositioned()).toBe(false);
+            });
+        });
     });
 });

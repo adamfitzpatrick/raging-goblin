@@ -15,7 +15,7 @@ export class LandingController {
         postsService().then(this.loadPosts);
     }
 
-    setTopPosts(): void {
+    setTopPosts = (): void => {
         let widthRange = this.mediaService.getWidthRange();
         if (widthRange === WindowWidthRange.LARGE) {
             this.topPosts = this.nonFeaturePosts.slice(0, 4);
@@ -27,6 +27,10 @@ export class LandingController {
         this.otherPosts = this.nonFeaturePosts.filter((post: Post) => {
             return !this.topPosts.some((topPost: Post) => topPost.id === post.id);
         });
+    };
+
+    getTopPostClass(index: number): string[] {
+        return ["landing__top-post", `landing__top-post--${index}`];
     }
 
     private loadPosts = (posts: Post[]): void => {
@@ -34,6 +38,8 @@ export class LandingController {
         this.featuredPost = this.posts.filter((post: Post) => post.featured)[0];
         this.nonFeaturePosts = this.posts.filter((post: Post) => !post.featured)
             .sort(this.dateSort);
+        this.setTopPosts();
+        this.mediaService.addWatch(this.setTopPosts);
     };
 
     private dateSort = (a: Post, b: Post) => {

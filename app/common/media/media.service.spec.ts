@@ -8,12 +8,14 @@ describe("media service", () => {
     let $injector;
     let $window;
     let service;
+    let $rootScope;
 
     beforeEach(angular.mock.inject((_$injector_) => {
         $injector = _$injector_;
         $window = $injector.get("$window");
         $window.innerHeight = 1000;
-        service = mediaService($window);
+        $rootScope = $injector.get("$rootScope");
+        service = mediaService($window, $rootScope);
     }));
 
     describe("getWidthRange", () => {
@@ -47,6 +49,14 @@ describe("media service", () => {
         it("should return the correct range for narrow screens", () => {
             $window.innerWidth = 1000;
             expect(service.getAspectRatioRange()).toBe(1);
+        });
+    });
+
+    describe("addWatch", () => {
+        it("should accept a function to execute on media changes", () => {
+            spyOn($rootScope, "$watch");
+            service.addWatch(angular.noop);
+            expect($rootScope.$watch).toHaveBeenCalledWith(jasmine.any(Function), jasmine.any(Function));
         });
     });
 });

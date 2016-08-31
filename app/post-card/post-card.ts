@@ -5,5 +5,8 @@ export const postCard: angular.IComponentOptions = {
     template: template,
     controller: PostCardController,
     controllerAs: "vm",
-    bindings: { post: "<" }
+    bindings: {
+        post: "<",
+        positioned: "@"
+    }
 };

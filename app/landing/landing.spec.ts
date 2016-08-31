@@ -89,7 +89,7 @@ describe("landing component", () => {
 
         beforeEach(() => {
             mediaService = $injector.get("mediaService");
-            spyOn(mediaService, "getWidthRange").and.returnValues(0);
+            spyOn(mediaService, "getWidthRange").and.returnValue(0);
 
             controller = new LandingController(postsService, mediaService);
             $timeout.flush();
@@ -122,6 +122,13 @@ describe("landing component", () => {
                 controller.setTopPosts();
                 expect(controller.topPosts).toEqual([]);
                 expect(controller.otherPosts).toEqual(controller.nonFeaturePosts);
+            });
+        });
+
+        describe("getTopPostClass", () => {
+            it("should return the correct top post class for the post index", () => {
+                expect(controller.getTopPostClass(2))
+                    .toEqual(["landing__top-post", "landing__top-post--2"]);
             });
         });
     });
