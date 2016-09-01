@@ -17,11 +17,26 @@ module.exports = () => {
         if (err) { console.error(err); }
     });
 
+    let tags = [
+        "AngularJs",
+        "RxJs",
+        "Typescript",
+        "ES2015",
+        "ES2017",
+        "Node",
+        "MEAN",
+        "React",
+        "Ember",
+        "Best Practices",
+        "Play"
+    ];
+
     function Post() {
         this.id = faker.random.uuid();
         this.date = faker.date.past();
         this.title = faker.company.catchPhrase().capitalize();
         this.featured = false;
+        this.tags = faker.helpers.shuffle(tags).slice(0, faker.random.number(3) + 1);
         this.description = faker.lorem.sentence();
         this.text = faker.lorem.paragraphs(faker.random.number(20));
         this.cover = `images/${faker.random.arrayElement(imageNames)}`;

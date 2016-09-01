@@ -16,6 +16,7 @@
         width: 45vw;
 
         @include responsiveFeatureBlocks();
+        @media all and (max-aspect-ratio: 5/4) { width: 50vw; }
         @media all and (max-width: $media-break-small) { width: 50vw; }
         @media all and (max-width: $media-break-handheld) { width: 100vw; }
         @media all and (max-width: $media-break-obsolete) { height: auto; }
@@ -30,6 +31,7 @@
         box-sizing: border-box;
 
         @include responsiveFeatureBlocks();
+        @media all and (max-aspect-ratio: 5/4) { width: 50vw; }
         @media all and (max-width: $media-break-small) { width: 50vw; }
         @media all and (max-width: $media-break-handheld) { display: none; }
     }

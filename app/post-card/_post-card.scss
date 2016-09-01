@@ -4,6 +4,10 @@
     margin: 0 $spacer $spacer 0;
     overflow: hidden;
 
+    &:hover {
+        .post-card__cover__filter { opacity: 0.8; }
+    }
+
     &--featured {
         margin: $spacer $spacer/2 $spacer $spacer;
         height: calc(100% - 2 * #{$spacer});
@@ -16,21 +20,43 @@
         height: 100%;
     }
 
+    &__tags {
+        text-align: right;
+        padding: 0;
+        margin: $spacer;
+        color: $text-accent;
+        position: relative;
+    }
+
+    &__tag {
+        display: inline-block;
+        font-size: ms(-1);
+        border: 1px solid $color-accent;
+        border-radius: 1rem;
+        padding: 0.2rem 1rem 0;
+        margin: 0 0.5rem;
+    }
+
     &__cover {
+        position: absolute;
+        top: 0;
         width: 100%;
         height: 100%;
+        background-color: $color-medium;
         background-size: cover;
-        transition: transform 0.5s ease-in-out;
-
-        &:hover {
-            transform: scale(1.05, 1.05);
-        }
 
         @media all and (max-width: $media-break-obsolete) { display: none; }
+
+        &__filter {
+            width: 100%;
+            height: 100%;
+            background-color: $color-dark;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
     }
 
     &__text-box {
-        pointer-events: none;
         position: absolute;
         width: 100%;
         bottom: 0;
@@ -56,7 +82,7 @@
         padding: $spacer $spacer 0 $spacer;
 
         &--featured {
-            width: 40%;
+            width: 45%;
             background-color: rgba($color-accent, 0.7);
             padding: $spacer;
 
@@ -93,7 +119,7 @@
 
         &--featured {
             padding: $spacer;
-            width: 60%;
+            width: 55%;
         }
     }
 }
