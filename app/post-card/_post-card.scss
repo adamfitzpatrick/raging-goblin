@@ -4,6 +4,8 @@
     margin: 0 $spacer $spacer 0;
     overflow: hidden;
 
+    @media all and (max-width: $media-break-obsolete) { border: 1px solid $color-dark; }
+
     &:hover {
         .post-card__cover__filter { opacity: 0.8; }
     }
@@ -62,6 +64,7 @@
         bottom: 0;
         background-color: rgba($color-dark, 0.7);
         color: $text-light;
+        max-height: 66%;
 
         @media all and (max-width: $media-break-obsolete) { position: static; }
 
