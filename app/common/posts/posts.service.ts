@@ -2,6 +2,7 @@ import {Post} from "../../models/post.model";
 
 export interface PostsService { (id?: string): angular.IPromise<Post | Post[]>; }
 
+/* @ngInject */
 export function postsService($http: angular.IHttpService) {
     return (id?: string): any => {
         id = id || "";

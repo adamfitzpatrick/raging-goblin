@@ -47,7 +47,7 @@ module.exports = {
             { test: /\.scss$/, loader: "sasslint" }
         ],
         loaders: [
-            { test: /\.ts$/, loader: "ts" },
+            { test: /\.ts$/, loader: "ng-annotate!ts" },
             { test: /\.hbs$/, loader: "handlebars" },
             { test: /\.html$/, loader: `html` },
             { test: /\.scss$/, loader: "style!css!sass!" },
