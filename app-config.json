@@ -1,5 +1,8 @@
 {
-  "dev": {
+  "fake": {
     "ORIGIN": "http://localhost:7001"
+  },
+  "dev": {
+    "ORIGIN": "http://localhost:7002"
   }
 }
