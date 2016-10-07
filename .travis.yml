@@ -1,14 +1,25 @@
 language: node_js
 node_js:
-  - "5.0.0"
-  - "4.0.0"
+- 5.0.0
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
-script:
-  npm run ci
+    - g++-4.8
+script: npm run ci
+env:
+- DEPLOY_DIR=$(echo $TRAVIS_BRANCH | grep "^[0-9].[0-9].[0-9]-\?[a-zA-Z]*\.\?[0-9]*$")
+deploy:
+  provider: s3
+  region: us-west-2
+  bucket: stepinto.io-static-resources
+  local-dir: public
+  upload-dir: $DEPLOY_DIR
+  acl: public_read
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: ${#DEPLOY_DIR} -gt 0
