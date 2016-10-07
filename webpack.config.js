@@ -3,6 +3,7 @@
 let fs = require("fs");
 let path = require("path");
 let HtmlWebpackPlugin = require("html-webpack-plugin");
+let FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 let webpack = require("webpack");
 let yargs = require("yargs");
 let startMockServer = require("./mock-backend/mock-server.js");
@@ -72,8 +73,9 @@ module.exports = {
         configFile: './sass-lint.yml'
     },
     plugins: [
+        new FaviconsWebpackPlugin("./app/favicon.png"),
         new HtmlWebpackPlugin({
-            title: "Raging Goblin",
+            title: "Step Into",
             ngAppName: "App",
             template: "./app/indexTemplate.hbs",
             cdnResources: cdnResources

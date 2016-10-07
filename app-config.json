@@ -4,5 +4,11 @@
   },
   "dev": {
     "ORIGIN": "http://localhost:7002"
+  },
+  "qa": {
+    "ORIGIN": "https://api.qa.stepinto.io/"
+  },
+  "prod": {
+    "ORIGIN": "https://api.stepinto.io/"
   }
 }
