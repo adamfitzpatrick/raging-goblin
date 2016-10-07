@@ -1,14 +1,26 @@
 language: node_js
+sudo: false
 node_js:
-  - "5.0.0"
-  - "4.0.0"
+- 5.0.0
 env:
-  - CXX=g++-4.8
+- CXX=g++-4.8
 addons:
   apt:
     sources:
-      - ubuntu-toolchain-r-test
+    - ubuntu-toolchain-r-test
     packages:
-      - g++-4.8
+    - g++-4.8
 script:
-  npm run ci
+- npm run ci
+- . ./deploy_vars.sh
+deploy:
+  provider: s3
+  region: us-west-2
+  bucket: stepinto.io-static-resources
+  local-dir: public
+  upload-dir: $DEPLOY_DIR
+  acl: public_read
+  skip_cleanup: true
+  on:
+    all_branches: true
+    condition: $ENV_TAG
