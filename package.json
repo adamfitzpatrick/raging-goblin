@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "description": "Small and irate",
   "scripts": {
-    "ci": "webpack -p",
+    "ci": "npm run typings install && npm test && webpack -p",
     "e2e": "webpack --config ./e2e/webpack.config.js --watch",
     "postinstall": "npm run typings install && ./node_modules/protractor/bin/webdriver-manager update",
     "protractor": "protractor ./e2e/protractor.config.js",
