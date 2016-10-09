@@ -16,7 +16,7 @@ script:
 deploy:
   provider: s3
   region: us-west-2
-  bucket: stepinto.io-static-resources
+  bucket: stepinto-io-static-resources
   local-dir: public
   upload-dir: $DEPLOY_DIR
   acl: public_read
