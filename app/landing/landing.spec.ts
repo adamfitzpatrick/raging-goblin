@@ -18,7 +18,7 @@ describe("landing component", () => {
 
     beforeEach(angular.mock.module(($provide) => {
         postsService = jasmine.createSpy("postsService");
-        $provide.value("postsService", postsService)
+        $provide.value("postsService", postsService);
     }));
 
 

@@ -1,7 +1,6 @@
 import {angular} from "../app";
 import "angular-mocks";
 import {PostCardController} from "./post-card.controller";
-import {MediaService} from "../common/media/media.service";
 import {WindowWidthRange} from "../common/media/media.service";
 
 describe("post-card component", () => {
@@ -52,7 +51,7 @@ describe("post-card component", () => {
             it("should return no styling for obsolete devices", () => {
                 mediaService.getWidthRange.and.returnValue(WindowWidthRange.OBSOLETE);
                 expect(controller.getCoverStyle()).toEqual({});
-            })
+            });
         });
 
         describe("getMarginStylingClass", () => {

@@ -1,44 +1,59 @@
-"use strict";
-
-let webpack = require("webpack");
-let webpackConfig = require("./webpack.config");
+const webpack = require("webpack");
+const webpackConfig = require("./webpack.test.config");
 
 module.exports = function(config) {
     config.set({
-        browsers: ['PhantomJS'],
-        frameworks: ['jasmine', 'phantomjs-shim'],
+        browsers: ["PhantomJS"],
+
+        basePath: "",
+
+        frameworks: ["jasmine"],
+
         files: [
-            "app/spec-entry.ts"
+            "./app/spec-entry.js"
         ],
-        reporters: ["nyan", "coverage"],
+
+        mime: {
+            "text/x-typescript": ["ts"]
+        },
+
+        reporters: [ "nyan", "coverage", 'remap-coverage' ],
 
         preprocessors: {
-          'app/spec-entry.ts': ['webpack']
+            "./app/spec-entry.js": [ "coverage", "webpack", "sourcemap" ]
         },
 
         coverageReporter: {
-          dir: "build/reports/coverage",
-            watermarks: {
-                statements: [98, 100],
-                branches: [98, 100],
-                functions: [98, 100],
-                lines: [98, 100]
-            },
-          reporters: [
-            { type: "html", subdir: "html" },
-            { type: "text-summary" }
-          ]
+            type: 'in-memory',
         },
-        webpack: {
-            watch: true,
-            module: {
-                loaders: webpackConfig.module.loaders,
-                postLoaders: [
-                    { test: /\.ts$/, exclude: /(node_modules|spec|\.d\.ts$)/, loader: 'istanbul-instrumenter' }
-                ]
-            },
-            resolve: webpackConfig.resolve,
-            plugins: webpackConfig.plugins.slice(1)
-        }
-    })
+
+        remapCoverageReporter: {
+            'text-summary': null,
+            json: './reports/coverage/json/coverage.json',
+            html: './reports/coverage/html'
+        },
+
+        browserNoActivityTimeout: 100000,
+
+        webpack: webpackConfig,
+
+        webpackMiddleware: {
+            noInfo: true,
+            stats: {
+                chunks: false
+            }
+        },
+
+        plugins: [
+            require("karma-webpack"),
+            require("karma-coverage"),
+            require("karma-nyan-reporter"),
+            require("karma-jasmine"),
+            require("karma-phantomjs-launcher"),
+            require("karma-chrome-launcher"),
+            require("karma-phantomjs-shim"),
+            require("karma-sourcemap-loader"),
+            require("karma-remap-coverage")
+        ]
+    });
 };

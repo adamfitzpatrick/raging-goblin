@@ -6,7 +6,7 @@ describe("stackerItem directive", () => {
     beforeEach(angular.mock.module("App"));
 
     let $injector;
-    let stackerItemElement
+    let stackerItemElement;
 
     beforeEach(angular.mock.inject((_$injector_) => {
         $injector = _$injector_;

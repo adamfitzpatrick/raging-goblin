@@ -25,88 +25,91 @@ $h2-font-size: ms(3);
 $h1-font-size: ms(4);
 
 html {
-  font-size: $twelve-pixel-root;
+    font-size: $twelve-pixel-root;
+    @media only screen and (min-width: 1281px) {
+        font-size: $sixteen-pixel-root;
+    }
 
-  @media only screen and (min-width: 1281px) {
-    font-size: $sixteen-pixel-root;
-  }
-
-  @media only screen and (min-width: 1601px) {
-    font-size: $twenty-pixel-root;
-  }
+    @media only screen and (min-width: 1601px) {
+        font-size: $twenty-pixel-root;
+    }
 }
 
 body {
-  font-family: $sans-font-family;
-  font-size: $body-font-size;
-  line-height: $baseline-unit / $body-font-size;
+    font-family: $sans-font-family;
+    font-size: $body-font-size;
+    line-height: $baseline-unit / $body-font-size;
 }
 
 h1 {
-  font-size: $h1-font-size;
-  font-weight: normal;
-  line-height: $baseline-unit * 2 / $h1-font-size; // Double the baseline due to size of h1
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
-  letter-spacing: $heading-letter-spacing;
+    font-size: $h1-font-size;
+    font-weight: normal;
+    line-height: $baseline-unit * 2 / $h1-font-size; // Double the baseline due to size of h1
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
+    letter-spacing: $heading-letter-spacing;
 }
 
 h2 {
-  font-weight: normal;
-  font-size: $h2-font-size;
-  line-height: $baseline-unit / $h2-font-size;
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
-  letter-spacing: $heading-letter-spacing;
+    font-weight: normal;
+    font-size: $h2-font-size;
+    line-height: $baseline-unit / $h2-font-size;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
+    letter-spacing: $heading-letter-spacing;
 }
 
 h3 {
-  font-weight: normal;
-  font-size: $h3-font-size;
-  line-height: $baseline-unit / $h3-font-size;
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
-  letter-spacing: $heading-letter-spacing;
+    font-weight: normal;
+    font-size: $h3-font-size;
+    line-height: $baseline-unit / $h3-font-size;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
+    letter-spacing: $heading-letter-spacing;
 }
 
 h4 {
-  font-weight: $boldish;
-  font-size: $h4-font-size;
-  line-height: $baseline-unit / $h4-font-size;
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
-  letter-spacing: $heading-letter-spacing;
+    font-weight: $boldish;
+    font-size: $h4-font-size;
+    line-height: $baseline-unit / $h4-font-size;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
+    letter-spacing: $heading-letter-spacing;
 }
 
 h5 {
-  font-weight: $boldish;
-  font-size: $h5-font-size;
-  line-height: $baseline-unit / $h5-font-size;
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
-  letter-spacing: $heading-letter-spacing;
+    font-weight: $boldish;
+    font-size: $h5-font-size;
+    line-height: $baseline-unit / $h5-font-size;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
+    letter-spacing: $heading-letter-spacing;
 }
 
 h6 {
-  font-weight: $boldish;
-  font-size: $h6-font-size;
-  line-height: $baseline-unit / $h6-font-size;
-  margin-top: 0;
-  margin-bottom: 0;
-  letter-spacing: $heading-letter-spacing;
+    font-weight: $boldish;
+    font-size: $h6-font-size;
+    line-height: $baseline-unit / $h6-font-size;
+    margin-top: 0;
+    margin-bottom: 0;
+    letter-spacing: $heading-letter-spacing;
 }
 
 p {
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
 }
 
 ul, ol {
-  padding-left: 2em;
-  margin-top: 0;
-  margin-bottom: $baseline-unit;
+    padding-left: 2em;
+    margin-top: 0;
+    margin-bottom: $baseline-unit;
 }
 
-b, strong { font-weight: $boldish; }
+b, strong {
+    font-weight: $boldish;
+}
 
-a { color: $link-color; }
+a {
+    color: $link-color;
+}

@@ -1,3 +1,5 @@
+import * as angular from "angular";
+
 export interface StackerPositionStyle {
     top: string;
     left: string;

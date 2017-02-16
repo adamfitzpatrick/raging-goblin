@@ -91,7 +91,7 @@ describe("stacker", () => {
 
         describe("window resize", () => {
             it("should start the digest cycle", () => {
-                let evt = new Event('resize');
+                let evt = new Event("resize");
                 window.dispatchEvent(evt);
                 expect($rootScope.$apply).toHaveBeenCalled();
             });
