@@ -1,0 +1,55 @@
+@import 'colors';
+
+.loader {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $color-darkest;
+
+    &__circle {
+        position: absolute;
+        border-radius: 50%;
+        width: 15vw;
+        height: 15vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: linear-gradient(to right, $color-medium 50%, transparent 50%);
+        animation: spin 1s infinite linear;
+
+        &::before {
+            position: absolute;
+            content: "";
+            background: $color-darkest;
+            width: 97%;
+            height: 97%;
+            border-radius: 50%;
+        }
+
+        &::after {
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, $color-darkest);
+        }
+    }
+
+    &__logo {
+        position: absolute;
+        width: 10vw;
+    }
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+}

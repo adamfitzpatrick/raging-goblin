@@ -1,2 +1,3 @@
 import "./polyfills.browser";
-import "./app/app";
+import "./global-styles/app.scss";
+// import "./app/app";
