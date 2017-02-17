@@ -2,6 +2,6 @@ public
 node_modules
 typings
 .idea
-build
+reports
 **/npm-debug.log
 e2e/steps-entry.js

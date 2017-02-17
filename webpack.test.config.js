@@ -12,7 +12,5 @@ webpackConfig.module.rules.push({
         /node_modules/
     ]
 });
-webpackConfig.plugins = webpackConfig.plugins.slice(2);
-delete webpackConfig.externals;
 
 module.exports = webpackConfig;

@@ -2,6 +2,7 @@
 
 const fs = require("fs");
 const path = require("path");
+const CommonsChunkPlugin = require('webpack/lib/optimize/CommonsChunkPlugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const StyleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
@@ -11,34 +12,29 @@ const startMockServer = require("./mock-backend/mock-server.js");
 const appConfig = require("./app-config.json");
 
 const flags = yargs.argv;
-const env = flags.env || "dev";
+const env = flags.env || "prod";
 
 const cdnResources = {
-    js: [
-        "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular.js",
-        "https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.6/angular-route.js"
-    ],
+    js: [],
     fonts: [
         "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"
     ]
 };
-const externals = [
-    "angular",
-    { "angular-route": "ngRoute" },
-    { "angular-animate": "ngAnimate" }
-];
+const externals = [];
 
 if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
     startMockServer();
 }
 
 module.exports = {
-    entry: "./app/entry.ts",
+    context: path.join(__dirname, "./src/app"),
+    entry: path.join(__dirname, "./src/entry.ts"),
     output: {
         path: path.join(__dirname, "public"),
-        filename: "app.[hash].js"
+        filename: "[name].[hash].js"
     },
     module: {
+        exprContextCritical: false,
         rules: [
             {
                 enforce: "pre",
@@ -74,7 +70,8 @@ module.exports = {
     },
     externals: externals,
     resolve: {
-        extensions: [".webpack.js", ".web.js", ".js", ".ts"]
+        extensions: [".webpack.js", ".web.js", ".js", ".ts"],
+        modules: ["./node_modules"]
     },
     devtool: "inline-source-map",
     devServer: {
@@ -82,20 +79,38 @@ module.exports = {
         proxy: {"*": { target: "http://localhost:3002" } }
     },
     plugins: [
-        new FaviconsWebpackPlugin(path.join(__dirname, "./app/favicon.png")),
         new HtmlWebpackPlugin({
-            title: "Step Into",
-            ngAppName: "App",
-            template: path.join(__dirname, "./app/indexTemplate.hbs"),
+            template: `!!handlebars-loader!${path.join(__dirname, "./src/indexTemplate.hbs")}`,
+            title: "StepInto",
+            chunksSortMode: "dependency",
+            inject: "head",
             cdnResources: cdnResources
         }),
         new webpack.DefinePlugin({
+            ENV: JSON.stringify(env),
             CONFIG: JSON.stringify(appConfig[env])
         }),
+        new FaviconsWebpackPlugin({
+            logo: path.join(__dirname, "./src/favicon.png"),
+            icons: {
+                android: false,
+                appleIcon: false,
+                appleStartup: false,
+                coast: false,
+                favicons: true,
+                firefox: true,
+                opengraph: false,
+                twitter: false,
+                yandex: false,
+                windows: false
+            }
+        }),
+        /*
         new StyleLintPlugin({
             configFile: ".stylelintrc",
-            context: "./app/"
+            context: "./src/"
         }),
+        */
         new webpack.LoaderOptionsPlugin({
             options: {
                 tslint: {

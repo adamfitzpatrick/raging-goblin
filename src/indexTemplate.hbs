@@ -6,9 +6,8 @@
         <title>{{ htmlWebpackPlugin.options.title }}</title>
         {{#each htmlWebpackPlugin.options.cdnResources.fonts }}<link href="{{ this }}" rel="stylesheet" type="text/css"/>{{/each}}
     </head>
-    <body ng-app="{{ htmlWebpackPlugin.options.ngAppName }}">
-        <header></header>
-        <ng-view class="app-view"></ng-view>
+    <body>
+        <app-root>Preparing goblins...</app-root>
         {{#each htmlWebpackPlugin.options.cdnResources.js }}<script type="application/javascript" src="{{ this }}"></script>{{/each}}
     </body>
 </html>

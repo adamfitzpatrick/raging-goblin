@@ -10,7 +10,7 @@ module.exports = function(config) {
         frameworks: ["jasmine"],
 
         files: [
-            "./app/spec-entry.js"
+            "./src/spec-entry.js"
         ],
 
         mime: {
@@ -20,7 +20,7 @@ module.exports = function(config) {
         reporters: [ "nyan", "coverage", 'remap-coverage' ],
 
         preprocessors: {
-            "./app/spec-entry.js": [ "coverage", "webpack", "sourcemap" ]
+            "./src/spec-entry.js": [ "coverage", "webpack", "sourcemap" ]
         },
 
         coverageReporter: {
