@@ -4,6 +4,7 @@
 
 .header {
     position: fixed;
+    display: flex;
     z-index: $header-z-index;
     height: $header-height;
     width: 100vw;

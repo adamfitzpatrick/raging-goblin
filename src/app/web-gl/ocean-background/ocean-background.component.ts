@@ -7,7 +7,7 @@ export const ThreeWrapper = { THREE };
 })
 export class OceanBackgroundComponent implements AfterContentInit {
     static MAX_RANGE = 3;
-    static MAX_INCREMENT = 0.01;
+    static MAX_INCREMENT = 0.02;
     static WIDTH = 1000;
     static HEIGHT = 500;
     static X_SEGMENTS = 60;

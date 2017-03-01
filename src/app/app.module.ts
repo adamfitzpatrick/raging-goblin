@@ -1,23 +1,23 @@
 import { NgModule } from "@angular/core";
-import { RouterModule, PreloadAllModules } from "@angular/router";
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
 import { BrowserModule } from "@angular/platform-browser";
 import { WebGlModule } from "./web-gl/web-gl.module";
 import { HeaderComponent } from "./header/header.component";
+import { BlogComponent } from "./blog/blog.component";
 import { ROUTES } from "./app.routes";
-import { LandingComponent } from "./landing/landing.component";
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(ROUTES, { preloadingStrategy: PreloadAllModules }),
+        RouterModule.forRoot(ROUTES),
         BrowserModule,
         WebGlModule
     ],
     declarations: [
         AppComponent,
         HeaderComponent,
-        LandingComponent
+        BlogComponent
     ],
     bootstrap: [ AppComponent ]
 })

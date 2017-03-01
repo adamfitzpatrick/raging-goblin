@@ -1,5 +1,12 @@
 @import 'typography';
 @import 'colors';
+@import 'layout';
 @import 'loader';
 
 body { margin: 0; }
+
+main {
+    position: absolute;
+    z-index: $content-z-index;
+    top: $header-height;
+}
