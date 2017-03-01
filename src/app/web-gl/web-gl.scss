@@ -1,0 +1,9 @@
+@import "../../global-styles/layout";
+
+.background {
+    position: fixed;
+    z-index: $background-z-index;
+    bottom: 0;
+    width: 100vw;
+    height: $background-height;
+}

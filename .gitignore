@@ -5,3 +5,4 @@ typings
 reports
 **/npm-debug.log
 e2e/steps-entry.js
+ui-mocks

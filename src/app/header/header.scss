@@ -1,0 +1,19 @@
+@import '../../global-styles/layout';
+@import '../../global-styles/typography';
+@import '../../global-styles/colors';
+
+.header {
+    position: fixed;
+    z-index: $header-z-index;
+    height: $header-height;
+    width: 100vw;
+    color: $text-light;
+    background: $color-darkest;
+
+    &__logo {
+        margin: 0 1rem;
+        width: 2rem;
+    }
+
+    &__title { font-family: $heavy-font-family; }
+}

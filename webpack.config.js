@@ -31,7 +31,7 @@ module.exports = {
     entry: path.join(__dirname, "./src/entry.ts"),
     output: {
         path: path.join(__dirname, "public"),
-        filename: "[name].[hash].js"
+        filename: "app.[hash].js"
     },
     module: {
         exprContextCritical: false,
@@ -63,7 +63,7 @@ module.exports = {
             },
             { test: /\.hbs$/, use: [ "handlebars-loader" ] },
             { test: /\.html$/, use: [ "html-loader" ] },
-            { test: /\.scss$/, use: [ "style-loader", "css-loader", "sass-loader" ] },
+            { test: /\.scss$/, use: [ "to-string-loader", "css-loader", "sass-loader" ] },
             { test: /\.css$/, use: [ "style-loader", "css-loader" ] },
             { test: /\.(png|ttf|eot|svg|woff|woff2)/, use: [ "file-loader" ] }
         ]

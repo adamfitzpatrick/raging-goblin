@@ -17,20 +17,20 @@ module.exports = function(config) {
             "text/x-typescript": ["ts"]
         },
 
-        reporters: [ "nyan", "coverage", 'remap-coverage' ],
+        reporters: [ "nyan", "coverage", "remap-coverage" ],
 
         preprocessors: {
             "./src/spec-entry.js": [ "coverage", "webpack", "sourcemap" ]
         },
 
         coverageReporter: {
-            type: 'in-memory',
+            type: "in-memory",
         },
 
         remapCoverageReporter: {
-            'text-summary': null,
-            json: './reports/coverage/json/coverage.json',
-            html: './reports/coverage/html'
+            "text-summary": null,
+            json: "./reports/coverage/json/coverage.json",
+            html: "./reports/coverage/html"
         },
 
         browserNoActivityTimeout: 100000,

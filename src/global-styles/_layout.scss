@@ -1,0 +1,7 @@
+$header-z-index: 1000;
+$header-height: 4rem;
+
+$content-z-index: 1;
+
+$background-z-index: 0;
+$background-height: calc(100vh - #{$header-height});

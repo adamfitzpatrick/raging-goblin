@@ -1,3 +1,3 @@
 import "./polyfills.browser";
-import "./global-styles/app.scss";
-// import "./app/app";
+import "!style-loader!css-loader!sass-loader!./global-styles/global.scss";
+import "./app/app";
