@@ -35,7 +35,7 @@ describe("OceanBackgroundComponent", () => {
             this.domElement = "renderer.domElement";
         };
         threejs.Scene = function () {
-            this.add = threejsSpies.scene.add
+            this.add = threejsSpies.scene.add;
         };
         threejs.PerspectiveCamera = function () {
             this.position = {

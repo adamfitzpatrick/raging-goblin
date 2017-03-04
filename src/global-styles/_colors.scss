@@ -3,17 +3,19 @@ $color-dark: #032c36;
 $color-medium: #065f73;
 $color-light: #f5f0f0;
 $color-lightest: #fff;
-$color-gray: #efefef;
+$color-gray: #efefefef;
 $color-red: #f41c54;
 $color-blue: #00aab5;
 $color-green: #c1c923;
 $color-purple: #c36aff;
 
 $color-accent: $color-red;
+$color-accent-light: $color-red; // lighten($color-accent, 10%);
 
 $text-dark: $color-darkest;
 $text-light: $color-lightest;
 $text-muted: $color-gray;
+$text-disabled: lighten(#000, 50%);
 $text-accent: $color-accent;
 
 $link-color: #0098dc;

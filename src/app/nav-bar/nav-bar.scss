@@ -1,0 +1,65 @@
+@import '../../global-styles/layout';
+@import '../../global-styles/typography';
+@import '../../global-styles/colors';
+@import '../../global-styles/breakpoints';
+
+$gutter: 1rem;
+
+.nav-bar {
+    position: fixed;
+    z-index: $header-z-index;
+    width: 100vw;
+    height: $header-height;
+
+    &__inner {
+        height: $header-height;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__left {
+        margin-left: $gutter;
+    }
+
+    &__center {
+        width: 50%;
+
+        @media all and (max-width: $medium-width) { display: none; }
+    }
+
+    &__right {
+        margin-right: $gutter;
+        font-size: 0.7rem;
+        text-align: right;
+    }
+
+    &--top {
+        color: $text-light;
+        background: $color-darkest;
+    }
+
+    &--bottom {
+        bottom: 0;
+        background: $color-lightest;
+        display: none;
+        justify-content: space-around;
+        align-items: center;
+        box-shadow: 0 5px 5px 5px $color-darkest;
+
+        links { width: 90vw; }
+
+        @media all and (max-width: $medium-width) { display: flex; }
+    }
+}
+
+.logo { width: 2rem; }
+
+.title {
+    font-family: $heavy-font-family;
+    font-size: 1.5rem;
+    margin: 0;
+    vertical-align: top;
+    display: inline-block;
+}

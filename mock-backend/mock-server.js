@@ -9,5 +9,6 @@ module.exports = () => {
     let router = jsonServer.router(db());
 
     server.use(router);
+
     server.listen(3002);
 };

@@ -4,26 +4,25 @@ import {
     TestBed
 } from "@angular/core/testing";
 
-import { HeaderComponent } from "./header.component";
+import { AboutComponent } from "./about.component";
 
-describe("header component", () => {
-    let component;
+describe("topics component", () => {
     let fixture;
+    let component;
 
-    // async beforeEach
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ HeaderComponent ],
+            declarations: [ AboutComponent ],
             schemas: [ NO_ERRORS_SCHEMA ]
         })
-            .compileComponents(); // compile template and css
+            .compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(HeaderComponent);
-        component    = fixture.componentInstance;
+        fixture = TestBed.createComponent(AboutComponent);
+        component = fixture.componentInstance;
 
-        fixture.detectChanges(); // trigger initial data binding
+        fixture.detectChanges();
     });
 
     it("should be initialized", () => {

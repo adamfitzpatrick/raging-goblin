@@ -1,0 +1,12 @@
+@import "colors";
+
+.button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border: none;
+
+    &--icon {
+        background: none;
+        color: $text-light;
+    }
+}

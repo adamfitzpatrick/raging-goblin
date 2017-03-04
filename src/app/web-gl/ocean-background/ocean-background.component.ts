@@ -10,8 +10,9 @@ export class OceanBackgroundComponent implements AfterContentInit {
     static MAX_INCREMENT = 0.02;
     static WIDTH = 1000;
     static HEIGHT = 500;
-    static X_SEGMENTS = 60;
-    static Y_SEGMENTS = 60;
+    static X_SEGMENTS = 80;
+    static Y_SEGMENTS = 80;
+    static MATERIAL_COLOR = 0x888888;
     static CAMERA_POSITION = new ThreeWrapper.THREE.Vector3(0, 125, 300);
     static CAMERA_LOOKAT = new ThreeWrapper.THREE.Vector3(0, 0, 150);
     static LIGHT_INTENSITY = 0.7;
@@ -76,7 +77,7 @@ export class OceanBackgroundComponent implements AfterContentInit {
     };
 
     private setRenderer() {
-        this.renderer = new ThreeWrapper.THREE.WebGLRenderer();
+        this.renderer = new ThreeWrapper.THREE.WebGLRenderer({ antialias: true });
         this.renderer.setSize(window.innerWidth, window.innerHeight);
         this.element.nativeElement.appendChild(this.renderer.domElement);
     }
@@ -110,7 +111,7 @@ export class OceanBackgroundComponent implements AfterContentInit {
         );
         this.initializeVectorCreep();
         const material = new ThreeWrapper.THREE.MeshPhongMaterial({
-            color: 0x021b21,
+            color: OceanBackgroundComponent.MATERIAL_COLOR,
             side: ThreeWrapper.THREE.DoubleSide,
             shading: ThreeWrapper.THREE.FlatShading
         });

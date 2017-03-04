@@ -3,6 +3,7 @@ module.exports = () => {
 
     let faker = require("faker");
     let fs = require("fs");
+    const path = require("path");
     let ncp = require("ncp").ncp;
 
     let totalPosts = 23;
@@ -11,9 +12,9 @@ module.exports = () => {
         return this.toString().replace(/(^| )([a-z])/g, (group) => group.toUpperCase());
     };
 
-    let imagesDir = `${process.cwd()}/mock-backend/images`;
-    let imageNames = fs.readdirSync(`${process.cwd()}/mock-backend/images`);
-    ncp(imagesDir, `${process.cwd()}/public/images`, (err) => {
+    let imagesDir = path.join(__dirname, "/images");
+    let imageNames = fs.readdirSync(path.join(__dirname, "/images"));
+    ncp(imagesDir, path.join(__dirname, "../public/images"), (err) => {
         if (err) { console.error(err); }
     });
 

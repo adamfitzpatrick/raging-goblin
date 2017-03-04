@@ -1,0 +1,48 @@
+@import '../../../global-styles/colors';
+@import '../../../global-styles/layout';
+
+.links {
+    position: relative;
+    display: flex;
+    height: calc(#{$header-height} / 2);
+    margin: 0 auto;
+
+
+
+    &__link {
+        display: block;
+        width: 25%;
+        font-size: 1.3rem;
+        text-align: center;
+
+        &--active {
+            color: $color-accent;
+
+            @for $i from 1 through 4 {
+                &-#{$i} ~ .links__underline { left: ($i - 1) * 25%; }
+            }
+        }
+    }
+
+    &__underline {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 25%;
+        height: 0.1rem;
+        border: 0;
+        margin: 0;
+        background: $color-accent;
+        transition: left 0.3s ease-in-out;
+    }
+
+    &--dark {
+        .links__link {
+            color: $text-light;
+
+            &--active { color: $color-accent-light; }
+        }
+
+        .links__underline { background: $color-accent-light; }
+    }
+}

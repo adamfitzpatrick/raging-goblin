@@ -1,23 +1,28 @@
 import { NgModule } from "@angular/core";
-import { RouterModule } from "@angular/router";
+import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
-import { BrowserModule } from "@angular/platform-browser";
 import { WebGlModule } from "./web-gl/web-gl.module";
-import { HeaderComponent } from "./header/header.component";
+import { NavBarModule } from "./nav-bar/nav-bar.module";
 import { BlogComponent } from "./blog/blog.component";
-import { ROUTES } from "./app.routes";
+import { TopicsComponent } from "./topics/topics.component";
+import { ProjectsComponent } from "./projects/projects.component";
+import { AboutComponent } from "./about/about.component";
+import { AppRoutingModule } from "./app-routing/app-routing.module";
 
 @NgModule({
     imports: [
-        RouterModule.forRoot(ROUTES),
         BrowserModule,
-        WebGlModule
+        WebGlModule,
+        NavBarModule,
+        AppRoutingModule
     ],
     declarations: [
         AppComponent,
-        HeaderComponent,
-        BlogComponent
+        BlogComponent,
+        TopicsComponent,
+        ProjectsComponent,
+        AboutComponent
     ],
     bootstrap: [ AppComponent ]
 })

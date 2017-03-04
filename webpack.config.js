@@ -8,8 +8,10 @@ const StyleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const webpack = require("webpack");
 const yargs = require("yargs");
+
 const startMockServer = require("./mock-backend/mock-server.js");
 const appConfig = require("./app-config.json");
+const logo = fs.readFileSync("./src/assets/logo.svg", "utf-8");
 
 const flags = yargs.argv;
 const env = flags.env || "prod";
@@ -18,6 +20,10 @@ const cdnResources = {
     js: [],
     fonts: [
         "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"
+    ],
+    css: [
+        "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css",
+        "https://fonts.googleapis.com/icon?family=Material+Icons"
     ]
 };
 const externals = [];
@@ -76,11 +82,15 @@ module.exports = {
     devtool: "inline-source-map",
     devServer: {
         port: 7001,
-        proxy: {"*": { target: "http://localhost:3002" } }
+        historyApiFallback: true,
+        proxy: {
+            "/api/**": { target: "http://localhost:3002" }
+        }
     },
     plugins: [
         new HtmlWebpackPlugin({
             template: `!!handlebars-loader!${path.join(__dirname, "./src/indexTemplate.hbs")}`,
+            logo: logo,
             title: "StepInto",
             chunksSortMode: "dependency",
             inject: "head",
