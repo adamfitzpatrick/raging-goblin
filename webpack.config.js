@@ -8,18 +8,23 @@ const StyleLintPlugin = require("stylelint-webpack-plugin");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const webpack = require("webpack");
 const yargs = require("yargs");
-
-const startMockServer = require("./mock-backend/mock-server.js");
-const appConfig = require("./app-config.json");
-const logo = fs.readFileSync("./src/assets/logo.svg", "utf-8");
+const yaml = require("yamljs");
 
 const flags = yargs.argv;
 const env = flags.env || "prod";
 
+const startMockServer = require("./mock-backend/mock-server.js");
+const appConfig = require("./app-config.json");
+const logo = fs.readFileSync("./src/assets/images/logo.svg", "utf-8");
+const posts = fs.readdirSync(path.join(__dirname, "./src/assets/posts")).map(postFile => {
+    const yamlPost = fs.readFileSync(path.join(__dirname, "./src/assets/posts", postFile), "utf-8");
+    return yaml.parse(yamlPost);
+});
+
 const cdnResources = {
     js: [],
     fonts: [
-        "https://fonts.googleapis.com/css?family=Cousine|Josefin+Sans:400,700"
+        "https://fonts.googleapis.com/css?family=Cousine|Arimo"
     ],
     css: [
         "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css",
@@ -98,7 +103,8 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             ENV: JSON.stringify(env),
-            CONFIG: JSON.stringify(appConfig[env])
+            CONFIG: JSON.stringify(appConfig[env]),
+            POSTS: JSON.stringify(posts)
         }),
         new FaviconsWebpackPlugin({
             logo: path.join(__dirname, "./src/favicon.png"),

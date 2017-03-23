@@ -1,12 +1,26 @@
 @import "colors";
 
 .button {
+    font-size: 1rem;
     -webkit-appearance: none;
     -moz-appearance: none;
-    border: none;
+    border: 1px solid $color-darkest;
+    padding: 1rem;
+    border-radius: 2rem;
+    background: none;
+
+    &:hover {
+        color: $color-medium;
+        border: 1px solid $color-medium;
+    }
 
     &--icon {
         background: none;
         color: $text-light;
+    }
+
+    &--muted {
+        color: $text-muted;
+        border: 1px solid $color-gray;
     }
 }

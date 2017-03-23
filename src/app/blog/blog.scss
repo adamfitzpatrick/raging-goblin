@@ -1,5 +1,20 @@
-@import "../../global-styles/colors";
+@import '../../global-styles/colors';
+@import '../../global-styles/layout';
+@import '../../global-styles/breakpoints';
 
 .blog {
-    color: $text-light;
+    background: $color-lightest;
+    width: 60%;
+    height: calc(100vh - #{$header-height});
+    min-width: $small-width;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 160px 110px $color-lightest;
+
+    @media all and (max-width: $small-width) {
+        width: calc(100vw - 2 * #{$content-gutter});
+        min-width: inherit;
+        box-shadow: none;
+        margin: 0 2rem;
+    }
 }

@@ -1,0 +1,11 @@
+id: 2
+date: 4/1/2017
+title: The Joy of Test Driven Development
+synopsis: >
+  or...How I learned to stop worrying and love test failures.  I was skeptical at first, but I have since come to
+  enjoy the experience of writing tests prior to putting together even a single line or working code.  Take a look at
+  exactly what the process entails, the potential benefits, pitfalls and why I love working this way.
+content: >
+  <p>
+    Joy of TDD article content.
+  </p>

@@ -10,11 +10,12 @@ a {
     text-decoration: none;
     color: $text-dark;
 
-    &:hover { color: $text-accent; }
+    &:hover { color: $text-link; }
 }
 
 main {
     position: absolute;
     z-index: $content-z-index;
     top: $header-height;
+    width: 100vw;
 }

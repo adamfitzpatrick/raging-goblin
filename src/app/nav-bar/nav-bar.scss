@@ -17,6 +17,8 @@ $gutter: 1rem;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        @media all and (min-width: $oversize-width) { width: 1000px; }
     }
 
     &__left {
@@ -31,7 +33,6 @@ $gutter: 1rem;
 
     &__right {
         margin-right: $gutter;
-        font-size: 0.7rem;
         text-align: right;
     }
 
@@ -62,4 +63,9 @@ $gutter: 1rem;
     margin: 0;
     vertical-align: top;
     display: inline-block;
+}
+
+.author {
+    font-size: 0.7rem;
+    font-style: italic;
 }

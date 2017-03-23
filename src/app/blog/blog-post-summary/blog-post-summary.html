@@ -1,0 +1,6 @@
+<div class="blog-post-summary">
+    <div class="blog-post-summary__date">{{ getDateString() }}</div>
+    <h1><a href>{{ post.title }}</a></h1>
+    <p class="blog-post-summary__synopsis" [innerHTML]="post.synopsis"></p>
+    <button class="button button--muted blog-post-summary__button">Read More</button>
+</div>

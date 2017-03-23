@@ -1,0 +1,9 @@
+.blog-post-summary {
+    margin-top: 3rem;
+
+    &__date { font-size: 0.8rem; }
+
+    &__synopsis { line-height: 1.7; }
+
+    &__button { margin-top: 2rem; }
+}

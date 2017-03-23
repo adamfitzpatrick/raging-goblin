@@ -1,4 +1,9 @@
-$sans-font-family: "Josefin Sans", sans-serif;
-$heavy-font-family: "Cousine", cursive;
+@import "_colors.scss";
 
-body { font-family: $sans-font-family; }
+$sans-font-family: "Arimo", sans-serif;
+$heavy-font-family: "Cousine", monospace;
+
+body {
+    font-family: $sans-font-family;
+    color: $text-body;
+}
