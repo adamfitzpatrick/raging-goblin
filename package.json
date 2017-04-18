@@ -1,6 +1,6 @@
 {
   "name": "raging-goblin",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Small and irate",
   "scripts": {
     "build": "webpack -p",
