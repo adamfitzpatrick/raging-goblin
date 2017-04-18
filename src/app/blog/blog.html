@@ -1,3 +1,8 @@
 <div class="blog">
-    <blog-post-summary *ngFor="let post of posts" [post]="post"></blog-post-summary>
+    <blog-search [posts]="posts" (onSearch)="handleSearchResults($event)"></blog-search>
+    <blog-post-summary
+        *ngFor="let result of searchResults"
+        [post]="result.target"
+        [matchString]="result.match"
+    ></blog-post-summary>
 </div>

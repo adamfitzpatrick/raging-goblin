@@ -5,6 +5,7 @@ import {
 } from "@angular/core/testing";
 
 import { BlogPostSummaryComponent } from "./blog-post-summary.component";
+import { HighlightPipe } from "../../pipes/highlight/highlight.pipe";
 
 describe("blog post summary component", () => {
     let fixture;
@@ -14,7 +15,7 @@ describe("blog post summary component", () => {
     beforeEach(async(() => {
         post = { id: 1, date: new Date("3/1/2017"), title: "Title", synopsis: "synopsis" };
         TestBed.configureTestingModule({
-            declarations: [ BlogPostSummaryComponent ],
+            declarations: [ BlogPostSummaryComponent, HighlightPipe ],
             schemas: [ NO_ERRORS_SCHEMA ]
         })
             .compileComponents();
@@ -31,11 +32,5 @@ describe("blog post summary component", () => {
     it("should be initialized", () => {
         expect(fixture).toBeDefined();
         expect(component).toBeDefined();
-    });
-
-    describe("getDateString", () => {
-        it("should return a date string with capitalized month", () => {
-            expect(component.getDateString()).toBe("MARCH 1, 2017");
-        });
     });
 });

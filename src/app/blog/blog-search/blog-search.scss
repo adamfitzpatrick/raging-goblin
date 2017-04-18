@@ -1,0 +1,15 @@
+@import '../../../global-styles/colors';
+
+.blog-search {
+    margin: 1rem 0;
+
+    &__bar { display: flex; }
+
+    &__input {
+        width: 100%;
+        border: none;
+        border-bottom: 1px solid $color-gray;
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+}

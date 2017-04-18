@@ -7,3 +7,8 @@ body {
     font-family: $sans-font-family;
     color: $text-body;
 }
+
+.highlight {
+    background-color: $color-blue;
+    border-radius: 0.1rem;
+}

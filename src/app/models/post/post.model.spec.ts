@@ -18,4 +18,10 @@ describe("Post", () => {
     it("should convert a string date into a Date object", () => {
         expect(post.date instanceof Date).toBe(true);
     });
+
+    describe("dateString", () => {
+        it("should return a properly formatted string representation of post date", () => {
+            expect(post.dateString).toBe("JANUARY 1, 2017");
+        });
+    });
 });

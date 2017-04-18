@@ -9,6 +9,7 @@ import { ProjectsComponent } from "./projects/projects.component";
 import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { BlogModule } from "./blog/blog.module";
+import { HighlightPipe } from "./pipes/highlight/highlight.pipe";
 
 @NgModule({
     imports: [

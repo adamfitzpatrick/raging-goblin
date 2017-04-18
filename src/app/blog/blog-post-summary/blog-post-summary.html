@@ -1,6 +1,6 @@
 <div class="blog-post-summary">
-    <div class="blog-post-summary__date">{{ getDateString() }}</div>
-    <h1><a href>{{ post.title }}</a></h1>
-    <p class="blog-post-summary__synopsis" [innerHTML]="post.synopsis"></p>
+    <div class="blog-post-summary__date" [innerHtml]="post.dateString | highlight: matchString"></div>
+    <h1><a href [innerHTML]="post.title | highlight: matchString"></a></h1>
+    <p class="blog-post-summary__synopsis" [innerHTML]="post.synopsis | highlight: matchString"></p>
     <button class="button button--muted blog-post-summary__button">Read More</button>
 </div>

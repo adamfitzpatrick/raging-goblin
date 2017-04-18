@@ -1,0 +1,13 @@
+<div class="blog-search">
+    <div class="blog-search__bar">
+        <i class="material-icons">search</i>
+        <input
+            type="text"
+            class="blog-search__input"
+            placeholder="Type to search posts (Levenshtein distance search)"
+            id="search-input"
+            #search
+            (keyup)="searchPosts(search.value)"
+        />
+    </div>
+</div>

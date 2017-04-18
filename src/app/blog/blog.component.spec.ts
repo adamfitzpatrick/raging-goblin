@@ -12,10 +12,12 @@ describe("blog component", () => {
     let component;
     let posts;
     let blogPostService;
+    let searchResults;
 
     beforeEach(async(() => {
         posts = [
-            { id: 1, date: new Date(), title: "Post 1", synopsis: "Post 1 synopsis" }
+            { id: 1, title: "Post 1", synopsis: "Post 1 synopsis" },
+            { id: 2, title: "Post 2", synopsis: "Post 2 synopsis" }
         ];
         blogPostService = jasmine.createSpyObj("blogPostService", [ "get" ]);
         blogPostService.get.and.returnValue(posts);
@@ -40,6 +42,24 @@ describe("blog component", () => {
     });
 
     it("should have loaded blog posts", () => {
-        expect(component.posts).toBeDefined();
+        expect(component.posts).toEqual(posts);
+        searchResults = [
+            { distance: 0, target: posts[0] },
+            { distance: 0, target: posts[1] }
+        ];
+        expect(component.searchResults).toEqual(searchResults);
+    });
+
+    describe("filterPosts", () => {
+        it("should set a list of filtered posts", () => {
+            component.handleSearchResults([{ distance: 0, target: posts[0] }]);
+            expect(component.searchResults).toEqual([{ distance: 0, target: posts[0] }]);
+        });
+
+        it("should reset filtered posts to the empty search results array", () => {
+            component.searchResults = [{ distance: 0, target: posts[0] }];
+            component.handleSearchResults();
+            expect(component.searchResults).toEqual(searchResults);
+        });
     });
 });
