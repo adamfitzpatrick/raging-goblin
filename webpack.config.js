@@ -132,6 +132,13 @@ module.exports = {
                 tslint: {
                     emitErrors: true,
                     formatter: "stylish"
+                },
+                htmlLoader: {
+                    minimize: true,
+                    removeAttributeQuotes: false,
+                    caseSensitive: true,
+                    customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+                    customAttrAssign: [ /\)?\]?=/ ]
                 }
             }
         })
