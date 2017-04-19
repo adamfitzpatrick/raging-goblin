@@ -11,8 +11,10 @@
     <body>
         <app-root>
             <div class="loader">
-                <div class="loader__circle"></div>
-                <div class="loader__logo">{{{ htmlWebpackPlugin.options.logo }}}</div>
+                <div class="loader__wrapper">
+                    <div class="loader__circle"></div>
+                    <div class="loader__logo">{{{ htmlWebpackPlugin.options.logo }}}</div>
+                </div>
             </div>
         </app-root>
         {{#each htmlWebpackPlugin.options.cdnResources.js }}<script type="application/javascript" src="{{ this }}"></script>{{/each}}
