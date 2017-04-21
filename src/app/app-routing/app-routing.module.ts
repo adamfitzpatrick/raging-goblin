@@ -4,14 +4,16 @@ import { TopicsComponent } from "../topics/topics.component";
 import { AboutComponent } from "../about/about.component";
 import { ProjectsComponent } from "../projects/projects.component";
 import { NgModule } from "@angular/core";
+import { BlogPostDetail } from "../blog/blog-post-detail/blog-post-detail.component";
 
 export const ROUTES: Routes = [
     { path: "blog", component: BlogComponent },
+    { path: "blog/:blogId", component: BlogPostDetail },
     { path: "topics", component: TopicsComponent },
     { path: "projects", component: ProjectsComponent },
     { path: "about", component: AboutComponent },
     { path: "",   redirectTo: "/blog", pathMatch: "full" },
-    { path: "*", component: BlogComponent }
+    { path: "**", component: BlogComponent }
 ];
 
 @NgModule({

@@ -1,6 +1,7 @@
 import { NgModule } from "@angular/core";
 import { BlogPostService } from "./blog-post/blog-post.service";
 import { LevenshteinService } from "./levenshtein/levenshtein.service";
+import { SyntaxHighlightService } from "./syntax-highlight/syntax-highlight.service";
 
 @NgModule({})
 export class ServicesModule {
@@ -9,7 +10,8 @@ export class ServicesModule {
             ngModule: ServicesModule,
             providers: [
                 BlogPostService,
-                LevenshteinService
+                LevenshteinService,
+                SyntaxHighlightService
             ]
         };
     }
@@ -17,5 +19,6 @@ export class ServicesModule {
 
 export {
     BlogPostService,
-    LevenshteinService
+    LevenshteinService,
+    SyntaxHighlightService
 }

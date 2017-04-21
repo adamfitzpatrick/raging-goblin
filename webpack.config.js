@@ -22,13 +22,16 @@ const posts = fs.readdirSync(path.join(__dirname, "./src/assets/posts")).map(pos
 });
 
 const cdnResources = {
-    js: [],
+    js: [
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"
+    ],
     fonts: [
-        "https://fonts.googleapis.com/css?family=Cousine|Arimo"
+        "https://fonts.googleapis.com/css?family=Cousine|Arimo|Open+Sans:300"
     ],
     css: [
         "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css",
-        "https://fonts.googleapis.com/icon?family=Material+Icons"
+        "https://fonts.googleapis.com/icon?family=Material+Icons",
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css"
     ]
 };
 const externals = [];

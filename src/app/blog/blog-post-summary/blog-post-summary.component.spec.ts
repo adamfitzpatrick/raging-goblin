@@ -13,7 +13,6 @@ describe("blog post summary component", () => {
     let post;
 
     beforeEach(async(() => {
-        post = { id: 1, date: new Date("3/1/2017"), title: "Title", synopsis: "synopsis" };
         TestBed.configureTestingModule({
             declarations: [ BlogPostSummaryComponent, HighlightPipe ],
             schemas: [ NO_ERRORS_SCHEMA ]
@@ -22,6 +21,7 @@ describe("blog post summary component", () => {
     }));
 
     beforeEach(() => {
+        post = { id: "1", date: new Date("3/1/2017"), title: "Title", synopsis: "synopsis" };
         fixture = TestBed.createComponent(BlogPostSummaryComponent);
         component = fixture.componentInstance;
         component.post = post;
@@ -32,5 +32,11 @@ describe("blog post summary component", () => {
     it("should be initialized", () => {
         expect(fixture).toBeDefined();
         expect(component).toBeDefined();
+    });
+
+    describe("postDetail", () => {
+        it("should return a route to the blog post detail", () => {
+            expect(component.postDetail()).toBe("/blog/1");
+        });
     });
 });

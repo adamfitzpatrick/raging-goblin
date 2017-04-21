@@ -14,7 +14,7 @@ describe("blog post service", () => {
         });
 
         it("should get one post when passed an id argument", () => {
-            expect(service.get(1) instanceof Post).toBe(true);
+            expect(service.get("1") instanceof Post).toBe(true);
         });
     });
 });

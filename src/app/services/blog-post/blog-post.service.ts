@@ -12,8 +12,8 @@ export class BlogPostService {
     }
 
     get(): Post[];
-    get(id: number): Post;
-    get(id?: number): Post[] | Post {
+    get(id: string): Post;
+    get(id?: string): Post[] | Post {
         if (id) {
             const post = this.posts.filter(post => post.id === id);
             return post && post[0];

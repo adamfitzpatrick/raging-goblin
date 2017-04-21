@@ -14,4 +14,6 @@ export class BlogPostSummaryComponent {
 
     @Input()
     matchString: string;
+
+    postDetail(): string { return `/blog/${this.post.id}`; }
 }

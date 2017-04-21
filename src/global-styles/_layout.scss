@@ -10,9 +10,10 @@ $content-gutter: 2rem;
 $background-z-index: 0;
 $background-height: calc(100vh - #{$header-height});
 
-@mixin primaryContent {
-    display: flex;
-    flex-direction: column;
+@import "./colors";
+@import "./breakpoints";
+
+@mixin primaryContent($flex) {
     background: $color-lightest;
     width: 60%;
     height: calc(100vh - #{$header-height});
@@ -20,6 +21,13 @@ $background-height: calc(100vh - #{$header-height});
     max-width: 1000px;
     margin: 0 auto;
     box-shadow: 0 0 160px 110px $color-lightest;
+
+    @if ($flex) {
+        display: flex;
+        flex-direction: column;
+    } @else {
+        overflow-y: scroll;
+    }
 
     @media all and (max-width: $small-width) {
         width: calc(100vw - 2 * #{$content-gutter});

@@ -16,11 +16,12 @@ const MONTHS = [
 export class Post {
     static searchFields = [ "title", "synopsis", "content", "dateString" ];
 
-    id: number;
+    id: string;
     date: Date;
     title: string;
     synopsis: string;
-    content: string;
+    content: string[];
+    tags: string[];
 
     constructor(post: Post) {
         this.id = post.id;
@@ -28,6 +29,7 @@ export class Post {
         this.title = post.title;
         this.synopsis = post.synopsis;
         this.content = post.content;
+        this.tags = post.tags;
     }
 
     get dateString(): string {

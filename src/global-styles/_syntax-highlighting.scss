@@ -1,0 +1,28 @@
+@import "typography";
+@import "colors";
+
+.syntax-highlightable {
+    $color-hljs-keyword: $text-accent;
+    $color-hljs-string: $color-yellow;
+
+    &__header {
+        margin: -1.25rem 0 -1.5rem;
+        padding: 0.25rem 1rem;
+        text-align: right;
+        color: $text-muted;
+        border-bottom: 1px solid $color-dark-grey;
+    }
+
+    padding: 0;
+    border-radius: 0.25rem;
+    background: $color-dark;
+    color: $text-light;
+    font-family: $monospace-font-family;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    overflow-x: scroll;
+
+    .hljs-keyword { color: $color-hljs-keyword; }
+
+    .hljs-string { color: $color-hljs-string; }
+}

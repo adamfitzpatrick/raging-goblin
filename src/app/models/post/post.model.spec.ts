@@ -10,7 +10,8 @@ describe("Post", () => {
             date: "1/1/17",
             title: "Title",
             synopsis: "synopsis",
-            content: "content"
+            content: [{ type: "p", value: "content" }],
+            tags: []
         };
         post = new Post(postObj as Post);
     });

@@ -1,9 +1,7 @@
-@import '../../global-styles/colors';
 @import '../../global-styles/layout';
-@import '../../global-styles/breakpoints';
 
 .blog {
-    @include primaryContent();
+    @include primaryContent(true);
 
     &__scroll {
         overflow-y: scroll;

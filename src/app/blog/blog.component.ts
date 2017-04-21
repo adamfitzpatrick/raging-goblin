@@ -7,7 +7,7 @@ import { TargetMatch } from "../services/levenshtein/levenshtein.service";
     styles: [ require("./blog.scss") ],
     template: require("./blog.html")
 })
-export class BlogComponent  implements OnInit {
+export class BlogComponent implements OnInit {
     posts: Post[];
     emptyResults: TargetMatch<Post>[];
     searchResults: TargetMatch<Post>[];

@@ -1,0 +1,16 @@
+<div class="blog-post-detail">
+    <div class="blog-post-detail__headline">
+        <h1>{{ post.title }}</h1>
+        <div>{{ post.dateString }}</div>
+    </div>
+    <div class="blog-post-detail__tags-line">
+        <div class="blog-post-detail__topics">Topics</div>
+        <ul class="blog-post-detail__tags">
+            <li *ngFor="let tag of post.tags" class="blog-post-detail__tag">{{ tag }}</li>
+        </ul>
+    </div>
+
+    <article>
+        <div *ngFor="let element of post.content" [innerHTML]="element"></div>
+    </article>
+</div>

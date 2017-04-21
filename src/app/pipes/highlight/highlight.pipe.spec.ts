@@ -1,4 +1,5 @@
 import { HighlightPipe } from "./highlight.pipe";
+
 describe("highlight pipe", () => {
     let highlight;
 
