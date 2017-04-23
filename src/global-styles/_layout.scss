@@ -1,3 +1,6 @@
+@import './colors';
+@import './breakpoints';
+
 $header-z-index: 1000;
 $header-height: 4rem;
 
@@ -6,3 +9,22 @@ $content-gutter: 2rem;
 
 $background-z-index: 0;
 $background-height: calc(100vh - #{$header-height});
+
+@mixin primaryContent {
+    display: flex;
+    flex-direction: column;
+    background: $color-lightest;
+    width: 60%;
+    height: calc(100vh - #{$header-height});
+    min-width: $small-width;
+    max-width: 1000px;
+    margin: 0 auto;
+    box-shadow: 0 0 160px 110px $color-lightest;
+
+    @media all and (max-width: $small-width) {
+        width: calc(100vw - 2 * #{$content-gutter});
+        min-width: inherit;
+        box-shadow: none;
+        margin: 0 2rem;
+    }
+}
