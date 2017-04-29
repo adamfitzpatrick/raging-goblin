@@ -3,19 +3,18 @@ import { BrowserModule } from "@angular/platform-browser";
 
 import { AppComponent } from "./app.component";
 import { WebGlModule } from "./web-gl/web-gl.module";
-import { NavBarModule } from "./nav-bar/nav-bar.module";
+import { NavigationModule } from "./navigation/navigation.module";
 import { TopicsComponent } from "./topics/topics.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { BlogModule } from "./blog/blog.module";
-import { HighlightPipe } from "./pipes/highlight/highlight.pipe";
 
 @NgModule({
     imports: [
         BrowserModule,
         WebGlModule,
-        NavBarModule,
+        NavigationModule,
         BlogModule,
         AppRoutingModule
     ],

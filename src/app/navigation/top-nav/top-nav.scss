@@ -1,15 +1,17 @@
-@import '../../global-styles/layout';
-@import '../../global-styles/typography';
-@import '../../global-styles/colors';
-@import '../../global-styles/breakpoints';
+@import '../../../global-styles/layout';
+@import '../../../global-styles/typography';
+@import '../../../global-styles/colors';
+@import '../../../global-styles/breakpoints';
 
 $gutter: 1rem;
 
-.nav-bar {
+.top-nav {
     position: fixed;
     z-index: $header-z-index;
     width: 100vw;
     height: $header-height;
+    color: $text-light;
+    background: $color-darkest;
 
     &__inner {
         height: $header-height;
@@ -34,11 +36,6 @@ $gutter: 1rem;
     &__right {
         margin-right: $gutter;
         text-align: right;
-    }
-
-    &--top {
-        color: $text-light;
-        background: $color-darkest;
     }
 
     &--bottom {

@@ -1,9 +1,10 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 
-import { NavBarComponent } from "./nav-bar.component";
+import { TopNavComponent } from "./top-nav/top-nav.component";
 import { LinksComponent } from "./links/links.component";
 import { RouterModule } from "@angular/router";
+import { BottomNavComponent } from "./bottom-nav/bottom-nav.component";
 
 @NgModule({
     imports: [
@@ -11,9 +12,13 @@ import { RouterModule } from "@angular/router";
         RouterModule
     ],
     declarations: [
-        NavBarComponent,
+        TopNavComponent,
+        BottomNavComponent,
         LinksComponent
     ],
-    exports: [ NavBarComponent ]
+    exports: [
+        TopNavComponent,
+        BottomNavComponent
+    ]
 })
-export class NavBarModule {}
+export class NavigationModule {}

@@ -4,7 +4,7 @@ import {
     TestBed
 } from "@angular/core/testing";
 
-import { NavBarComponent } from "./nav-bar.component";
+import { BottomNavComponent } from "./bottom-nav.component";
 
 describe("nav bar component", () => {
     let component;
@@ -13,14 +13,14 @@ describe("nav bar component", () => {
     // async beforeEach
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [ NavBarComponent ],
+            declarations: [ BottomNavComponent ],
             schemas: [ NO_ERRORS_SCHEMA ]
         })
             .compileComponents(); // compile template and css
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(NavBarComponent);
+        fixture = TestBed.createComponent(BottomNavComponent);
         component    = fixture.componentInstance;
 
         fixture.detectChanges(); // trigger initial data binding

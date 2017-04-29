@@ -23,6 +23,7 @@ $background-height: calc(100vh - #{$header-height});
 
     @media all and (max-width: $small-width) {
         width: calc(100vw - 2 * #{$content-gutter});
+        height: calc(100vh - 2 * #{$header-height});
         min-width: inherit;
         box-shadow: none;
         margin: 0 2rem;

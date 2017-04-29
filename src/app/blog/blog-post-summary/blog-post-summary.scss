@@ -5,5 +5,8 @@
 
     &__synopsis { line-height: 1.7; }
 
-    &__button { margin-top: 2rem; }
+    &__link {
+        display: inline-block;
+        margin-top: 2rem;
+    }
 }

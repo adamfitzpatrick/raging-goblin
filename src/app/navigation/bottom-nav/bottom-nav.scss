@@ -1,0 +1,20 @@
+@import "../../../global-styles/colors";
+@import "../../../global-styles/layout";
+
+.bottom-nav {
+
+    position: fixed;
+    z-index: $header-z-index;
+    bottom: 0;
+    width: 100vw;
+    height: $header-height;
+    background: $color-lightest;
+    display: none;
+    justify-content: space-around;
+    align-items: center;
+    box-shadow: 0 5px 5px 5px $color-darkest;
+
+    links { width: 90vw; }
+
+    @media all and (max-width: $medium-width) { display: flex; }
+}

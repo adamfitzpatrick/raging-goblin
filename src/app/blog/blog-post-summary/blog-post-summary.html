@@ -2,5 +2,5 @@
     <div class="blog-post-summary__date" [innerHtml]="post.dateString | highlight: matchString"></div>
     <h1><a href [innerHTML]="post.title | highlight: matchString"></a></h1>
     <p class="blog-post-summary__synopsis" [innerHTML]="post.synopsis | highlight: matchString"></p>
-    <button class="button button--muted blog-post-summary__button">Read More</button>
+    <a href class="button button--muted blog-post-summary__link">Read More</a>
 </div>
