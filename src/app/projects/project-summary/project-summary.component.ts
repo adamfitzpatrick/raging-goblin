@@ -23,7 +23,6 @@ export class ProjectSummaryComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        console.log(this.project);
         this.fetchReadme(this.project);
         this.fetchLanguages(this.project);
     }

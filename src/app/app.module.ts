@@ -4,8 +4,6 @@ import { BrowserModule } from "@angular/platform-browser";
 import { AppComponent } from "./app.component";
 import { WebGlModule } from "./web-gl/web-gl.module";
 import { NavigationModule } from "./navigation/navigation.module";
-import { TopicsComponent } from "./topics/topics.component";
-import { ProjectsComponent } from "./projects/projects.component";
 import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { BlogModule } from "./blog/blog.module";
@@ -24,7 +22,6 @@ import { HttpModule } from "@angular/http";
     ],
     declarations: [
         AppComponent,
-        TopicsComponent,
         AboutComponent
     ],
     bootstrap: [ AppComponent ]

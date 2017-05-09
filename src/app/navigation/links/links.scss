@@ -4,10 +4,9 @@
 .links {
     position: relative;
     display: flex;
+    justify-content: space-around;
     height: calc(#{$header-height} / 2);
     margin: 0 auto;
-
-
 
     &__link {
         display: block;
@@ -18,8 +17,8 @@
         &--active {
             color: $color-accent;
 
-            @for $i from 1 through 4 {
-                &-#{$i} ~ .links__underline { left: ($i - 1) * 25%; }
+            @for $i from 1 through 3 {
+                &-#{$i} ~ .links__underline { left: ($i - 1) * 33%; }
             }
         }
     }
@@ -28,7 +27,7 @@
         position: absolute;
         left: 0;
         bottom: 0;
-        width: 25%;
+        width: 33%;
         height: 0.1rem;
         border: 0;
         margin: 0;
