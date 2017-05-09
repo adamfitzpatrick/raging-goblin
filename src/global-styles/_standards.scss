@@ -12,7 +12,7 @@ main {
 
 a {
     text-decoration: none;
-    color: $text-dark;
+    color: $text-link;
 
-    &:hover { color: $text-link; }
+    &:hover { color: lighten($text-link, 10%); }
 }

@@ -1,0 +1,23 @@
+@import "../../global-styles/colors";
+@import "../../global-styles/layout";
+
+$photo-size: 15rem;
+
+.about {
+    @include primaryContent(false);
+}
+
+.photo {
+    display: block;
+    width: $photo-size;
+    height: $photo-size;
+    border-radius: $photo-size;
+    margin: 2rem auto;
+}
+
+.content { margin: 0 1rem; }
+
+.paragraph {
+    margin: 0 0 2rem;
+    text-align: justify;
+}

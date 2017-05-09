@@ -83,7 +83,7 @@ module.exports = {
             { test: /\.html$/, use: [ "html-loader" ] },
             { test: /\.scss$/, use: [ "to-string-loader", "css-loader", "sass-loader" ] },
             { test: /\.css$/, use: [ "style-loader", "css-loader" ] },
-            { test: /\.(png|ttf|eot|svg|woff|woff2)/, use: [ "file-loader" ] }
+            { test: /\.(jpg|png|ttf|eot|svg|woff|woff2)/, use: [ "file-loader" ] }
         ]
     },
     externals: externals,
