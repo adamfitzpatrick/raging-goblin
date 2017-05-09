@@ -1,0 +1,5 @@
+@import "../../global-styles/layout";
+
+.projects {
+    @include primaryContent(false);
+}

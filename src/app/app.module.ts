@@ -9,6 +9,8 @@ import { ProjectsComponent } from "./projects/projects.component";
 import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing/app-routing.module";
 import { BlogModule } from "./blog/blog.module";
+import { ProjectsModule } from "./projects/projects.module";
+import { HttpModule } from "@angular/http";
 
 @NgModule({
     imports: [
@@ -16,12 +18,13 @@ import { BlogModule } from "./blog/blog.module";
         WebGlModule,
         NavigationModule,
         BlogModule,
-        AppRoutingModule
+        ProjectsModule,
+        AppRoutingModule,
+        HttpModule
     ],
     declarations: [
         AppComponent,
         TopicsComponent,
-        ProjectsComponent,
         AboutComponent
     ],
     bootstrap: [ AppComponent ]

@@ -14,7 +14,11 @@ const flags = yargs.argv;
 const env = flags.env || "prod";
 
 const startMockServer = require("./mock-backend/mock-server.js");
+
 const appConfig = require("./app-config.json");
+const config = appConfig[env];
+Object.assign(config, appConfig.common);
+
 const logo = fs.readFileSync("./src/assets/images/logo.svg", "utf-8");
 const posts = fs.readdirSync(path.join(__dirname, "./src/assets/posts")).map(postFile => {
     const yamlPost = fs.readFileSync(path.join(__dirname, "./src/assets/posts", postFile), "utf-8");
@@ -106,7 +110,7 @@ module.exports = {
         }),
         new webpack.DefinePlugin({
             ENV: JSON.stringify(env),
-            CONFIG: JSON.stringify(appConfig[env]),
+            CONFIG: JSON.stringify(config),
             POSTS: JSON.stringify(posts)
         }),
         new FaviconsWebpackPlugin({

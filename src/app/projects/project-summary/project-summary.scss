@@ -1,0 +1,54 @@
+@import "../../../global-styles/colors";
+
+$color-typescript: darken($color-accent, 20%);
+$color-javascript: $color-dark;
+$color-html: $color-medium;
+$color-css: lighten($color-accent, 20%);
+$color-shell: $color-darkest;
+$color-java: lighten($color-accent, 40%);
+$color-cucumber: $color-dark-grey;
+$color-other: lighten($color-dark-grey, 50%);
+
+$colors: ($color-typescript, $color-javascript, $color-html, $color-css, $color-shell, $color-java, $color-cucumber, $color-other);
+$languages: ("typescript", "javascript", "html", "css", "shell", "java", "cucumber", "other");
+
+@mixin colorizer($property, $color, $before) {
+    @if ($before) {
+        &:before { #{$property}: $color; }
+    } @else {
+        #{$property}: $color;
+    }
+}
+
+@mixin languageColoring($property, $before) {
+    @for $i from 1 through 8 {
+        &--#{nth($languages, $i)} {
+            @include colorizer($property, #{nth($colors, $i)}, $before);
+        }
+    }
+}
+
+.project-summary {
+    margin-top: 1rem;
+}
+
+.flex-row {
+    display: flex;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.excerpt {
+    text-align: justify;
+    line-height: 1.5;
+}
+
+.updated {
+    font-style: italic;
+    padding-right: 0.5rem;
+}
