@@ -1,4 +1,4 @@
-#raging-goblin
+# raging-goblin
 
 <!--- bit --->
 __raging-goblin__ is the UI application for www.stepinto.io.  The site implements Angular 4, and is written entirely in
