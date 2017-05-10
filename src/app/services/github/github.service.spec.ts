@@ -139,5 +139,5 @@ describe("GitHubService", () => {
                     .toBe("https://api.github.com/repos/user/repo/readme");
             });
         }));
-    })
+    });
 });

@@ -71,7 +71,7 @@ describe("project-summary component", () => {
         expect(component.languageData).toEqual({
             languages: [ "JavaScript", "TypeScript", "Cucumber", "FakeLanguage" ],
             lines: [ 1000, 1000, 1000, 3 ],
-            colors: [ "#065f73", "#021b21","#00aab5", "#999" ]
+            colors: [ "#065f73", "#021b21", "#00aab5", "#999" ]
         });
     });
 

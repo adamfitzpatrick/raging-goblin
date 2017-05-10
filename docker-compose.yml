@@ -1,0 +1,11 @@
+version: "3"
+services:
+  ui:
+    container_name: raging_goblin
+    build: .
+    volumes:
+      - .:/raging-goblin
+      - ~/.docker-yarn-cache:/root/yarn-cache
+    ports:
+      - "7001:7001"
+    entrypoint: "bash -c 'cd /raging-goblin && ./docker-run.sh'"

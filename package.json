@@ -4,7 +4,7 @@
   "description": "Small and irate",
   "scripts": {
     "build": "rimraf ./public && webpack -p",
-    "ci": "npm test && webpack -p",
+    "ci": "yarn test && webpack -p",
     "start": "rimraf ./public/* && webpack-dev-server --inline",
     "tdd": "karma start --auto-watch",
     "test": "karma start --single-run"
