@@ -4,8 +4,8 @@ import { BlogPostService } from "../services/blog-post/blog-post.service";
 import { TargetMatch } from "../services/levenshtein/levenshtein.service";
 
 @Component({
-    styles: [ require("./blog.scss") ],
-    template: require("./blog.html")
+    styleUrls: [ "./blog.scss" ],
+    templateUrl: "./blog.html"
 })
 export class BlogComponent implements OnInit {
     posts: Post[];

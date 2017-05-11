@@ -3,8 +3,8 @@ import * as Chart from "chart.js";
 
 @Component({
     selector: "contribution-chart",
-    template: require("./github-chart.html"),
-    styles: [ require("./github-chart.scss") ]
+    templateUrl: "./github-chart.html",
+    styleUrls: [ "./github-chart.scss" ]
 })
 export class GitHubChartComponent {
 

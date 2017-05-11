@@ -7,8 +7,8 @@ require("!!file-loader?name=[path][name].[ext]&context=./src/assets!../../../ass
 
 @Component({
     selector: "blog-post-detail",
-    template: require("./blog-post-detail.html"),
-    styles: [ require("./blog-post-detail.scss" ) ],
+    templateUrl: "./blog-post-detail.html",
+    styleUrls: [ "./blog-post-detail.scss" ],
     encapsulation: ViewEncapsulation.None
 })
 export class BlogPostDetail implements OnInit, AfterViewInit {

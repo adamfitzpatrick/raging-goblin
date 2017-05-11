@@ -9,9 +9,12 @@ const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const webpack = require("webpack");
 const yargs = require("yargs");
 const yaml = require("yamljs");
+const ngcWebpack = require("ngc-webpack");
 
 const flags = yargs.argv;
 const env = flags.env || "prod";
+const AOT = env === "prod" && flags["$0"].indexOf("karma") === -1;
+const entry = path.join(__dirname, AOT ? "./src/app.aot.ts" :  "./src/app.ts");
 
 const startMockServer = require("./mock-backend/mock-server.js");
 
@@ -54,7 +57,7 @@ if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
 
 module.exports = {
     context: path.join(__dirname, "./src/app"),
-    entry: path.join(__dirname, "./src/entry.ts"),
+    entry,
     output: {
         path: path.join(__dirname, "public"),
         filename: "app.[hash].js"
@@ -67,8 +70,7 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ["source-map-loader"],
                 exclude:[
-                    path.join(__dirname, 'node_modules/rxjs'),
-                    path.join(__dirname, 'node_modules/@angular')
+                    /node_modules/
                 ]
             },
             { enforce: "pre", test: /\.ts$/, use: [ "tslint-loader" ] }, {
@@ -82,10 +84,10 @@ module.exports = {
                             inlineSourceMap: true,
                             compilerOptions: {
                                 removeComments: true
-                            },
-                            silent: true
+                            }
                         },
-                    }
+                    },
+                    "angular2-template-loader"
                 ]
             },
             { test: /\.hbs$/, use: [ "handlebars-loader" ] },
@@ -157,6 +159,10 @@ module.exports = {
                     customAttrAssign: [ /\)?\]?=/ ]
                 }
             }
+        }),
+        new ngcWebpack.NgcWebpackPlugin({
+            disabled: !AOT,
+            tsConfig: "./tsconfig.json"
         })
     ]
 };

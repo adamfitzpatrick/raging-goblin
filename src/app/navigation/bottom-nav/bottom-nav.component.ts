@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: "bottom-nav",
-    styles: [ require("./bottom-nav.scss") ],
-    template: require("./bottom-nav.html")
+    styleUrls: [ "./bottom-nav.scss" ],
+    templateUrl: "./bottom-nav.html"
 })
 export class BottomNavComponent {}

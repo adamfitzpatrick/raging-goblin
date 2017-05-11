@@ -2,7 +2,7 @@ import { Component } from "@angular/core";
 
 @Component({
     selector: "top-nav",
-    styles: [ require("./top-nav.scss") ],
-    template: require("./top-nav.html")
+    styleUrls: [ "./top-nav.scss" ],
+    templateUrl: "./top-nav.html"
 })
 export class TopNavComponent {}

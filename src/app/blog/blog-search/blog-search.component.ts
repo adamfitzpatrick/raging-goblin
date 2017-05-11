@@ -4,8 +4,8 @@ import { LevenshteinService, TargetMatch } from "../../services/levenshtein/leve
 
 @Component({
     selector: "blog-search",
-    template: require("./blog-search.html"),
-    styles: [ require("./blog-search.scss") ]
+    templateUrl: "./blog-search.html",
+    styleUrls: [ "./blog-search.scss" ]
 })
 export class BlogSearchComponent {
     @Input()

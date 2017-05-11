@@ -29,15 +29,18 @@
   },
   "exclude": [
     "node_modules",
-    "dist"
+    "public",
+    "aot",
+    "./src/app.aot.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "forkChecker": true,
+    "forkChecker": false,
     "useWebpackText": true
   },
   "compileOnSave": false,
   "buildOnSave": false,
-  "atom": {
-    "rewriteTsconfig": false
+  "angularCompilerOptions": {
+    "genDir": "./aot",
+    "skipMetadataEmit": true
   }
 }

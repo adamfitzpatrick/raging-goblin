@@ -2,8 +2,8 @@ import { Component, Input } from "@angular/core";
 
 @Component({
     selector: "links",
-    template: require("./links.html"),
-    styles: [ require("./links.scss") ]
+    templateUrl: "./links.html",
+    styleUrls: [ "./links.scss" ]
 })
 export class LinksComponent {
     @Input()
