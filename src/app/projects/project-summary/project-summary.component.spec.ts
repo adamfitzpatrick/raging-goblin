@@ -1,12 +1,9 @@
 import { NO_ERRORS_SCHEMA } from "@angular/core";
-import {
-    async,
-    TestBed
-} from "@angular/core/testing";
 import { ProjectSummaryComponent } from "./project-summary.component";
 import { GitHubRepository, GitHubResponse } from "../../models/github-repository/github-repository.model";
 import { GitHubService } from "../../services/github/github.service";
 import { MarkedService } from "../../services/marked/marked";
+import { async, TestBed } from "@angular/core/testing";
 
 describe("project-summary component", () => {
     let gitHubService;
@@ -71,7 +68,7 @@ describe("project-summary component", () => {
         expect(component.languageData).toEqual({
             languages: [ "JavaScript", "TypeScript", "Cucumber", "FakeLanguage" ],
             lines: [ 1000, 1000, 1000, 3 ],
-            colors: [ "#065f73", "#021b21","#00aab5", "#999" ]
+            colors: [ "#065f73", "#021b21", "#00aab5", "#999" ]
         });
     });
 
