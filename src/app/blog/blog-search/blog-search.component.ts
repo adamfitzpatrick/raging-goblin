@@ -1,7 +1,6 @@
-import { Component, Input, Output } from "@angular/core";
+import { Component, Input, Output, EventEmitter } from "@angular/core";
 import { Post } from "../../models/post/post.model";
-import { LevenshteinService, MatchObject, TargetMatch } from "../../services/levenshtein/levenshtein.service";
-import { EventEmitter } from "@angular/common/src/facade/async";
+import { LevenshteinService, TargetMatch } from "../../services/levenshtein/levenshtein.service";
 
 @Component({
     selector: "blog-search",

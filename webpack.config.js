@@ -27,7 +27,10 @@ const posts = fs.readdirSync(path.join(__dirname, "./src/assets/posts")).map(pos
 
 const cdnResources = {
     js: [
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.0/Rx.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"
     ],
     fonts: [
         "https://fonts.googleapis.com/css?family=Cousine|Arimo|Open+Sans:300"
@@ -38,7 +41,12 @@ const cdnResources = {
         "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css"
     ]
 };
-const externals = [];
+const externals = {
+    "highlight.js": "hljs",
+    "rxjs": "Rx",
+    "three": "THREE",
+    "chart.js": "Chart"
+};
 
 if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
     startMockServer();
@@ -74,7 +82,8 @@ module.exports = {
                             inlineSourceMap: true,
                             compilerOptions: {
                                 removeComments: true
-                            }
+                            },
+                            silent: true
                         },
                     }
                 ]
@@ -91,7 +100,7 @@ module.exports = {
         extensions: [".webpack.js", ".web.js", ".js", ".ts"],
         modules: ["./node_modules"]
     },
-    devtool: "inline-source-map",
+    devtool: "source-map",
     devServer: {
         port: 7001,
         historyApiFallback: true,
@@ -105,7 +114,7 @@ module.exports = {
             logo: logo,
             title: "StepInto",
             chunksSortMode: "dependency",
-            inject: "head",
+            inject: "body",
             cdnResources: cdnResources
         }),
         new webpack.DefinePlugin({

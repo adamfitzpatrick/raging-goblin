@@ -13,4 +13,6 @@ webpackConfig.module.rules.push({
     ]
 });
 
+webpackConfig.externals = {}
+
 module.exports = webpackConfig;
