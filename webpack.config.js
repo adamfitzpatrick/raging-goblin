@@ -36,7 +36,7 @@ const cdnResources = {
         "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"
     ],
     fonts: [
-        "https://fonts.googleapis.com/css?family=Cousine|Arimo|Open+Sans:300"
+        "https://fonts.googleapis.com/css?family=Cousine|Roboto:300|Open+Sans:300"
     ],
     css: [
         "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css",
