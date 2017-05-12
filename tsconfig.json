@@ -34,7 +34,7 @@
     "./src/app.aot.ts"
   ],
   "awesomeTypescriptLoaderOptions": {
-    "forkChecker": false,
+    "forkChecker": true,
     "useWebpackText": true
   },
   "compileOnSave": false,

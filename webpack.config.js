@@ -60,7 +60,7 @@ module.exports = {
     entry,
     output: {
         path: path.join(__dirname, "public"),
-        filename: "app.[hash].js"
+        filename: "[name].[hash].js"
     },
     module: {
         exprContextCritical: false,
@@ -87,7 +87,8 @@ module.exports = {
                             }
                         },
                     },
-                    "angular2-template-loader"
+                    "angular2-template-loader",
+                    "angular-router-loader?aot=true&genDir=aot"
                 ]
             },
             { test: /\.hbs$/, use: [ "handlebars-loader" ] },
