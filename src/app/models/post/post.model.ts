@@ -14,7 +14,7 @@ export const MONTHS = [
 ];
 
 export class Post {
-    static searchFields = [ "title", "synopsis", "content", "dateString" ];
+    static searchFields = [ "title", "synopsis", "dateString" ];
 
     id: string;
     date: Date;

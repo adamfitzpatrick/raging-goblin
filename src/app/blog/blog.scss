@@ -5,6 +5,7 @@
 
     &__scroll {
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
         padding: 0 0.25rem 1rem;  // scrolling element hides x-direction; focus outlines are cut-off without padding
         flex-grow: 1;
     }

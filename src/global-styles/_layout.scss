@@ -27,6 +27,7 @@ $background-height: calc(100vh - #{$header-height});
         flex-direction: column;
     } @else {
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
     @media all and (max-width: $small-width) {
