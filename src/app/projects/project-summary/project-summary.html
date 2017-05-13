@@ -1,8 +1,8 @@
 <div class="project-summary">
     <h2 class="name">{{ project.name }}</h2>
-    <div class="flex-row">
-        <div class="flex-column">
-            <div class="flex-row">
+    <div class="info">
+        <div class="descriptions">
+            <div class="topics">
                 <div>Topics:
                     <span *ngFor="let topic of getTopics(), let last = last">
                         {{ topic }}<span *ngIf="!last">,</span>&nbsp;
@@ -12,7 +12,7 @@
             </div>
             <div [innerHTML]="excerpt" class="excerpt"></div>
         </div>
-        <contribution-chart
+        <github-chart
             class="language-chart"
             [title]="'Languages'"
             [data]="languageData.lines"
@@ -21,6 +21,6 @@
             [chartType]="'pie'"
             [canvasWidth]="'250px'"
             [canvasHeight]="'200px'"
-        ></contribution-chart>
+        ></github-chart>
     </div>
 </div>

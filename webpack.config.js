@@ -15,6 +15,9 @@ const flags = yargs.argv;
 const env = flags.env || "prod";
 const AOT = env === "prod" && flags["$0"].indexOf("karma") === -1;
 const entry = path.join(__dirname, AOT ? "./src/app.aot.ts" :  "./src/app.ts");
+const angularRouterLoader = "angular-router-loader" + (AOT ? "?aot=true&genDir=aot" : "");
+
+console.log(entry);
 
 const startMockServer = require("./mock-backend/mock-server.js");
 
@@ -88,7 +91,7 @@ module.exports = {
                         },
                     },
                     "angular2-template-loader",
-                    "angular-router-loader?aot=true&genDir=aot"
+                    angularRouterLoader
                 ]
             },
             { test: /\.hbs$/, use: [ "handlebars-loader" ] },

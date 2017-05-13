@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from "@angular/core";
 import * as Chart from "chart.js";
 
 @Component({
-    selector: "contribution-chart",
+    selector: "github-chart",
     templateUrl: "./github-chart.html",
     styleUrls: [ "./github-chart.scss" ]
 })

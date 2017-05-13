@@ -52,7 +52,10 @@ $gutter: 1rem;
     }
 }
 
-.logo { width: 2rem; }
+.logo {
+    width: 2rem;
+    height: 1.44rem;
+}
 
 .title {
     font-family: $title-font-family;

@@ -1,4 +1,5 @@
 @import "../../../global-styles/colors";
+@import "../../../global-styles/layout";
 
 $color-typescript: darken($color-accent, 20%);
 $color-javascript: $color-dark;
@@ -32,15 +33,28 @@ $languages: ("typescript", "javascript", "html", "css", "shell", "java", "cucumb
     margin-top: 1rem;
 }
 
-.flex-row {
+.info {
     display: flex;
     justify-content: space-between;
+
+    @media all and (max-width: $small-width) {
+        display: block;
+    }
 }
 
-.flex-column {
+.descriptions {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
+}
+
+.topics {
+    display: flex;
+    justify-content: space-between;
+
+    @media all and (max-width: $small-width) {
+        display: block;
+    }
 }
 
 .excerpt {
