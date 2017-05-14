@@ -8,6 +8,7 @@ import { AboutComponent } from "./about/about.component";
 import { AppRoutingModule } from "./app-routing.module";
 import { BlogModule } from "./blog/blog.module";
 import { HttpModule } from "@angular/http";
+import { LandingComponent } from "./landing/landing.component";
 
 @NgModule({
     imports: [
@@ -20,7 +21,8 @@ import { HttpModule } from "@angular/http";
     ],
     declarations: [
         AppComponent,
-        AboutComponent
+        AboutComponent,
+        LandingComponent
     ],
     bootstrap: [ AppComponent ]
 })
