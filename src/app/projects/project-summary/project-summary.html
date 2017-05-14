@@ -1,17 +1,15 @@
 <div class="project-summary">
     <h2 class="name">{{ project.name }}</h2>
-    <div class="info">
-        <div class="descriptions">
-            <div class="topics">
-                <div>Topics:
-                    <span *ngFor="let topic of getTopics(), let last = last">
+    <div class="topics">
+        <div>Topics:
+            <span *ngFor="let topic of getTopics(), let last = last">
                         {{ topic }}<span *ngIf="!last">,</span>&nbsp;
                     </span>
-                </div>
-                <div class="updated">updated {{ project.friendlyUpdateString }}</div>
-            </div>
-            <div [innerHTML]="excerpt" class="excerpt"></div>
         </div>
+        <div class="updated">updated {{ project.friendlyUpdateString }}</div>
+    </div>
+    <div class="detail">
+        <div [innerHTML]="excerpt" class="excerpt"></div>
         <github-chart
             class="language-chart"
             [title]="'Languages'"
@@ -19,8 +17,6 @@
             [labels]="languageData.languages"
             [colors]="languageData.colors"
             [chartType]="'pie'"
-            [canvasWidth]="'250px'"
-            [canvasHeight]="'200px'"
         ></github-chart>
     </div>
 </div>

@@ -20,11 +20,17 @@ export class GitHubService {
         return Observable.throw(error && error.json());
     }
 
+    static getHeaders(): Headers {
+        return new Headers({
+            Accept: "application/vnd.github.mercy-preview+json",
+            Authorization: "token 3e284f6aec115e2fdfa82acc42866f5d73637419"
+        });
+    }
+
     getRepos(username?: string): Observable<GitHubRepository[]> {
         username = username || "adamfitzpatrick";
         const url = this.apiUrlsService.getUrl("githubRepos", { username });
-        const headers = new Headers({ Accept: "application/vnd.github.mercy-preview+json" });
-        return this.http.get(url, new RequestOptions({ headers }))
+        return this.http.get(url, new RequestOptions({ headers: GitHubService.getHeaders() }))
             .map(response => {
                 return response.json().map((repo: GitHubResponse) => new GitHubRepository(repo));
             })
@@ -32,21 +38,21 @@ export class GitHubService {
     }
 
     getRepoLanguages(repository: GitHubRepository): Observable<GitHubLanguageData> {
-        return this.http.get(repository.languagesUrl)
+        return this.http.get(repository.languagesUrl, new RequestOptions({ headers: GitHubService.getHeaders() }))
             .map(response => response.json())
             .catch(GitHubService.catchErrors);
     }
 
     getRepoStats(repository: GitHubRepository): Observable<GitHubStats[]> {
         const url = this.apiUrlsService.getUrl("githubStats", { fullname: repository.fullName });
-        return this.http.get(url)
+        return this.http.get(url, new RequestOptions({ headers: GitHubService.getHeaders() }))
             .map(response => response.json())
             .catch(GitHubService.catchErrors);
     }
 
     getRepoReadme(repository: GitHubRepository): Observable<GitHubReadme> {
         const url = this.apiUrlsService.getUrl("githubReadme", { fullname: repository.fullName });
-        return this.http.get(url)
+        return this.http.get(url, new RequestOptions({ headers: GitHubService.getHeaders() }))
             .map(response => {
                 const data = response.json();
                 data.content = atob(data.content);

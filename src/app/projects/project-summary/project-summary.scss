@@ -1,5 +1,5 @@
 @import "../../../global-styles/colors";
-@import "../../../global-styles/layout";
+@import "../../../global-styles/breakpoints";
 
 $color-typescript: darken($color-accent, 20%);
 $color-javascript: $color-dark;
@@ -42,19 +42,17 @@ $languages: ("typescript", "javascript", "html", "css", "shell", "java", "cucumb
     }
 }
 
-.descriptions {
+.detail {
     display: flex;
-    flex-direction: column;
-    flex-grow: 1;
+
+    @media all and (max-width: $small-width) { display: block; }
 }
 
 .topics {
     display: flex;
     justify-content: space-between;
 
-    @media all and (max-width: $small-width) {
-        display: block;
-    }
+    @media all and (max-width: $small-width) { display: block; }
 }
 
 .excerpt {
@@ -65,4 +63,8 @@ $languages: ("typescript", "javascript", "html", "css", "shell", "java", "cucumb
 .updated {
     font-style: italic;
     padding-right: 0.5rem;
+
+    @media all and (max-width: $small-width) { margin-top: 0.5rem; }
 }
+
+.language-chart { margin: 1rem -1rem 0 0; }
