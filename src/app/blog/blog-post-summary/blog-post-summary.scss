@@ -3,7 +3,10 @@
 
     &__date { font-size: 0.8rem; }
 
-    &__synopsis { line-height: 1.7; }
+    &__synopsis {
+        line-height: 1.7;
+        text-align: justify;
+    }
 
     &__link {
         display: inline-block;

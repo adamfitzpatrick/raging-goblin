@@ -23,7 +23,6 @@ export class GitHubService {
     static getHeaders(): Headers {
         return new Headers({
             Accept: "application/vnd.github.mercy-preview+json",
-            Authorization: "token 3e284f6aec115e2fdfa82acc42866f5d73637419"
         });
     }
 

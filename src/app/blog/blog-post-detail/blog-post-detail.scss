@@ -1,6 +1,7 @@
 @import "../../../global-styles/layout";
 @import "../../../global-styles/colors";
 @import "../../../global-styles/typography";
+@import "../../../global-styles/breakpoints";
 
 .blog-post-detail {
     @include primaryContent(false);
@@ -10,6 +11,8 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+
+        @media all and (max-width: $small-width) { display: block; }
     }
 
     &__tags-line {
@@ -40,6 +43,7 @@
 
     &__para {
         line-height: 1.6;
+        text-align: justify;
 
         &--lead {
             font-family: $header-font-family;
@@ -60,14 +64,17 @@
     }
 
     &__blockquote {
-        float: right;
         font-family: $header-font-family;
         font-size: 2rem;
         color: $text-accent;
         margin: 0 0 1.5rem 1rem;
         padding-left: 1rem;
-        max-width: 33%;
         border-left: 2px solid $color-accent;
+
+        @media all and (min-width: $small-width) {
+            float: right;
+            max-width: 33%;
+        }
     }
 
     &__code { clear: both; }
