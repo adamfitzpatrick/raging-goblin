@@ -1,14 +1,24 @@
 <div class="blog-post-summary">
-    <div class="blog-post-summary__date" [innerHtml]="post.dateString | highlight: matchString"></div>
+    <div class="top-line">
+        <div class="date" [innerHTML]="post.dateString | highlight: matchString"></div>
+        <div>
+            Topics:
+            <span
+                class="list"
+                *ngFor="let tag of post.tags"
+                [innerHTML]="tag | highlight: matchString"
+            ></span>
+        </div>
+    </div>
     <h1>
         <a
             href [innerHTML]="post.title | highlight: matchString"
             [routerLink]="postDetail()"
         ></a>
     </h1>
-    <p class="blog-post-summary__synopsis" [innerHTML]="post.synopsis | highlight: matchString"></p>
+    <p class="synopsis" [innerHTML]="post.synopsis | highlight: matchString"></p>
     <a
-        class="button button--muted blog-post-summary__link"
+        class="button button--muted link"
         [routerLink]="postDetail()"
     >
         Read More

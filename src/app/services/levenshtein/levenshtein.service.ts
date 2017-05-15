@@ -43,7 +43,7 @@ export class LevenshteinService {
 
     searchObject<T>(search: string, target: T, searchFields: string[]): TargetMatch<T> {
         const match = searchFields.reduce((match: MatchObject, field: string) => {
-
+            if (!target[field]) { return match; }
             const newMatch = this.findBestSubstring(search, target[field]);
 
             if (match.distance === -1 || match.distance > newMatch.distance) {
