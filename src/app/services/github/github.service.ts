@@ -37,7 +37,8 @@ export class GitHubService {
     }
 
     getRepoLanguages(repository: GitHubRepository): Observable<GitHubLanguageData> {
-        return this.http.get(repository.languagesUrl, new RequestOptions({ headers: GitHubService.getHeaders() }))
+        const url = this.apiUrlsService.getUrl("githubLanguages", { fullname: repository.fullName });
+        return this.http.get(url, new RequestOptions({ headers: GitHubService.getHeaders() }))
             .map(response => response.json())
             .catch(GitHubService.catchErrors);
     }

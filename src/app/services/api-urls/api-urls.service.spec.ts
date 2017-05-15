@@ -9,12 +9,12 @@ describe("ApiUrlsService", () => {
 
     describe("getUrl", () => {
         it("should return the requested url", () => {
-            expect(service.getUrl("githubRepos")).toBe("https://api.github.com/users/:username/repos");
+            expect(service.getUrl("githubRepos")).toBe("https://www.stepinto.io/github/users/:username/repos");
         });
 
         it("should return a parameterized url", () => {
             expect(service.getUrl("githubRepos", { username: "adamfitzpatrick" }))
-                .toBe("https://api.github.com/users/adamfitzpatrick/repos");
+                .toBe("https://www.stepinto.io/github/users/adamfitzpatrick/repos");
         });
     });
 });

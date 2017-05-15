@@ -84,7 +84,7 @@ describe("GitHubService", () => {
             gitHubService.getRepos("adamfitz77hob").subscribe(repos => {
                 expect(repos).toEqual(mockRepoResponse.map(repo => new GitHubRepository(repo)));
                 expect(mockBackend.connectionsArray[0].request.url)
-                    .toBe("https://api.github.com/users/adamfitz77hob/repos");
+                    .toBe("https://www.stepinto.io/github/users/adamfitz77hob/repos");
             });
         }));
 
@@ -94,7 +94,7 @@ describe("GitHubService", () => {
             gitHubService.getRepos().subscribe(repos => {
                 expect(repos).toEqual(mockRepoResponse.map(repo => new GitHubRepository(repo)));
                 expect(mockBackend.connectionsArray[0].request.url)
-                    .toBe("https://api.github.com/users/adamfitzpatrick/repos");
+                    .toBe("https://www.stepinto.io/github/users/adamfitzpatrick/repos");
             });
         }));
 
@@ -124,7 +124,7 @@ describe("GitHubService", () => {
             gitHubService.getRepoStats(new GitHubRepository(mockRepoResponse[0])).subscribe(stats => {
                 expect(stats).toEqual(mockStats);
                 expect(mockBackend.connectionsArray[0].request.url)
-                    .toBe("https://api.github.com/repos/user/repo/stats/commit_activity");
+                    .toBe("https://www.stepinto.io/github/repos/user/repo/stats/commit_activity");
             });
         }));
     });
@@ -136,7 +136,7 @@ describe("GitHubService", () => {
             gitHubService.getRepoReadme(new GitHubRepository(mockRepoResponse[0])).subscribe(readme => {
                 expect(readme.content).toEqual("readme");
                 expect(mockBackend.connectionsArray[0].request.url)
-                    .toBe("https://api.github.com/repos/user/repo/readme");
+                    .toBe("https://www.stepinto.io/github/repos/user/repo/readme");
             });
         }));
     });

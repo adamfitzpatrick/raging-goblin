@@ -1,21 +1,19 @@
 {
-  "fake": {
-    "origin": "http://localhost:7001"
-  },
   "dev": {
     "origin": "http://localhost:7002"
   },
   "qa": {
-    "origin": "https://www.qa.stepinto.io/"
+    "origin": "https://www.qa.stepinto.io"
   },
   "prod": {
-    "origin": "https://www.stepinto.io/"
+    "origin": "https://www.stepinto.io"
   },
   "common": {
     "apiUrls": {
-      "githubRepos": "https://api.github.com/users/:username/repos",
-      "githubStats": "https://api.github.com/repos/:fullname/stats/commit_activity",
-      "githubReadme": "https://api.github.com/repos/:fullname/readme"
+      "githubRepos": "/github/users/:username/repos",
+      "githubStats": "/github/repos/:fullname/stats/commit_activity",
+      "githubReadme": "/github/repos/:fullname/readme",
+      "githubLanguages": "/github/repos/:fullname/languages"
     }
   }
 }

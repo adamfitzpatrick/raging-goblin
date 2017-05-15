@@ -8,10 +8,11 @@ export class ApiUrlsService {
     CONFIG: GlobalConfig = CONFIG;
 
     getUrl(key: ApiUrlKey, params: Object): string {
-        if (!params) { return this.CONFIG.apiUrls[key]; }
+        const fullUrl = `${this.CONFIG.origin}${this.CONFIG.apiUrls[key]}`;
+        if (!params) { return fullUrl; }
         return Object.keys(params).reduce((url: string, key: string) => {
             return this.replaceParameter(url, key, params[key]);
-        }, this.CONFIG.apiUrls[key]);
+        }, fullUrl);
     }
 
     private replaceParameter(url: string, paramKey: string, parameter: string) {
