@@ -100,9 +100,9 @@ describe("GitHubService", () => {
 
         it("should pass on an error message if there was a server error",
             inject([ GitHubService, MockBackend ], (gitHubService, mockBackend) => {
-            mockSubscribe(mockBackend, { error: "error" }, true);
+            mockSubscribe(mockBackend, "error", true);
             gitHubService.getRepos().subscribe(() => {}, error => {
-                expect(error).toEqual({ error: "error" });
+                expect(error.json()).toEqual("error");
             });
         }));
     });

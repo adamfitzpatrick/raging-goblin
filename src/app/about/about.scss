@@ -1,5 +1,6 @@
 @import "../../global-styles/colors";
 @import "../../global-styles/layout";
+@import "../../global-styles/breakpoints";
 
 $photo-size: 15rem;
 
@@ -13,6 +14,13 @@ $photo-size: 15rem;
     height: $photo-size;
     border-radius: $photo-size;
     margin: 2rem auto;
+
+    @media all and (max-width: $small-width) {
+        width: calc(#{$photo-size} / 2);
+        height: calc(#{$photo-size} / 2);
+        border-radius: calc(#{$photo-size} / 2);
+        margin: 1rem auto;
+    }
 }
 
 .paragraph {
