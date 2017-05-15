@@ -12,6 +12,8 @@ import {
     FlatShading
 } from "three";
 
+const WindowWebGlRenderingContext = "WebGLRenderingContext";
+
 @Injectable()
 export class ThreeService {
     WebGLRenderer = WebGLRenderer;
@@ -24,4 +26,13 @@ export class ThreeService {
     Mesh = Mesh;
     DoubleSide = DoubleSide;
     FlatShading = FlatShading;
+
+    isWebGLAvailable(): boolean {
+        try {
+            const canvas = document.createElement( "canvas" );
+            return !!(window[WindowWebGlRenderingContext] && (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")));
+        } catch ( e ) {
+            return false;
+        }
+    }
 }

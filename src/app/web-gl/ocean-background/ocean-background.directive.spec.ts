@@ -22,8 +22,10 @@ describe("OceanBackgroundDirective", () => {
             "PointLight",
             "ParametricGeometry",
             "MeshPhongMaterial",
-            "Mesh"
+            "Mesh",
+            "isWebGLAvailable"
         ]);
+        threeService.isWebGLAvailable.and.returnValue(true);
         threeService.WebGLRenderer.and.returnValue({
             domElement:  document.createElement("a"),
             setSize: jasmine.createSpy("WebGLRenderer.setSize"),
