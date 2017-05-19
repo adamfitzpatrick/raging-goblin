@@ -1,3 +1,5 @@
+@import "../../../global-styles/breakpoints";
+
 .blog-post-summary {
     margin-top: 3rem;
 }
@@ -6,6 +8,8 @@
     display: flex;
     justify-content: space-between;
     font-size: 0.8rem;
+
+    @media all and (max-width: $medium-width) { display: block; }
 }
 
 .list {
@@ -15,6 +19,8 @@
         content: ", "
     }
 }
+
+.topics { @media all and (max-width: $medium-width) { margin-top: 1rem; }}
 
 .synopsis {
     line-height: 1.7;

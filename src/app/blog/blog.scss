@@ -7,9 +7,14 @@
     &__scroll {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        padding: 0 0.5rem 1rem;  // scrolling element hides x-direction; focus outlines are cut-off without padding
+        padding: 0 1rem 1rem;
         flex-grow: 1;
 
         @media all and (max-width: $small-width) { padding: 0 2rem 1rem;}
     }
+}
+
+.no-posts {
+    margin-top: 2rem;
+    font-style: italic;
 }

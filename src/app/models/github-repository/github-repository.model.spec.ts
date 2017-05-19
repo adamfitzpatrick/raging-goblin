@@ -34,6 +34,12 @@ describe("GitHubRepository", () => {
         });
     });
 
+    describe("htmlUrl", () => {
+        it("should return a url for the repo website", () => {
+            expect(repo.htmlUrl).toEqual("html_url");
+        });
+    });
+
     describe("cloneUrl", () => {
         it("should return a url for cloning the repo", () => {
             expect(repo.cloneUrl).toBe("clone_url");

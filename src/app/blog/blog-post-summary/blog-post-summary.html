@@ -1,7 +1,7 @@
 <div class="blog-post-summary">
     <div class="top-line">
-        <div class="date" [innerHTML]="post.dateString | highlight: matchString"></div>
-        <div>
+        <div [innerHTML]="post.dateString | highlight: matchString"></div>
+        <div class="topics">
             Topics:
             <span
                 class="list"

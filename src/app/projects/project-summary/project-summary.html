@@ -1,5 +1,5 @@
 <div class="project-summary">
-    <h2 class="name">{{ project.name }}</h2>
+    <h2 class="name"><a [href]="project.htmlUrl" target="_blank">{{ project.name }}</a></h2>
     <div class="topics">
         <div>Topics:
             <span *ngFor="let topic of getTopics(), let last = last">

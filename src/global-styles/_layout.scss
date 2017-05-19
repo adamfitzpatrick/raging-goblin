@@ -31,7 +31,7 @@ $background-height: calc(100vh - #{$header-height});
         -webkit-overflow-scrolling: touch;
     }
 
-    @media all and (max-width: $small-width) {
+    @media all and (max-width: $medium-width) {
         width: calc(100vw - 2 * #{$content-gutter});
         height: calc(100vh - 2 * #{$header-height});
         min-width: inherit;
@@ -44,4 +44,6 @@ $background-height: calc(100vh - #{$header-height});
             padding: 0;
         }
     }
+
+    @media all and (max-width: $small-width) { height: calc(100vh - 2 * 0.8 * #{$header-height}); }
 }

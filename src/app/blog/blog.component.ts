@@ -23,4 +23,6 @@ export class BlogComponent implements OnInit {
     handleSearchResults = (results: TargetMatch<Post>[]): void => {
         this.searchResults = results || this.emptyResults;
     }
+
+    noPosts(): boolean { return !this.searchResults.length; }
 }

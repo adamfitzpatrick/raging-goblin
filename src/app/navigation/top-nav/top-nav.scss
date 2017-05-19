@@ -13,44 +13,35 @@ $gutter: 1rem;
     color: $text-light;
     background: $color-darkest;
 
-    &__inner {
-        height: $header-height;
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+    @media all and (max-width: $small-width) { height: calc(0.8 * #{$header-height}); }
+}
 
-        @media all and (min-width: $oversize-width) { width: 1000px; }
-    }
+.content {
+    height: $header-height;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 
-    &__left {
-        margin-left: $gutter;
-        color: $text-light;
-    }
+    @media all and (max-width: $small-width) { height: calc(0.8 * #{$header-height}); }
 
-    &__center {
-        width: 50%;
+    @media all and (min-width: $oversize-width) { width: 1000px; }
+}
 
-        @media all and (max-width: $medium-width) { display: none; }
-    }
+.left {
+    margin-left: $gutter;
+    color: $text-light;
+}
 
-    &__right {
-        margin-right: $gutter;
-        text-align: right;
-    }
+.center {
+    width: 50%;
 
-    &--bottom {
-        bottom: 0;
-        background: $color-lightest;
-        display: none;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 0 5px 5px 5px $color-darkest;
+    @media all and (max-width: $medium-width) { display: none; }
+}
 
-        links { width: 90vw; }
-
-        @media all and (max-width: $medium-width) { display: flex; }
-    }
+.right {
+    margin-right: $gutter;
+    text-align: right;
 }
 
 .logo {
@@ -64,6 +55,11 @@ $gutter: 1rem;
     margin: 0;
     vertical-align: top;
     display: inline-block;
+
+    @media all and (max-width: $small-width) {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
 }
 
 .author {
