@@ -37,7 +37,7 @@ content:
     I just re-wrote the test.
   </p>
   <p class="blog-post-detail__para">
-    It wasn't until I actually got curious about agile software development, best practices and proper
+    It wasn't until I actually got curious about agile software development and proper
     unit testing that I was exposed to the idea of Test Driven Development. In short, Test Driven
     Development is the practice of writing a test that covers any desired new behavior <em>before</em> writing
     a single character of working code.  In the words of one venerated developer
@@ -50,7 +50,7 @@ content:
     <li class="blog-post-detail__li">Refactor both new and old code to make it well structured.</li>
   </ul>
 - >
-  <h2>Eyes on the prize: What does the user need from this experience?</h2>
+  <h2>Eye on the prize: What does the user need from this experience?</h2>
   <p class="blog-post-detail__para">
     I see Test Driven Development as a way to bridge the gap between a user story ("So that I
     can easily find what I'm looking for, I want to be able to sort the list.") and the implementation
@@ -62,7 +62,7 @@ content:
     I spend most of my test-writing time on unit tests, which means I need some idea of implementation
     details before I begin putting tests together.  But those ideas are pretty high level ("...I'll need
     some kind of <span class="blog-post-detail__code--inline">sortList</span> method), and working in
-    this manner helpsme stay focused on user experience
+    this manner helps me stay focused on user experience
     questions ("What information is needed if the user wants to sort by more than one criterion?").
   </p>
 - >

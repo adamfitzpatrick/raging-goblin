@@ -23,6 +23,12 @@ $background-height: calc(100vh - #{$header-height});
     box-shadow: 0 0 140px 150px $color-lightest;
     padding: 0 0.5rem;
 
+    &:after {
+        content: "";
+        display: block;
+        height: 2rem;
+    }
+
     @if ($flex) {
         display: flex;
         flex-direction: column;
