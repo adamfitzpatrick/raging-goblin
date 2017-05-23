@@ -23,6 +23,14 @@ $background-height: calc(100vh - #{$header-height});
     box-shadow: 0 0 140px 150px $color-lightest;
     padding: 0 0.5rem;
 
+    // iOS Safari treats the bottom nav bar as usable real estate even though it is obscured.
+    // The following is a hack to deal with that.
+    &:after {
+        content: "";
+        display: block;
+        height: 2.5rem;
+    }
+
     @if ($flex) {
         display: flex;
         flex-direction: column;

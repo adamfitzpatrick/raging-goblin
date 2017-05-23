@@ -7,10 +7,10 @@
     &__scroll {
         overflow-y: scroll;
         -webkit-overflow-scrolling: touch;
-        padding: 0 1rem 1rem;
+        padding: 0 2rem;
         flex-grow: 1;
 
-        @media all and (max-width: $small-width) { padding: 0 2rem 1rem;}
+        @media all and (max-width: $small-width) { padding: 0 1rem;}
     }
 }
 
