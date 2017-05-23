@@ -45,3 +45,33 @@
         .links__underline { background: $color-accent; }
     }
 }
+
+.private-link {
+    $position: 2rem;
+    $size: 3rem;
+
+    position: fixed;
+    bottom: $position;
+    right: $position;
+    width: $size;
+    height: $size;
+    border-radius: $size;
+    line-height: $size;
+    text-align: center;
+    color: $text-light;
+    background-color: $color-dark;
+    box-shadow: 2px 2px 5px 0 $color-dark-grey;
+    cursor: pointer;
+
+    &:hover {
+        box-shadow: none;
+        right: calc(#{$position} - 1px);
+        bottom: calc(#{$position} - 1px);
+    }
+
+    &--active {
+        background-color: $color-accent;
+
+        & ~ .links__underline { display: none; }
+    }
+}

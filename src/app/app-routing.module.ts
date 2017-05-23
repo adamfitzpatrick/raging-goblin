@@ -9,6 +9,7 @@ export const ROUTES: Routes = [
     { path: "blog/:blogId", component: BlogPostDetail },
     { path: "projects", loadChildren: "./projects/projects.module#ProjectsModule" },
     { path: "about", component: AboutComponent },
+    { path: "private", loadChildren: "./private/private.module#PrivateModule" },
     { path: "",   redirectTo: "/blog", pathMatch: "full" },
     { path: "**", component: BlogComponent }
 ];
