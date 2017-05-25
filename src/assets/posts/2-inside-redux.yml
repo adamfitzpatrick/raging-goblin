@@ -1,0 +1,178 @@
+id: '2'
+date: '5/25/2017'
+title: 'Inside Redux'
+synopsis: >
+  Redux provides a simple but powerful state container for JavaScript applications.  Given Redux's remarkable power and
+  flexibility, it is also surprisingly small at only 2 KB.  I decided to dig into the source code to see how it
+  operates.
+content:
+- >
+  <p class="blog-content__para blog-content__para--lead">
+    Redux provides a simple but powerful state container for JavaScript applications.  Given Redux's remarkable power
+    and flexibility, it is also surprisingly small at only 2 KB.  I decided to learn as much as I could about Redux by
+    digging into the source code to see how it operates.
+  <p>
+  <p class="blog-content__para">
+    The documentation for Redux is superb.  There is no better way to learn how to most effectively use the library the
+    by walking through the docs and taking the
+    <a href="https://egghead.io/courses/getting-started-with-redux" target="_blank">course</a> by its creator, Dan
+    Abramov.  I wanted to dig a little deeper, though, and get a look at the inner workings of Redux.  The small size
+    and simplicity of the source code provides a unique opportunity to walk through the entire thing, step by step.
+  </p>
+  <h2>Demo Setup</h2>
+  <p class="blog-content__para">
+    My experience is that it best to work through someone else's code by stepping through with a debugger while at the
+    same time being able to view an easy-to-read version.  I would suggest opening up the
+    <a href="https://github.com/reactjs/redux/tree/master/src" target="_blank">source code</a> in another browser tab.
+    If you like, you can also start up an extremely naive ReactJs app which implements Redux.
+  </p>
+  <p class="blog-content__para">
+    To do so, just clone <strong>https://github.com/adamfitzpatrick/react-starter.git</strong>, and checkout tag
+    <em>minimal-redux</em>.  Run <span class="blog-content__inline-code">npm install</span> and then
+    <span class="blog-content__inline-code">npm start</span>.  Then hit <strong>localhost:7999</strong> and gaze in awe
+    at the resulting app.
+  </p>
+  <p class="blog-content__para">
+    You can see Redux in action here.  The item list comes from a hard-coded initial state, and clicking on one of the
+    items dispatches an action to set the <em>selectedItem</em> value on the state tree.
+  </p>
+  <p class="blog-content__para">
+    Feel free to open up your dev tools and find the <em>bundle.js</em> source file.  You can follow along with the
+    working code starting from the first code block below.  Webpack obfuscates the code a bit, so your best bet is to
+    search for "rootReducer" and step through from there.
+  </p>
+  <h2>Walk the Code</h2>
+  <h3>combineReducers.js</h3>
+  <p class="blog-content__para">
+    Let's follow Redux as it does its thing.  Given that this post is exclusively about Redux and <em>not</em> React, we
+    won't worry about exactly how the enclosing application sets up the state tree.  Instead, let's start with the
+    creation of the application's root reducer:
+  </p>
+  <pre class="blog-content__code syntax-highlightable javascript">
+    <pre class="syntax-highlightable__header">(react-starter) src/reducers/index.js</pre>
+    <code>
+      const RootReducer = combineReducers({
+        items: itemsReducer,
+        selectedItem: selectedItemReducer
+      });
+    </code>
+  </pre>
+  <p class="blog-content__para">
+    The root reducer comes from Redux's <span class="blog-content__inline-code">combineReducers</span> function.  This
+    function accepts an object matching each key of the state tree to a reducer for that key.  There are several things
+    to note here:
+  </p>
+  <p class="blog-content__para">
+    First off, reducers only get added if they are functions.
+  </p>
+  <pre class="blog-content__code syntax-highlightable javascript">
+    <pre class="syntax-highlightable__header">(Redux source) src/combineReducers.js</pre>
+    <code>
+      if (typeof reducers[key] === 'function') {
+        finalReducers[key] = reducers[key]
+      }
+    </code>
+  </pre>
+  <p class="blog-content__para">
+    Second, Redux fires off two initializer actions to check that each reducer has the proper shape.
+    If any given reducer does not return the appropriate value,
+    <span class="blog-content__inline-code">assertReducerShape</span> throws an error which is subsequently
+    caught and saved for later:
+  </p>
+  <pre class="blog-content__code syntax-highlightable javascript">
+    <pre class="syntax-highlightable__header">(Redux source) src/combineReducers.js</pre>
+    <code>
+      function assertReducerShape(reducers) {
+        Object.keys(reducers).forEach(key => {
+          const reducer = reducers[key]
+          const initialState = reducer(undefined, { type: ActionTypes.INIT })
+    </code><code>
+          if (typeof initialState === 'undefined') {
+            throw new Error(
+              `Reducer "${key}" returned undefined during initialization. ` +
+              `If the state passed to the reducer is undefined, you must ` +
+              `explicitly return the initial state. The initial state may ` +
+              `not be undefined. If you don't want to set a value for this reducer, ` +
+              `you can use null instead of undefined.`
+            )
+          }
+    </code><code>
+          const type = '@@redux/PROBE_UNKNOWN_ACTION_' + Math.random().toString(36).substring(7).split('').join('.')
+          if (typeof reducer(undefined, { type }) === 'undefined') {
+            throw new Error(
+              `Reducer "${key}" returned undefined when probed with a random type. ` +
+              `Don't try to handle ${ActionTypes.INIT} or other actions in "redux/*" ` +
+              `namespace. They are considered private. Instead, you must return the ` +
+              `current state for any unknown actions, unless it is undefined, ` +
+              `in which case you must return the initial state, regardless of the ` +
+              `action type. The initial state may not be undefined, but can be null.`
+            )
+          }
+        })
+      }
+    </code>
+  </pre>
+  <p class="blog-content__para">
+    Shape here means that the reducer returns an expected result from the reducer.  Every reducer must accept an
+    undefined state, but the reducer cannot return an undefined state, <em>ever</em>.  If the current state is ever
+    undefined, the reducer must return the initial state which also cannot be undefined.  Additionally, the reducer
+    cannot choke on an unknown action type; it must return the current state (or the initial state if current is
+    undefined) for any unknown action.  This is why you'll generally see developers using
+    <span class="blog-content__inline-code">switch</span> statements in reducers, as it provides an easy fall-through
+    mechanism to return the current state.
+  </p>
+  <p class="blog-content__para">
+    <em>Why does Redux use that particular algorithm to create a random unknown action?</em>  No idea.  Email me if you
+    figure it out.
+  </p>
+  <p class="blog-content__para">
+    After checking out the shape of each reducer, redux returns the combined reducer itself, which has the same signature
+    as any other reducer:
+  </p>
+  <pre class="blog-content__code syntax-highlightable javascript">
+    <pre class="syntax-highlightable__header">(Redux source) src/combineReducers.js</pre>
+    <code>
+      return function combination(state = {}, action) {
+        if (shapeAssertionError) {
+          throw shapeAssertionError
+        }
+    </code><code>
+        ...
+    </code><code>
+        let hasChanged = false
+        const nextState = {}
+        for (let i = 0; i < finalReducerKeys.length; i++) {
+        const key = finalReducerKeys[i]
+        const reducer = finalReducers[key]
+        const previousStateForKey = state[key]
+        const nextStateForKey = reducer(previousStateForKey, action)
+        if (typeof nextStateForKey === 'undefined') {
+          const errorMessage = getUndefinedStateErrorMessage(key, action)
+          throw new Error(errorMessage)
+        }
+        nextState[key] = nextStateForKey
+        hasChanged = hasChanged || nextStateForKey !== previousStateForKey
+      }
+      return hasChanged ? nextState : state
+    }
+    </code>
+  </pre>
+  <p class="blog-content__para">
+    First of all, note that, if any of the initial reducers failed the initial shape test, this is where the resulting error will
+    actually be thrown outside a <span class="blog-content__inline-code">catch</span> block.
+  </p>
+  <p class="blog-content__para">
+    More significantly, though, take a look at the line that starts with <span class="blog-content__inline-code">let hasChanged = false</span>.
+    This is where the magic happens, and this exactly the block of code that makes is so important that you <em>never mutate the state</em>.
+    For each reducer provided by the enclosing application, Redux calculates the next state for the particular state key handled by that reducer.
+    Then, it performs a strict equality check between the next and previous states for that key.  After executing all the reducers, Redux returns
+    either the nextState if there was a change or the current state if there wasn't.
+  </p>
+  <p class="blog-content__para">
+    What you're seeing here is one of the reasons it is so important not to mutate state.  It is possible the combined reducer won't return
+    the updated state, with unpleasant side effects.  You can see the phenomenon in action in
+    <a href="https://jsfiddle.net/adamfitzpatrick/1cmh6bn8/" target="_blank">this fiddle</a>.
+  </p>
+tags:
+- Redux
+- Library Source

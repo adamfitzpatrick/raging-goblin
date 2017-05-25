@@ -1,0 +1,22 @@
+<div class="compose-blog">
+    <div class="tabs">
+        <div (click)="setCompose(true)" class="tab">Compose</div>
+        <div (click)="setCompose(false)" class="tab">Preview</div>
+        <div
+            class="underline"
+            [ngClass]="{ 'underline--compose': compose, 'underline--preview': !compose}"
+        ></div>
+    </div>
+    <textarea
+        *ngIf="compose"
+        [ngModel]="blogContent"
+        (blur)="onComposerBlur($event)"
+        class="composer"
+    ></textarea>
+    <div
+        *ngIf="!compose"
+        class="preview"
+    >
+        <div *ngFor="let element of blogPreview" [innerHTML]="element"></div>
+    </div>
+</div>

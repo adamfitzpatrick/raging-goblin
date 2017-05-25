@@ -1,0 +1,78 @@
+@import "./colors";
+@import "./typography";
+
+.blog-content {
+    &__headline {
+        margin: 2rem 0 1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+    }
+
+    &__tags-line {
+        display: flex;
+        font-size: 0.8rem;
+    }
+
+    &__topics:after {
+        content: " ";
+        white-space: pre-wrap;
+    }
+
+    &__tags {
+        display: flex;
+        padding: 0;
+        margin: 0
+    }
+
+    &__tag {
+        list-style: none;
+        color: $color-medium;
+
+        &:not(:last-child):after {
+            content: ", ";
+            white-space: pre-wrap;
+        }
+    }
+
+    &__para {
+        line-height: 1.6;
+
+        &--lead {
+            font-family: $header-font-family;
+            color: lighten($text-body, 10%);
+            line-height: 1.6;
+            font-size: 1.6rem;
+        }
+    }
+
+    &__key-value {
+        list-style: none;
+        line-height: 1.6;
+    }
+
+    &__key {
+        font-weight: bold;
+        color: $text-dark;
+    }
+
+    &__blockquote {
+        float: right;
+        font-family: $header-font-family;
+        font-size: 2rem;
+        color: $text-accent;
+        margin: 0 0 1.5rem 1rem;
+        padding-left: 1rem;
+        max-width: 33%;
+        border-left: 2px solid $color-accent;
+    }
+
+    &__code { clear: both; }
+
+    &__inline-code {
+        line-height: 1;
+        font-family: $title-font-family;
+    }
+
+    &__img { max-width: 100%; }
+}

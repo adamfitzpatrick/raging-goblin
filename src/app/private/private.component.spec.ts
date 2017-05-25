@@ -15,7 +15,7 @@ describe("PrivateComponent", () => {
 
     beforeEach(() => {
         fixture = TestBed.createComponent(PrivateComponent);
-        component = fixture.componentInstance
+        component = fixture.componentInstance;
     });
 
     it("should be initialized", () => {

@@ -1,0 +1,38 @@
+@import "../../global-styles/colors";
+@import "../../global-styles/layout";
+@import "../../global-styles/breakpoints";
+
+.private {
+    width: 100vw;
+    height: calc(100vh - #{$header-height});
+    background: $color-lightest;
+    display: flex;
+
+    @media all and (max-width: $small-width) { height: calc(100vh - 2 * #{$header-height}); }
+}
+
+.menu {
+    margin: 0;
+    padding: 0;
+    background: $color-medium;
+    flex-shrink: 0;
+
+    &__item {
+        color: $text-light;
+        list-style: none;
+        padding: 1rem 2rem;
+        cursor: pointer;
+
+        &:hover { background: lighten($color-medium, 10%); }
+
+        &--active {
+            color: $text-dark;
+            background: $color-light;
+            cursor: default;
+
+            &:hover { background: $color-light; }
+        }
+    }
+}
+
+.router-outlet { flex-grow: 1; }
