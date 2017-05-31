@@ -17,4 +17,8 @@
     links { width: 90vw; }
 
     @media all and (max-width: $medium-width) { display: flex; }
+
+    @media all and (max-width: $small-width) {
+        height: calc(0.8 * #{$header-height});
+    }
 }

@@ -50,10 +50,13 @@
 
     &__logo {
         position: absolute;
-        width: 10vw;
-        height: 7.2vw;
         top: calc(50% - 3.6vw);
         left: 2.5vw;
+    }
+
+    &__svg {
+        width: 10vw;
+        height: 7.2vw;
     }
 
     @keyframes spin {

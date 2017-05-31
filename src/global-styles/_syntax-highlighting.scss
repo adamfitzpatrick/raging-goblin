@@ -20,7 +20,7 @@
     font-family: $monospace-font-family;
     font-size: 0.9rem;
     line-height: 1.5;
-    overflow-x: scroll;
+    overflow: scroll;
 
     .hljs-keyword { color: $color-hljs-keyword; }
 

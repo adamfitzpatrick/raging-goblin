@@ -9,9 +9,15 @@ const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const webpack = require("webpack");
 const yargs = require("yargs");
 const yaml = require("yamljs");
+const ngcWebpack = require("ngc-webpack");
 
 const flags = yargs.argv;
 const env = flags.env || "prod";
+const AOT = env === "prod" && flags["$0"].indexOf("karma") === -1;
+const entry = path.join(__dirname, AOT ? "./src/app.aot.ts" :  "./src/app.ts");
+const angularRouterLoader = "angular-router-loader" + (AOT ? "?aot=true&genDir=aot" : "");
+
+console.log(entry);
 
 const startMockServer = require("./mock-backend/mock-server.js");
 
@@ -27,10 +33,13 @@ const posts = fs.readdirSync(path.join(__dirname, "./src/assets/posts")).map(pos
 
 const cdnResources = {
     js: [
-        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"
+        "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/rxjs/5.4.0/Rx.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/three.js/85/three.min.js",
+        "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"
     ],
     fonts: [
-        "https://fonts.googleapis.com/css?family=Cousine|Arimo|Open+Sans:300"
+        "https://fonts.googleapis.com/css?family=Cousine|Roboto:300|Open+Sans:300"
     ],
     css: [
         "https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css",
@@ -38,7 +47,12 @@ const cdnResources = {
         "https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/default.min.css"
     ]
 };
-const externals = [];
+const externals = {
+    "highlight.js": "hljs",
+    "rxjs": "Rx",
+    "three": "THREE",
+    "chart.js": "Chart"
+};
 
 if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
     startMockServer();
@@ -46,10 +60,10 @@ if (process.argv[1].indexOf("webpack-dev-server") !== -1) {
 
 module.exports = {
     context: path.join(__dirname, "./src/app"),
-    entry: path.join(__dirname, "./src/entry.ts"),
+    entry,
     output: {
         path: path.join(__dirname, "public"),
-        filename: "app.[hash].js"
+        filename: "[name].[hash].js"
     },
     module: {
         exprContextCritical: false,
@@ -59,8 +73,7 @@ module.exports = {
                 test: /\.js$/,
                 loaders: ["source-map-loader"],
                 exclude:[
-                    path.join(__dirname, 'node_modules/rxjs'),
-                    path.join(__dirname, 'node_modules/@angular')
+                    /node_modules/
                 ]
             },
             { enforce: "pre", test: /\.ts$/, use: [ "tslint-loader" ] }, {
@@ -76,14 +89,16 @@ module.exports = {
                                 removeComments: true
                             }
                         },
-                    }
+                    },
+                    "angular2-template-loader",
+                    angularRouterLoader
                 ]
             },
             { test: /\.hbs$/, use: [ "handlebars-loader" ] },
             { test: /\.html$/, use: [ "html-loader" ] },
             { test: /\.scss$/, use: [ "to-string-loader", "css-loader", "sass-loader" ] },
             { test: /\.css$/, use: [ "style-loader", "css-loader" ] },
-            { test: /\.(png|ttf|eot|svg|woff|woff2)/, use: [ "file-loader" ] }
+            { test: /\.(jpg|png|ttf|eot|svg|woff|woff2)/, use: [ "file-loader" ] }
         ]
     },
     externals: externals,
@@ -91,7 +106,7 @@ module.exports = {
         extensions: [".webpack.js", ".web.js", ".js", ".ts"],
         modules: ["./node_modules"]
     },
-    devtool: "inline-source-map",
+    devtool: "source-map",
     devServer: {
         port: 7001,
         historyApiFallback: true,
@@ -105,7 +120,7 @@ module.exports = {
             logo: logo,
             title: "StepInto",
             chunksSortMode: "dependency",
-            inject: "head",
+            inject: "body",
             cdnResources: cdnResources
         }),
         new webpack.DefinePlugin({
@@ -148,6 +163,10 @@ module.exports = {
                     customAttrAssign: [ /\)?\]?=/ ]
                 }
             }
+        }),
+        new ngcWebpack.NgcWebpackPlugin({
+            disabled: !AOT,
+            tsConfig: "./tsconfig.json"
         })
     ]
 };

@@ -1,11 +1,20 @@
 @import '../../global-styles/layout';
+@import '../../global-styles/breakpoints';
 
 .blog {
     @include primaryContent(true);
 
     &__scroll {
         overflow-y: scroll;
-        padding: 0 0.25rem 1rem;  // scrolling element hides x-direction; focus outlines are cut-off without padding
+        -webkit-overflow-scrolling: touch;
+        padding: 0 2rem;
         flex-grow: 1;
+
+        @media all and (max-width: $small-width) { padding: 0 1rem;}
     }
+}
+
+.no-posts {
+    margin-top: 2rem;
+    font-style: italic;
 }

@@ -39,9 +39,9 @@
         .links__link {
             color: $text-light;
 
-            &--active { color: $color-accent-light; }
+            &--active { color: $color-accent; }
         }
 
-        .links__underline { background: $color-accent-light; }
+        .links__underline { background: $color-accent; }
     }
 }

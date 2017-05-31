@@ -1,0 +1,13 @@
+@import "../../global-styles/colors";
+@import "../../global-styles/typography";
+@import "../../global-styles/layout";
+
+.no-content {
+    width: 100vw;
+    height: calc(100vh - #{$header-height});
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: $color-lightest;
+    font-size: 3rem;
+}

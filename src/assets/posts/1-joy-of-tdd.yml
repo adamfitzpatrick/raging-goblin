@@ -1,0 +1,129 @@
+id: '1'
+date: 10/14/2016
+title: The Joy of Test Driven Development
+synopsis: >
+  or...How I learned to stop worrying and love test failures.  I was skeptical at first, but I have since come to
+  enjoy the experience of writing tests prior to putting together even a single line or working code.  Take a look at
+  exactly what the process entails, the potential benefits, pitfalls and why I love working this way.
+content:
+- >
+  <p class="blog-post-detail__para blog-post-detail__para--lead">
+    or: How I Learned to Stop Worrying and Love the Test Failure
+  <p>
+  <p class="blog-post-detail__para">
+    My first days as a professional software developer weren't that long ago, and they're still pretty
+    fresh in my memory.  I can recall, with a cringe of embarassment, the comments on my very first pull
+    request:
+  </p>
+  <ul>
+    <li class="blog-post-detail__key-value"><span class="blog-post-detail__key">Senior Developer:</span> Need tests</li>
+    <li class="blog-post-detail__key-value"><span class="blog-post-detail__key">Veteran Developer:</span> Moar tests</li>
+    <li class="blog-post-detail__key-value"><span class="blog-post-detail__key">Last Month's Rookie Developer:</span> Dude!  Where are your tests?  What were you thinking?</li>
+  </ul>
+  <p class="blog-post-detail__para">I very quickly developed a rather painful development process:</p>
+  <ol>
+    <li class="blog-post-detail__li">Write bad code</li>
+    <li class="blog-post-detail__li">Fiddle with it until it appears to produce the desired effect</li>
+    <li class="blog-post-detail__li">Commit & push</li>
+    <li class="blog-post-detail__li">Remember to write tests</li>
+    <li class="blog-post-detail__li">Fiddle with tests until they pass</li>
+    <li class="blog-post-detail__li">Amend commit & force push</li>
+    <li class="blog-post-detail__li">Pull request</li>
+  </ol>
+  <p class="blog-post-detail__para">
+    Over time, I got to the point where I remembered tests before I pushed, but I still always wrote tests
+    <em>only for the purpose of confirming that my existing code did what I thought it did</em>.  At best, my tests
+    served as a check on breakages due to future modification of the code.  Of course, if that happened...
+    I just re-wrote the test.
+  </p>
+  <p class="blog-post-detail__para">
+    It wasn't until I actually got curious about agile software development and proper
+    unit testing that I was exposed to the idea of Test Driven Development. In short, Test Driven
+    Development is the practice of writing a test that covers any desired new behavior <em>before</em> writing
+    a single character of working code.  In the words of one venerated developer
+    (<a href="http://martinfowler.com/bliki/TestDrivenDevelopment.html" target="_blank">Martin Fowler, 2005</a>),
+    TDD is a three-step process:
+  </p>
+  <ol>
+    <li class="blog-post-detail__li">Write a test for the next bit of functionality you want to add.</li>
+    <li class="blog-post-detail__li">Write functional code until the test passes.</li>
+    <li class="blog-post-detail__li">Refactor both new and old code to make it well structured.</li>
+  </ul>
+- >
+  <h2>Eye on the prize: What does the user need from this experience?</h2>
+  <p class="blog-post-detail__para">
+    I see Test Driven Development as a way to bridge the gap between a user story ("So that I
+    can easily find what I'm looking for, I want to be able to sort the list.") and the implementation
+    of that story.  My experience is that writing tests before I write working code helps me to keep the
+    end goal of the story on which I'm working clearly in mind, without getting too bogged down on the
+    implementation details right off the bat.
+  </p>
+  <p class="blog-post-detail__para">
+    I spend most of my test-writing time on unit tests, which means I need some idea of implementation
+    details before I begin putting tests together.  But those ideas are pretty high level ("...I'll need
+    some kind of <span class="blog-post-detail__code--inline">sortList</span> method), and working in
+    this manner helps me stay focused on user experience
+    questions ("What information is needed if the user wants to sort by more than one criterion?").
+  </p>
+- >
+  <h2>No failed tests? No new code.</h2>
+  <p class="blog-post-detail__para">
+    Writing tests first also encourages me to examine existing tests to see if my desired
+    behavior is already covered, at least in part.  If I begin by writing working code, I may end
+    up duplicating the work of others (or myself), increasing code complexity and reducing maintainability.
+  </p>
+  <p class="blog-post-detail__para">
+    What if, instead, I could tweak an existing test so that it verifies the behavior I need? Or
+    what if I can write new tests that rely upon existing code? Here's where I learned to love failing
+    tests:  if I tweak an existing test to validate my desired behavior as well as existing behavior,
+    and that test fails, <em>I probably need to write fewer lines of code than if I started with purpose-
+    built code for my desired behavior</em>.
+  </p>
+  <p class="blog-post-detail__para">
+    If not...well, I'm no worse off than I was before, right?  Write my new tests, watch them fail, and
+    then go to work.  No problem.
+  </p>
+- >
+  <h2>Writing tests before working code can be hard.</h2>
+  <p class="blog-post-detail__para">
+    Yup.  It's true.  Many times, I have gone to work on tests only to freeze up for a while:
+  </p>
+  <pre class="blog-post-detail__code syntax-highlightable typescript">
+    <code>
+      describe("sortList", function () {
+          it("sorts the list in a fantastic and effective manner", function () {
+    </code>
+  </pre>
+  <img class="blog-post-detail__img" src="https://pbs.twimg.com/profile_images/653937637246394369/Z9NI9xjq.jpg" alt="So..what now?">
+  <p class="blog-post-detail__para">
+    What now?  While this may be annoying, it's not a bad thing.  It means that I am being compelled to
+    think about my work before hand.  Often, in my earliest days as a developer, I flailed
+    around, writing lots of code with lots of <span class="blog-post-detail__code--inline">console.log</span> or
+    <span class="blog-post-detail__code--inline">System.out.println</span> statements, and just
+    ran it to see what happened.  It worked, after a while.  But I find that, as I become more skilled,
+    I can more clearly visualize what I need while I write my tests.  And when I really get stuck, it
+    just tells me that I need to learn something new.  Then I do research, and <em>then</em> I flail. But the
+    whole time, I've stayed more focused on what my working code should do at the end.
+  </p>
+- >
+  <h2>Conclusion</h2>
+  <p class="blog-post-detail__para">
+    Test Driven Development rescued me from a wall of frustration and boredom that I was running into
+    with almost every user story I worked on.  My pattern was to chip away at the working code until I
+    was relatively satisfied with the results, and then, exhausted, get to work writing some tests to
+    legitimize my efforts...or maybe just to get those pesky code coverage numbers a smidge closer to
+    100%.  When I took the test-first tack, my entire experience changed:
+  </p>
+  <ul>
+    <li class="blog-post-detail__li">I became better at writing neat, maintainable code.</li>
+    <li class="blog-post-detail__li">My sprint velocity increased.</li>
+    <li class="blog-post-detail__li">Code reviews involved more thumbs-up and fewer mistakes to correct.</li>
+    <li class="blog-post-detail__li">I had an easier time returning to my old work to make iterative improvements later.</li>
+  </ul>
+  <p class="blog-post-detail__para">
+    I am at a point now where writing tests first seems like the easiest way to get things done.  No
+    longer do I fear the test failure.
+  </p>
+tags:
+- TDD
+- Best Practices

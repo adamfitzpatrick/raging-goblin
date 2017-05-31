@@ -1,6 +1,7 @@
 @import "../../../global-styles/layout";
 @import "../../../global-styles/colors";
 @import "../../../global-styles/typography";
+@import "../../../global-styles/breakpoints";
 
 .blog-post-detail {
     @include primaryContent(false);
@@ -10,16 +11,13 @@
         display: flex;
         justify-content: space-between;
         align-items: baseline;
+
+        @media all and (max-width: $medium-width) { display: block; }
     }
 
     &__tags-line {
         display: flex;
         font-size: 0.8rem;
-    }
-
-    &__topics:after {
-        content: " ";
-        white-space: pre-wrap;
     }
 
     &__tags {
@@ -30,7 +28,6 @@
 
     &__tag {
         list-style: none;
-        color: $color-medium;
 
         &:not(:last-child):after {
             content: ", ";
@@ -40,12 +37,15 @@
 
     &__para {
         line-height: 1.6;
+        text-align: justify;
 
         &--lead {
             font-family: $header-font-family;
             color: lighten($text-body, 10%);
             line-height: 1.6;
             font-size: 1.6rem;
+
+            @media all and (max-width: $small-width) { font-size: 1.5rem; }
         }
     }
 
@@ -59,18 +59,37 @@
         color: $text-dark;
     }
 
+    &__li { line-height: 1.6; }
+
     &__blockquote {
-        float: right;
         font-family: $header-font-family;
         font-size: 2rem;
         color: $text-accent;
-        margin: 0 0 1.5rem 1rem;
+        margin: 0 1.5rem 0 1rem;
         padding-left: 1rem;
-        max-width: 33%;
         border-left: 2px solid $color-accent;
+        float: right;
+        max-width: 33%;
+
+        @media all and (max-width: $small-width) {
+            float: none;
+            max-width: 100%;
+            margin-left: 0;
+        }
     }
 
-    &__code { clear: both; }
+    &__code {
+        clear: both;
 
-    &__img { width: 100%; }
+        &--inline {
+            font-family: $title-font-family;
+            font-size: 0.95rem;
+        }
+    }
+
+    &__img {
+        margin: 0 auto;
+        display: block;
+        max-width: 100%;
+    }
 }

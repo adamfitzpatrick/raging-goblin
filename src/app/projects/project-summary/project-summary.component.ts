@@ -9,8 +9,8 @@ const BIT_SEARCH_PATTERN = /<!--- bit --->\n([\s\S]+)\n<!--- \/bit --->/;
 
 @Component({
     selector: "project-summary",
-    template: require("./project-summary.html"),
-    styles: [ require("./project-summary.scss") ]
+    templateUrl: "./project-summary.html",
+    styleUrls: [ "./project-summary.scss" ]
 })
 export class ProjectSummaryComponent implements OnInit {
     @Input() project: GitHubRepository;

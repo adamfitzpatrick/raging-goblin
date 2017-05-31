@@ -3,12 +3,15 @@ import { BlogPostDetail } from "./blog-post-detail.component";
 import { NO_ERRORS_SCHEMA } from "@angular/core";
 import { BlogPostService } from "../../services/blog-post/blog-post.service";
 import { SyntaxHighlightService } from "../../services/syntax-highlight/syntax-highlight.service";
+import { ActivatedRoute } from "@angular/router";
 
 describe("BlogPostDetail", () => {
     let component;
     let fixture;
     let blogPostService;
     let syntaxHighlightService;
+    let activateRouteParamsSubscribe;
+    let activatedRoute;
     let post;
 
     beforeEach(async(() => {
@@ -29,12 +32,15 @@ describe("BlogPostDetail", () => {
         blogPostService = jasmine.createSpyObj("blogPostService", [ "get" ]);
         blogPostService.get.and.returnValue(post);
         syntaxHighlightService = jasmine.createSpyObj("syntaxHighlightService", [ "highlight" ]);
+        activateRouteParamsSubscribe = jasmine.createSpy("subscribeSpy").and.callFake((cb) => cb({ blogId: "1" }));
+        activatedRoute = { params: { subscribe: activateRouteParamsSubscribe }};
 
         TestBed.configureTestingModule({
             declarations: [ BlogPostDetail ],
             providers: [
                 { provide: BlogPostService, useValue: blogPostService },
-                { provide: SyntaxHighlightService, useValue: syntaxHighlightService }
+                { provide: SyntaxHighlightService, useValue: syntaxHighlightService },
+                { provide: ActivatedRoute, useValue: activatedRoute }
             ],
             schemas: [ NO_ERRORS_SCHEMA ]
         });
@@ -49,11 +55,15 @@ describe("BlogPostDetail", () => {
     it("should be initialized", () => {
         expect(fixture).toBeDefined();
         expect(component).toBeDefined();
-        expect(blogPostService.get).toHaveBeenCalledWith("1");
         expect(component.post).toEqual(post);
     });
 
     it("should highlight all code syntax", () => {
         expect(syntaxHighlightService.highlight).toHaveBeenCalled();
     });
+
+    it("should have obtained the desired blog post", () => {
+        expect(activateRouteParamsSubscribe).toHaveBeenCalled();
+        expect(blogPostService.get).toHaveBeenCalledWith("1");
+    })
 });

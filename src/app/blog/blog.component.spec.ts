@@ -50,16 +50,27 @@ describe("blog component", () => {
         expect(component.searchResults).toEqual(searchResults);
     });
 
-    describe("filterPosts", () => {
-        it("should set a list of filtered posts", () => {
+    describe("searchResults", () => {
+        it("should set a list of posts filtered by search results", () => {
             component.handleSearchResults([{ distance: 0, target: posts[0] }]);
             expect(component.searchResults).toEqual([{ distance: 0, target: posts[0] }]);
         });
 
-        it("should reset filtered posts to the empty search results array", () => {
+        it("should reset search results to the empty search results array", () => {
             component.searchResults = [{ distance: 0, target: posts[0] }];
             component.handleSearchResults();
             expect(component.searchResults).toEqual(searchResults);
         });
     });
+
+    describe("noPosts", () => {
+        it("should return true if there no posts to display", () => {
+            component.searchResults = [];
+            expect(component.noPosts()).toBe(true);
+        });
+
+        it("should return false if there posts to show", () => {
+            expect(component.noPosts()).toBe(false);
+        })
+    })
 });

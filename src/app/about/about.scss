@@ -1,0 +1,30 @@
+@import "../../global-styles/colors";
+@import "../../global-styles/layout";
+@import "../../global-styles/breakpoints";
+
+$photo-size: 15rem;
+
+.about {
+    @include primaryContent(false);
+}
+
+.photo {
+    display: block;
+    width: $photo-size;
+    height: $photo-size;
+    border-radius: $photo-size;
+    margin: 2rem auto;
+
+    @media all and (max-width: $small-width) {
+        width: calc(#{$photo-size} / 2);
+        height: calc(#{$photo-size} / 2);
+        border-radius: calc(#{$photo-size} / 2);
+        margin: 1rem auto;
+    }
+}
+
+.paragraph {
+    margin: 0 0 2rem;
+    text-align: justify;
+    line-height: 1.5;
+}

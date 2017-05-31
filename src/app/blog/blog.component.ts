@@ -4,8 +4,8 @@ import { BlogPostService } from "../services/blog-post/blog-post.service";
 import { TargetMatch } from "../services/levenshtein/levenshtein.service";
 
 @Component({
-    styles: [ require("./blog.scss") ],
-    template: require("./blog.html")
+    styleUrls: [ "./blog.scss" ],
+    templateUrl: "./blog.html"
 })
 export class BlogComponent implements OnInit {
     posts: Post[];
@@ -23,4 +23,6 @@ export class BlogComponent implements OnInit {
     handleSearchResults = (results: TargetMatch<Post>[]): void => {
         this.searchResults = results || this.emptyResults;
     }
+
+    noPosts(): boolean { return !this.searchResults.length; }
 }

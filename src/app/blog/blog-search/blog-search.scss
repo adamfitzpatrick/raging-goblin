@@ -1,15 +1,13 @@
 @import '../../../global-styles/colors';
 
-.blog-search {
-    margin: 1rem 0;
+.blog-search { margin: 1rem; }
 
-    &__bar { display: flex; }
+.search-bar { display: flex; }
 
-    &__input {
-        width: 100%;
-        border: none;
-        border-bottom: 1px solid $color-gray;
-        font-size: 0.9rem;
-        line-height: 1.5;
-    }
+.input {
+    width: 100%;
+    border: none;
+    border-bottom: 1px solid $color-gray;
+    font-size: 0.9rem;
+    line-height: 1.5;
 }

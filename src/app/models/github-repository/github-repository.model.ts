@@ -79,6 +79,8 @@ export class GitHubRepository implements GitHubResponse {
 
     get updatedAt(): Date { return new Date(this.updated_at); }
 
+    get htmlUrl(): string { return this.html_url; }
+
     get cloneUrl(): string { return this.clone_url; }
 
     get languagesUrl(): string { return this.languages_url; }

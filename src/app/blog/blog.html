@@ -6,5 +6,8 @@
             [post]="result.target"
             [matchString]="result.match"
         ></blog-post-summary>
+        <div class="no-posts" *ngIf="noPosts()">
+            No posts matched your search parameters, or no posts are currently available.
+        </div>
     </div>
 </div>

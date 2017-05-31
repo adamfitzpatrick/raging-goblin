@@ -13,46 +13,41 @@ $gutter: 1rem;
     color: $text-light;
     background: $color-darkest;
 
-    &__inner {
-        height: $header-height;
-        width: 100vw;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-
-        @media all and (min-width: $oversize-width) { width: 1000px; }
-    }
-
-    &__left {
-        margin-left: $gutter;
-    }
-
-    &__center {
-        width: 50%;
-
-        @media all and (max-width: $medium-width) { display: none; }
-    }
-
-    &__right {
-        margin-right: $gutter;
-        text-align: right;
-    }
-
-    &--bottom {
-        bottom: 0;
-        background: $color-lightest;
-        display: none;
-        justify-content: space-around;
-        align-items: center;
-        box-shadow: 0 5px 5px 5px $color-darkest;
-
-        links { width: 90vw; }
-
-        @media all and (max-width: $medium-width) { display: flex; }
-    }
+    @media all and (max-width: $small-width) { height: calc(0.8 * #{$header-height}); }
 }
 
-.logo { width: 2rem; }
+.content {
+    height: $header-height;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media all and (max-width: $small-width) { height: calc(0.8 * #{$header-height}); }
+
+    @media all and (min-width: $oversize-width) { width: 1000px; }
+}
+
+.left {
+    margin-left: $gutter;
+    color: $text-light;
+}
+
+.center {
+    width: 50%;
+
+    @media all and (max-width: $medium-width) { display: none; }
+}
+
+.right {
+    margin-right: $gutter;
+    text-align: right;
+}
+
+.logo {
+    width: 2rem;
+    height: 1.44rem;
+}
 
 .title {
     font-family: $title-font-family;
@@ -60,6 +55,11 @@ $gutter: 1rem;
     margin: 0;
     vertical-align: top;
     display: inline-block;
+
+    @media all and (max-width: $small-width) {
+        font-size: 1.2rem;
+        line-height: 1.7rem;
+    }
 }
 
 .author {

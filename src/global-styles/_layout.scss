@@ -20,20 +20,38 @@ $background-height: calc(100vh - #{$header-height});
     min-width: $small-width;
     max-width: 1000px;
     margin: 0 auto;
-    box-shadow: 0 0 160px 110px $color-lightest;
+    box-shadow: 0 0 140px 150px $color-lightest;
+    padding: 0 0.5rem;
+
+    // iOS Safari treats the bottom nav bar as usable real estate even though it is obscured.
+    // The following is a hack to deal with that.
+    &:after {
+        content: "";
+        display: block;
+        height: 2.5rem;
+    }
 
     @if ($flex) {
         display: flex;
         flex-direction: column;
     } @else {
         overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
     }
 
-    @media all and (max-width: $small-width) {
+    @media all and (max-width: $medium-width) {
         width: calc(100vw - 2 * #{$content-gutter});
         height: calc(100vh - 2 * #{$header-height});
         min-width: inherit;
         box-shadow: none;
-        margin: 0 2rem;
+        margin: 0;
+        padding: 0 2rem;
+
+        @if ($flex) {
+            width: 100vw;
+            padding: 0;
+        }
     }
+
+    @media all and (max-width: $small-width) { height: calc(100vh - 2 * 0.8 * #{$header-height}); }
 }

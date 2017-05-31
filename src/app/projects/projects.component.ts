@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
-import { GitHubRepository, LanguageData } from "../models/github-repository/github-repository.model";
+import { GitHubRepository } from "../models/github-repository/github-repository.model";
 import { GitHubService } from "../services/github/github.service";
 
 @Component({
     selector: "projects",
-    template: require("./projects.html"),
-    styles: [ require("./projects.scss") ]
+    templateUrl: "./projects.html",
+    styleUrls: [ "./projects.scss" ]
 })
 export class ProjectsComponent implements OnInit {
     projects: GitHubRepository[];

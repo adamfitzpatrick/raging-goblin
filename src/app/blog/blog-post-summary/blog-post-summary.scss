@@ -1,12 +1,33 @@
+@import "../../../global-styles/breakpoints";
+
 .blog-post-summary {
     margin-top: 3rem;
+}
 
-    &__date { font-size: 0.8rem; }
+.top-line {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
 
-    &__synopsis { line-height: 1.7; }
+    @media all and (max-width: $medium-width) { display: block; }
+}
 
-    &__link {
-        display: inline-block;
-        margin-top: 2rem;
+.list {
+    font-style: italic;
+
+    &:not(:last-child):after {
+        content: ", "
     }
+}
+
+.topics { @media all and (max-width: $medium-width) { margin-top: 1rem; }}
+
+.synopsis {
+    line-height: 1.7;
+    text-align: justify;
+}
+
+.link {
+    display: inline-block;
+    margin: 1rem 0;
 }

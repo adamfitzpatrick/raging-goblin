@@ -10,3 +10,19 @@ Future development includes:
 - Implementation of behavior-driven testing utilizing Gherkin language to drive E2E testing
 - Compliance with WCAG 2.0 standards for accessibility.
 <!--- /bit --->
+
+## Running the Application
+
+### Requirements ###
+
+- Node 6+
+- NPM 4+
+- Yarn 0.22+ (_optional_)
+
+Once the application is running, it will be available on `http://localhost:7001`.
+
+- `start`: Starts the application locally
+- `test`: Runs unit tests one time
+- `tdd`: Runs unit tests in watch mode; changes to any component will automatically execute tests
+- `build`: Runs webpack to bundle the application, but does not start the dev server
+- `ci`: Runs tests and builds the application

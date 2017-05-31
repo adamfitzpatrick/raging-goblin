@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Http, Response, Headers, RequestOptions } from "@angular/http";
+import { Http, Headers, RequestOptions } from "@angular/http";
 import { Observable } from "rxjs";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/filter";
@@ -17,14 +17,13 @@ export class GitHubService {
     constructor(private http: Http, private apiUrlsService: ApiUrlsService) {}
 
     static catchErrors(error: Body): Observable<any> {
-        return Observable.throw(error && error.json());
+        return Observable.throw(error);
     }
 
     getRepos(username?: string): Observable<GitHubRepository[]> {
         username = username || "adamfitzpatrick";
         const url = this.apiUrlsService.getUrl("githubRepos", { username });
-        const headers = new Headers({ Accept: "application/vnd.github.mercy-preview+json" });
-        return this.http.get(url, new RequestOptions({ headers }))
+        return this.http.get(url)
             .map(response => {
                 return response.json().map((repo: GitHubResponse) => new GitHubRepository(repo));
             })
@@ -32,7 +31,8 @@ export class GitHubService {
     }
 
     getRepoLanguages(repository: GitHubRepository): Observable<GitHubLanguageData> {
-        return this.http.get(repository.languagesUrl)
+        const url = this.apiUrlsService.getUrl("githubLanguages", { fullname: repository.fullName });
+        return this.http.get(url)
             .map(response => response.json())
             .catch(GitHubService.catchErrors);
     }

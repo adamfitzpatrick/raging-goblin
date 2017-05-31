@@ -2,9 +2,9 @@ import { Component, OnInit, ViewChild, ElementRef, Input } from "@angular/core";
 import * as Chart from "chart.js";
 
 @Component({
-    selector: "contribution-chart",
-    template: require("./github-chart.html"),
-    styles: [ require("./github-chart.scss") ]
+    selector: "github-chart",
+    templateUrl: "./github-chart.html",
+    styleUrls: [ "./github-chart.scss" ]
 })
 export class GitHubChartComponent {
 
@@ -14,8 +14,6 @@ export class GitHubChartComponent {
     @Input() tickCallback: (value: any, index: any) => string;
     @Input() chartType: "bar" | "line" | "pie";
     @Input() colors: string | string[];
-    @Input() canvasWidth: string;
-    @Input() canvasHeight: string;
     @ViewChild("canvas") canvas: ElementRef;
     ctx: CanvasRenderingContext2D;
     options: Chart.ChartOptions;

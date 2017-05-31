@@ -14,7 +14,7 @@ export const MONTHS = [
 ];
 
 export class Post {
-    static searchFields = [ "title", "synopsis", "content", "dateString" ];
+    static searchFields = [ "title", "synopsis", "dateString", "tagString" ];
 
     id: string;
     date: Date;
@@ -34,5 +34,9 @@ export class Post {
 
     get dateString(): string {
         return `${MONTHS[this.date.getMonth()]} ${this.date.getDate()}, ${this.date.getFullYear()}`;
+    }
+
+    get tagString(): string {
+        return this.tags && this.tags.join(", ");
     }
 }
