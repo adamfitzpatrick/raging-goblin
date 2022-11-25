@@ -1,5 +1,7 @@
 # raging-goblin
 
+Whoa...it's like mildly distressing archaeology...
+
 <!--- bit --->
 __raging-goblin__ is the UI application for www.stepinto.io.  The site implements Angular 4, and is written entirely in
 TypeScript.  Continuous integration and testing is provided by Travis CI, which fails all builds that do not include
